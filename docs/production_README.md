@@ -6,6 +6,8 @@
 
 ## Minimum Viable Product
 
+The Genius Clone will be an app that provides music lyrics, poems, and speeches with annotations. Users are allowed to upload their own tracks and annotate/comment the tracks.
+
 By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
 

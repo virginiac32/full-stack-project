@@ -13,42 +13,44 @@
 **AuthFormContainer**
 * AuthForm
 
-SignInForm
-SignUpForm
-HomeContainer
+**HomeContainer**
+* Home
 
-Home
-Home
+**TrackIndexContainer**
+* TrackIndex
+* TrackIndexItem
+  * Track title
+  * Track artist
+  * Track artwork
+  * Link to Track
 
-TrackIndexContainer
-GenreIndexContainer
-GenreIndexContainer -Genre
+**TrackContainer**
+* Track
+  * Track details
+  * AnnotationContainer
+    * Annotation
+    * CommentsContainer
+      * Comments
+        * VotesContainer
+          * Votes
+    * VotesContainer
+      * Votes
 
-TrackIndexContainer
+**AnnotationFormContainer**
+* AnnotationForm
 
-TrackIndex
-TrackContainer -Track -AnnotationContainer
+**CommentFormContainer**
+* CommentForm
 
-Annotation Container
+**TrackFormContainer**
+* TrackForm
 
-AnnotationItemContainer
-AnnotationFormContainer
-AnnotationFormContainer -AnnotationForm
+## Routes
 
-AnnotationItemContainer
-
-AnnotationItem
-CommentContainer
-CommentFormContainer
-CommentContainer
-
-CommentIndex
-Routes
-
-Path	Component
-"/sign-up"	"AuthFormContainer"
-"/sign-in"	"AuthFormContainer"
-"/home"	"HomeContainer"
-"/home/tracks/:trackId"	"TrackContainer"
-"/home/genres/:genreId"	"GenreIndexContainer"
-"/home/search-results"	"SearchResultsContainer"
+|Path   | Component   |
+|-------|-------------|
+| "/sign-up" | "AuthFormContainer" |
+| "/sign-in" | "AuthFormContainer" |
+| "/" | "HomeContainer" |
+| "/tracks/:track_id" | "TrackContainer" |
+| "/new-track" | "TrackFormContainer" |
