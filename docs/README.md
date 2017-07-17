@@ -24,7 +24,7 @@ By the end of Week 9, this app will, at a minimum, satisfy the following criteri
 
 ## Design Docs
 
-[* api-endpoints.md] (./sample-state)
+* [api-endpoints.md] (./sample-state)
 * component-hierarchy.md
 * sample-state.md
 * schema.md
