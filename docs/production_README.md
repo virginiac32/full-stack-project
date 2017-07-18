@@ -55,11 +55,11 @@ Objective: Upvotes and downvotes belong to both comments and annotations. A user
 
 Objective: Ability to search for tracks by keyword.
 
-### Phase 7: Youtube video API (1 day)
+### Phase 7: Styling & Overall Look (1 day)
 
-Objective: Embed the relevant Youtube video for the track.
+Objective: Have an overall connected look and feel for the app.
 
 ### Bonus Features (TBD)
 
 * Tags
-* Extra styling
+* Embed videos
