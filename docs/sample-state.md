@@ -5,34 +5,43 @@
       username: "test-user"
     }
   },
-  tracks: {
+  artwork: {
     1: {
-      title: "Sample Track",
-      text: "Hey hey hi hi hi hello",
-      artist: "Test Artist",
+      title: "Wanderer above the Sea of Fog",
+      description: "The figure in the painting stands in contemplation of the sea fog.",
+      artist: "Caspar David Friedrich",
       user_id: 1,
-      year: "1992",
-      album: "The Best Album"
-      type: "Lyric"
-    },
-    errors: []
+      year: "1818",
+      link: "google.com"
+    }
   },
+  errors: {
+    1: {}
+  }
   annotations: {
     1: {
-      body: "The artist is addressing the listener",
+      body: "The fog represents the sublime",
       user_id: 1,
-      track_id: 1,
-      start_idx: 0,
-      end_idx: 8,
+      artwork_id: 1,
+      x_pos: 200,
+      y_pos: 30,
       total_score: 15
     }
   }
   comments: {
     1: {
-      body: "The artist is actually addressing a third person",
+      body: "The painting is a self-portrait",
       user_id: 2,
-      total_score: -1,
+      total_score: 3,
+      artwork_id: 1,
+    }
+  }
+  votes: {
+    1: {
+      user_id: 1,
       annotation_id: 1,
+      comment_id: null,
+      value: 1
     }
   }
 }

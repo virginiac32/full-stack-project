@@ -15,24 +15,22 @@
 
 **HomeContainer**
 * Home
+* ArtworkIndexContainer
+  * ArtworkIndex
+  * ArtworkIndexItem
+    * Artwork title
+    * Artwork artist
+    * Artwork image
 
-**TrackIndexContainer**
-* TrackIndex
-* TrackIndexItem
-  * Track title
-  * Track artist
-  * Track artwork
-  * Link to Track
-
-**TrackContainer**
-* Track
-  * Track details
+**ArtworkContainer**
+* Artwork
+  * Artwork details
   * AnnotationContainer
     * Annotation
-    * CommentsContainer
-      * Comments
-        * VotesContainer
-          * Votes
+    * VotesContainer
+      * Votes
+  * CommentsContainer
+    * Comments
     * VotesContainer
       * Votes
 
@@ -42,8 +40,8 @@
 **CommentFormContainer**
 * CommentForm
 
-**TrackFormContainer**
-* TrackForm
+**ArtworkFormContainer**
+* ArtworkForm
 
 ## Routes
 
@@ -52,5 +50,5 @@
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
 | "/" | "HomeContainer" |
-| "/tracks/:track_id" | "TrackContainer" |
-| "/new-track" | "TrackFormContainer" |
+| "/artwork/:artwork_id" | "ArtworkContainer" |
+| "/new-artwork" | "ArtworkFormContainer" |
