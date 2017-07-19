@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 
 const Greeting = ({currentUser,logout}) => {
   if (currentUser) {
-    console.log("user", currentUser);
     return (
       <div>
         <h1>Welcome to Visualyze</h1>

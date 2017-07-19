@@ -7,8 +7,8 @@ class Api::SessionsController < ApplicationController
       render "api/users/show"
     else
       render(
-      json: ['Username/password combo does not exist'],
-      status: 401
+        json: ['Username/password combination does not exist'],
+        status: 401
       )
     end
   end
