@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
 		};
 
     this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleGuest = this.handleGuest.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -37,6 +38,19 @@ class SessionForm extends React.Component {
       return <Link to="/login">Already have an account? <b>Login</b></Link>;
     }
   }
+
+	handleGuest(e) {
+		// const guest = {username:"guest", password:"password"};
+		// console.log(guest);
+		e.preventDefault();
+		// setInterval(() => this.setState(guest), 1000);
+		this.setState({username:"guest", password:"password"},
+			() => {const user = Object.assign({},this.state);
+						this.props.guestLogin(user);
+					});
+		// setInterval(() => this.props.processForm({guest}), 3000);
+
+	}
 
   renderErrors() {
     return (
@@ -72,6 +86,9 @@ class SessionForm extends React.Component {
               />
             </label>
             <input type="submit" value="Submit" />
+							<form onSubmit={this.handleGuest}>
+								<input type="submit" value='Demo Login' />
+							</form>
             {this.navLink()}
           </div>
         </form>

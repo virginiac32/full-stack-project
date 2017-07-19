@@ -17,8 +17,10 @@ const App = () => (
       <h1>Visualyze</h1>
       <GreetingContainer />
     </header>
-      <AuthRoute path="/login" component={SessionFormContainer} />
-      <AuthRoute path="/signup" component={SessionFormContainer} />
+      <Switch>
+        <AuthRoute path="/login" component={SessionFormContainer} />
+        <AuthRoute path="/signup" component={SessionFormContainer} />
+      </Switch>
   </div>
 );
 
