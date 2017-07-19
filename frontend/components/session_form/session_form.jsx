@@ -40,16 +40,9 @@ class SessionForm extends React.Component {
   }
 
 	handleGuest(e) {
-		// const guest = {username:"guest", password:"password"};
-		// console.log(guest);
 		e.preventDefault();
-		// setInterval(() => this.setState(guest), 1000);
-		this.setState({username:"guest", password:"password"},
-			() => {const user = Object.assign({},this.state);
-						this.props.guestLogin(user);
-					});
-		// setInterval(() => this.props.processForm({guest}), 3000);
-
+		const guest = {user:{username: "guest", password: "password"}};
+		this.props.guestLogin(guest);
 	}
 
   renderErrors() {
@@ -86,9 +79,7 @@ class SessionForm extends React.Component {
               />
             </label>
             <input type="submit" value="Submit" />
-							<form onSubmit={this.handleGuest}>
-								<input type="submit" value='Demo Login' />
-							</form>
+						<button onClick={this.handleGuest}>Demo Login</button>
             {this.navLink()}
           </div>
         </form>
