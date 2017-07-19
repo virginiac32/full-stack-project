@@ -7,21 +7,30 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
-import GreetingContainer from './greeting/greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
+import NavBarContainer from './nav_bar/nav_bar_container';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 
-const App = () => (
-  <div>
-    <header>
-      <h1>Visualyze</h1>
-      <GreetingContainer />
-    </header>
-      <Switch>
-        <AuthRoute path="/login" component={SessionFormContainer} />
-        <AuthRoute path="/signup" component={SessionFormContainer} />
-      </Switch>
-  </div>
-);
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div className="visualyze">
+        <header>
+          <NavBarContainer />
+        </header>
+          <Switch>
+            <AuthRoute path="/login" component={SessionFormContainer} />
+            <AuthRoute path="/signup" component={SessionFormContainer} />
+          </Switch>
+          <footer></footer>
+      </div>
+    );
+  }
+}
 
 export default App;
