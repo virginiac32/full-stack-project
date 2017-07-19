@@ -23,11 +23,21 @@ class App extends React.Component {
         <header>
           <NavBarContainer />
         </header>
+        <div className="visualyze-body">
           <Switch>
             <AuthRoute path="/login" component={SessionFormContainer} />
             <AuthRoute path="/signup" component={SessionFormContainer} />
           </Switch>
-          <footer></footer>
+        </div>
+        <footer>
+          <h1>Visualyze</h1>
+              <a href="https://github.com/virginiac32/full-stack-project">
+  				    <i className="fa fa-github fa-lg" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/virginia-chen/">
+  				    <i className="fa fa-linkedin-square fa-lg" aria-hidden="true"></i>
+              </a>
+        </footer>
       </div>
     );
   }

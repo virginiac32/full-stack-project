@@ -2,3 +2,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+.logged-in {
+  display: flex;
+  align-items: center;
+}
+
+.logged-out {
+  display: flex;
+  align-items: center;
+}
