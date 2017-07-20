@@ -84,9 +84,13 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <span className="form-title">{formTitle}</span>
-          {this.renderErrors()}
+					<Link to="/">
+						<i className="fa fa-times fa-lg" aria-hidden="true"></i>
+					</Link>
+
           <div className="login-form">
+						<span className="form-title">{formTitle}</span>
+		          {this.renderErrors()}
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}

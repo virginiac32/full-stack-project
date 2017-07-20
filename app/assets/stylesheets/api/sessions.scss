@@ -5,11 +5,11 @@
 .login-form-box {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   background-color: white;
   // opacity: .8;
-  padding: 30px;
-  padding-top: 50px;
+  padding: 20px;
+  padding-top: 10px;
 }
 
 .login-form {
@@ -18,8 +18,15 @@
   align-items: center;
 }
 
+.lgin-form-box a {
+  justify-content: flex-start;
+}
 .login-form a {
   padding: 30px;
+  color: #D74643;
+}
+
+.login-form-box a i {
   color: #D74643;
 }
 
@@ -36,14 +43,22 @@
 .login-form input[type="submit"], .login-form button {
   width: 87%;
   height: 20%;
+  font-size: 16px;
+  border-radius: 5px;
 }
 
 .login-form input[type="submit"] {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
 .login-form label input {
   margin-left: 10px;
+}
+
+.form-title {
+  margin-bottom: 40px;
+  font-size: 18px;
 }
 
 .session-errors {
