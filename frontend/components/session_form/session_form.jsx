@@ -68,7 +68,7 @@ class SessionForm extends React.Component {
 	    username: 'guest',
 	    password: 'password'
 	  };
-	  setTimeout(() => this.props.guestLogin({user}), 1000);
+	  setTimeout(() => this.props.guestLogin({user}), 1500);
 	}
 
 
@@ -87,22 +87,18 @@ class SessionForm extends React.Component {
           <span className="form-title">{formTitle}</span>
           {this.renderErrors()}
           <div className="login-form">
-            <label>Username:
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
-                className="login-input"
+                className="login-input" placeholder="Username"
               />
-            </label>
-            <label>Password:
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                className="login-input"
+                className="login-input" placeholder="Password"
               />
-            </label>
-            <input type="submit" value="Submit" />
-						<button onClick={this.handleDemo}>Demo Login</button>
+						<input type="submit" value={formTitle} />
+						<button onClick={this.handleDemo}>DEMO LOGIN</button>
             {this.navLink()}
           </div>
         </form>
