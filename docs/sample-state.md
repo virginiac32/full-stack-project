@@ -5,15 +5,16 @@
       username: "test-user"
     }
   },
-  artwork: {
-    1: {
-      title: "Wanderer above the Sea of Fog",
-      description: "The figure in the painting stands in contemplation of the sea fog.",
-      artist: "Caspar David Friedrich",
-      user_id: 1,
-      year: "1818",
-      link: "google.com"
-    }
+  1: {
+    artworks: {
+              title: "Wanderer above the Sea of Fog",
+              description: "The figure in the painting stands in contemplation of the sea fog.",
+              artist: "Caspar David Friedrich",
+              user_id: 1,
+              year: "1818",
+              link: "google.com"
+            }
+    currentArtwork: 1
   },
   errors: {
     1: {}

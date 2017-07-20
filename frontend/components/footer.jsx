@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 const Footer = () => {
   return (
     <footer>
-      <h1>Visualyze</h1>
-        <h3>Crowdsourced art knowledge</h3>
+      <img className="footer-logo" height="45" src="http://res.cloudinary.com/virginia-chen/image/upload/v1500533990/logo_frxltw.png" alt="Logo" />
+        <h2>Crowdsourced art knowledge</h2>
           <a href="https://github.com/virginiac32/full-stack-project">
           <i className="fa fa-github fa-lg" aria-hidden="true"></i>
           </a>
