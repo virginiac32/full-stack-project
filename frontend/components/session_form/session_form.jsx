@@ -74,7 +74,6 @@ class SessionForm extends React.Component {
 
   render() {
 		let formTitle = null;
-		console.log(this.props.formType);
 		if (this.props.formType === 'login') {
 			formTitle = "LOGIN";
 		} else {

@@ -18,11 +18,15 @@ class Api::ArtworksController < ApplicationController
   end
 
   def destroy
-    @track = Track.find(params[:id])
-    if @track.destroy
+    @artwork = Artwork.find(params[:id])
+    if @artwork.destroy
       render :index
     else
-      render json: {}
+      render json: @artwork.errors.full_messages, status: 422
+    #   render(
+    #     json: ['Artwork deletion unsuccessful'],
+    #     status: 422
+    #   )
     end
   end
 

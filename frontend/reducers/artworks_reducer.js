@@ -1,6 +1,6 @@
-import {RECEIVE_ARTWORK_ERRORS, RECEIVE_ARTWORK, RECEIVE_ARTWORKS,
+import {RECEIVE_ARTWORK, RECEIVE_ARTWORKS,
   DESTROY_ARTWORK, fetchArtworks, fetchArtwork, createArtwork,
-  destroyArtwork} from '../actions/artwork_actions';
+  deleteArtwork} from '../actions/artwork_actions';
 import {merge} from 'lodash/merge';
 
 const defaultState = () => ({
@@ -14,21 +14,18 @@ const ArtworksReducer = (state=defaultState(), action) => {
   switch (action.type) {
     case RECEIVE_ARTWORK:
       const artwork = action.artwork;
-      return merge({}, state,
+      return Object.assign({}, state,
         {
           artworks: {[artwork.id]: artwork},
           currentArtwork: artwork.id
         });
     case RECEIVE_ARTWORKS:
       const artworks = action.artworks;
-      return merge({}, state, {artworks: artworks});
+      return Object.assign({}, state, {artworks: artworks});
     case DESTROY_ARTWORK:
-      nextState = merge({},state);
+      nextState = Object.assign({},state);
       delete nextState.artworks[action.id];
       return nextState;
-    // case RECEIVE_ARTWORK_ERRORS:
-      // const errors = action.errors;
-      // return Object.assign({}, state, {errors});
     default:
       return state;
   }
