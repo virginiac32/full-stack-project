@@ -9,7 +9,7 @@ class ArtworkIndex extends React.Component {
   render () {
     return (
       <div className="artwork-index">
-        <h1>hello</h1>
+        
       </div>
     );
   }
