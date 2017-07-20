@@ -1,6 +1,6 @@
 import {RECEIVE_ARTWORK_ERRORS, RECEIVE_ARTWORK, RECEIVE_ARTWORKS,
   DESTROY_ARTWORK, fetchArtworks, fetchArtwork, createArtwork,
-  destroyArtwork} from '../actions/artworks_actions';
+  destroyArtwork} from '../actions/artwork_actions';
 
 const defaultState = {
   errors: []
