@@ -37,11 +37,11 @@ By the end of Week 9, this app will, at a minimum, satisfy the following criteri
 
 Objective: Functioning rails project with front-end Authentication
 
-### Phase 2: Artwork Model, API, and components (1 days)
+### Phase 2: Artwork Model, API, and components (1.5 days)
 
 Objective: Artwork can be uploaded, viewed, and destroyed through the API.
 
-### Phase 3: Annotations (2 days)
+### Phase 3: Annotations (1.5 days)
 
 Objective: Annotations belong to specific sections of the artwork (either specific points or a dragged box, as a bonus feature). Annotations can be created, read, edited, and destroyed through the API.
 
