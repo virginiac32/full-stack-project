@@ -20,21 +20,21 @@
 
 ### Artwork
 
-- `GET /api/artwork`
-- `POST /api/artwork`
-- `GET /api/artwork/:artwork_id`
-- `PATCH /api/artwork/:artwork_id`
-- `DELETE /api/artwork/:artwork_id`
+- `GET /api/artworks`
+- `POST /api/artworks`
+- `GET /api/artworks/:artwork_id`
+- `PATCH /api/artworks/:artwork_id`
+- `DELETE /api/artworks/:artwork_id`
 
 ### Annotations
 - `GET /api/annotations/:annotation_id`
-- `POST /api/artwork/:artwork_id/annotations`
+- `POST /api/artworks/:artwork_id/annotations`
 - `PATCH /api/annotations/:annotation_id`
 - `DELETE /api/annotations/:annotation_id`
 
 ### Comments
 - `GET /api/comments/:comment_id`
-- `POST /api/artwork/:artwork_id/comments`
+- `POST /api/artworks/:artwork_id/comments`
 - `PATCH /api/comments/:comment_id`
 - `DELETE /api/comments/:comment_id`
 
