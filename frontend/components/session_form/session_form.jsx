@@ -10,7 +10,7 @@ class SessionForm extends React.Component {
 		};
 
     this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleGuest = this.handleGuest.bind(this);
+		this.handleDemo = this.handleDemo.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -39,12 +39,6 @@ class SessionForm extends React.Component {
     }
   }
 
-	handleGuest(e) {
-		e.preventDefault();
-		const guest = {user:{username: "guest", password: "password"}};
-		this.props.guestLogin(guest);
-	}
-
   renderErrors() {
     return (
       <ul className="session-errors">
@@ -56,6 +50,27 @@ class SessionForm extends React.Component {
       </ul>
     );
   }
+
+
+	handleDemo(e) {
+  	e.preventDefault();
+	  let name = "guest";
+	  let password = "password";
+	  for (let i = 0; i < name.length; i++) {
+	    setTimeout(() => this.setState({
+	      username: name.slice(0, i + 1)}), (i * 80));
+	  }
+	  for (let j = 0; j < password.length; j++) {
+	    setTimeout(() => this.setState({
+	      password: password.slice(0, j + 1)}), ((j + 5) * 80));
+	  }
+	  const user = {
+	    username: 'guest',
+	    password: 'password'
+	  };
+	  setTimeout(() => this.props.guestLogin({user}), 1000);
+	}
+
 
   render() {
     return (
@@ -79,7 +94,7 @@ class SessionForm extends React.Component {
               />
             </label>
             <input type="submit" value="Submit" />
-						<button onClick={this.handleGuest}>Demo Login</button>
+						<button onClick={this.handleDemo}>Demo Login</button>
             {this.navLink()}
           </div>
         </form>

@@ -2,19 +2,24 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   margin: 0 auto;
+  background: transparent;
 }
 
-html {
-  width: 95%;
-  margin: .5em 2em;
+.visualyze {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .visualyze-body {
   width: 80%;
   margin: 0 auto;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .visualyze footer {
-  margin: 0 auto;
   text-align: center;
 }

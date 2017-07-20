@@ -9,6 +9,8 @@ import {
 } from 'react-router-dom';
 import SessionFormContainer from './session_form/session_form_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
+import ArtworkIndexContainer from './artwork/artwork_index_container';
+import Footer from './footer';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 
 class App extends React.Component {
@@ -27,17 +29,10 @@ class App extends React.Component {
           <Switch>
             <AuthRoute path="/login" component={SessionFormContainer} />
             <AuthRoute path="/signup" component={SessionFormContainer} />
+            <Route path="/" component={ArtworkIndexContainer} />
           </Switch>
         </div>
-        <footer>
-          <h1>Visualyze</h1>
-              <a href="https://github.com/virginiac32/full-stack-project">
-  				    <i className="fa fa-github fa-lg" aria-hidden="true"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/virginia-chen/">
-  				    <i className="fa fa-linkedin-square fa-lg" aria-hidden="true"></i>
-              </a>
-        </footer>
+        <Footer />
       </div>
     );
   }
