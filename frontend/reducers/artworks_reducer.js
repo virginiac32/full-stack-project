@@ -8,8 +8,9 @@ const defaultState = () => ({
   currentArtwork: null,
 });
 
-const ArtworksReducer = (state=defaultState, action) => {
+const ArtworksReducer = (state=defaultState(), action) => {
   Object.freeze(state);
+  let nextState = [];
   switch (action.type) {
     case RECEIVE_ARTWORK:
       const artwork = action.artwork;
@@ -22,8 +23,10 @@ const ArtworksReducer = (state=defaultState, action) => {
       const artworks = action.artworks;
       return merge({}, state, {artworks: artworks});
     case DESTROY_ARTWORK:
-      const id = action.
-    case RECEIVE_ARTWORK_ERRORS:
+      nextState = merge({},state);
+      delete nextState.artworks[action.id];
+      return nextState;
+    // case RECEIVE_ARTWORK_ERRORS:
       // const errors = action.errors;
       // return Object.assign({}, state, {errors});
     default:
