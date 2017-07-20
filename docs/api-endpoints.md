@@ -23,7 +23,6 @@
 - `GET /api/artworks`
 - `POST /api/artworks`
 - `GET /api/artworks/:artwork_id`
-- `PATCH /api/artworks/:artwork_id`
 - `DELETE /api/artworks/:artwork_id`
 
 ### Annotations
