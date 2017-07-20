@@ -6,17 +6,17 @@ const Greeting = ({currentUser,logout}) => {
     return (
       <div className="logged-in">
         <h2>{currentUser.username}</h2>
-        <button onClick={logout}>Log Out</button>
+        <button onClick={logout}>LOG OUT</button>
       </div>
     );
   } else {
     return (
       <div className="logged-out">
         <li>
-          <Link to="/signup">Sign Up</Link>
+          <Link to="/signup">SIGN UP</Link>
         </li>
         <li>
-          <Link to="/login">Login</Link>
+          <Link to="/login">LOGIN</Link>
         </li>
       </div>
     );
