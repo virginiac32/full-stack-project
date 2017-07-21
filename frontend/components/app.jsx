@@ -33,7 +33,7 @@ class App extends React.Component {
             <AuthRoute path="/signup" component={SessionFormContainer} />
             <Route exact path="/" component={ArtworkIndexContainer} />
             <Route exact path="/artworks/:artworkId" component={ArtworkDetailContainer} />
-            <Route exact path="/new-artwork" component={ArtworkCreateContainer} />
+            <ProtectedRoute exact path="/new-artwork" component={ArtworkCreateContainer} />
           </Switch>
         </div>
         <Footer />

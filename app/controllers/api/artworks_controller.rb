@@ -7,7 +7,7 @@ class Api::ArtworksController < ApplicationController
   def create
     @artwork = Artwork.new(artwork_params)
     if @artwork.save
-      render 'api/artworks/show'
+      render :show
     else
       render json: @artwork.errors.full_messages, status: 422
     end
@@ -15,12 +15,13 @@ class Api::ArtworksController < ApplicationController
 
   def show
     @artwork = Artwork.find(params[:id])
+    render :show
   end
 
   def destroy
     @artwork = Artwork.find(params[:id])
     if @artwork.destroy
-      render :index
+      render :show
     else
       render json: @artwork.errors.full_messages, status: 422
     #   render(

@@ -40,3 +40,8 @@
   margin: 10px 0; // update this to be more general
   font-size: 18px;
 }
+
+.artwork-form-list li label {
+  display: flex;
+  flex-direction: column;
+}
