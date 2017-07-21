@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter, Link} from 'react-router-dom';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
+import {addImage} from '../../util/artwork_api_util';
 
 // const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/'+ENV['CLOUD_NAME']+'/upload';
 // const UPLOAD_PRESET = $;
@@ -10,8 +11,7 @@ class ArtworkCreate extends React.Component {
   constructor(props) {
     super(props);
     const currentUser = this.props.state.session.currentUser;
-    // console.log(window.cloudinary_options);
-    const cloudinaryUploadUrl = 'https://api.cloudinary.com/v1_1/'+window.cloudinary_options.cloud_name+'/upload';
+    const cloudinaryUploadUrl = 'https://api.cloudinary.com/v1_1/'+window.cloudinary_options.cloud_name+'/image/upload';
     this.state = {
         title:"",
         description:"",
@@ -22,8 +22,8 @@ class ArtworkCreate extends React.Component {
         uploadedFile: null
     };
 
-  this.handleSubmit = this.handleSubmit.bind(this);
-  this.goBack = this.goBack.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.goBack = this.goBack.bind(this);
   }
 
   onImageDrop(files) {
@@ -35,21 +35,20 @@ class ArtworkCreate extends React.Component {
   }
 
   handleImageUpload(file) {
-    let upload = request.post(this.cloudinaryUploadUrl)
-                        .field('upload_preset', window.cloudinary_options.upload_preset)
-                        .field('file', file);
+    // let upload = request.post(this.cloudinaryUploadUrl).send({upload_preset: window.cloudinary_options.upload_preset, file: file}).set('Accept', 'application/json');
+    // upload.end((err, response) => {
+      // if (err) {
+      //   console.error(err);
+      // }
 
-    upload.end((err, response) => {
-      if (err) {
-        console.error(err);
-      }
+    //   if (response.body.secure_url !== '') {
+    //     this.setState({
+    //       link: response.body.secure_url
+    //     });
+    //   }
+    // });
 
-      if (response.body.secure_url !== '') {
-        this.setState({
-          link: response.body.secure_url
-        });
-      }
-    });
+    addImage(file).then(res => console.log(res), err => console.log(err));
   }
 
   update(property) {
