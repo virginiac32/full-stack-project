@@ -24,7 +24,7 @@ class ArtworkDetail extends React.Component {
       <div className="artwork-detail">
         <div className="artwork-image">
           <img height="800" src={artwork.link} alt={artwork.title} />
-          <button className="delete-button" onClick={() => deleteArtwork(artwork)}>Delete</button>
+          <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>Delete</button>
         </div>
         <div className="artwork-detail-bottom">
           <ul className="artwork-detailed-info">

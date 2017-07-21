@@ -21,7 +21,7 @@ class Api::ArtworksController < ApplicationController
   def destroy
     @artwork = Artwork.find(params[:id])
     if @artwork.destroy
-      render :show
+      render :index
     else
       render json: @artwork.errors.full_messages, status: 422
     #   render(

@@ -28,7 +28,6 @@ class ArtworkIndex extends React.Component {
     } else {
       ArtworkIndexItems.push(<div></div>);
     }
-    console.log(ArtworkIndexItems);
 
     return (
       <Slider {...settings}>
