@@ -19,12 +19,19 @@ class ArtworkIndex extends React.Component {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      centerMode: true,
+      adaptiveHeight: true
     };
 
     let ArtworkIndexItems = [];
     if (artworks.length > 0){
-      {ArtworkIndexItems = artworks.map(artwork => { return <div key={artwork.id}><img src={artwork.link} /></div>;});}
+      {ArtworkIndexItems = artworks.map(artwork => (
+        <div key={artwork.id}>
+          <Link to={`/artworks/${artwork.id}`} className="link-to-artwork">
+            <img className="slick-image" src={artwork.link} />
+          </Link>
+        </div>));}
     } else {
       ArtworkIndexItems.push(<div></div>);
     }
