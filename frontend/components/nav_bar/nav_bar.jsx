@@ -11,7 +11,7 @@ class NavBar extends React.Component {
     return (
       <div className="nav-bar">
         <Link to="/">
-          <img className="nav-logo" height="40" src="http://res.cloudinary.com/virginia-chen/image/upload/v1500567526/logo_full_mghizl.png" alt="Logo" />
+          <img className="nav-logo" height="35" src="http://res.cloudinary.com/virginia-chen/image/upload/v1500567526/logo_full_mghizl.png" alt="Logo" />
         </Link>
       <GreetingContainer />
       </div>

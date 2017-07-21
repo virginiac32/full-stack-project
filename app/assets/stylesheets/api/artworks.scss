@@ -7,6 +7,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #121314;
+  width: 100%;
 }
 
 .artwork-list {
@@ -14,4 +16,27 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.artwork-image {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.artwork-detail-bottom {
+  background-color: white;
+  width: 100%;
+}
+
+.artwork-detailed-info {
+  padding: 80px 180px; // update this to be more general
+}
+
+.artwork-detailed-info li {
+  margin: 10px 0; // update this to be more general
+  font-size: 18px;
 }

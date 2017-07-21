@@ -22,10 +22,20 @@ class ArtworkDetail extends React.Component {
 
     return (
       <div className="artwork-detail">
-        <span>{artwork.title}</span>
-        <img height="900" src={artwork.link} alt={artwork.title} />
-        <button className="delete-button" onClick={() => deleteArtwork(artwork)}>Delete</button>
-      </div>
+        <div className="artwork-image">
+          <img height="800" src={artwork.link} alt={artwork.title} />
+          <button className="delete-button" onClick={() => deleteArtwork(artwork)}>Delete</button>
+        </div>
+        <div className="artwork-detail-bottom">
+          <ul className="artwork-detailed-info">
+            <li><h2><b>{artwork.title}</b></h2></li>
+            <li>Artist: {artwork.artist}</li>
+            <li>Date: {artwork.year}</li>
+            <li>{artwork.description}</li>
+          </ul>
+
+        </div>
+    </div>
     );
   }
 }
