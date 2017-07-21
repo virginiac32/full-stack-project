@@ -6,28 +6,26 @@ class ArtworkCreate extends React.Component {
     super(props);
     console.log(props);
     const currentUser = this.props.state.session.currentUser;
-    this.state = { artwork:
-      {
+    this.state = {
         title:"",
         description:"",
         artist:"",
         user_id: currentUser.id,
         year:"",
-        link:"test"
-      }
+        link:"https://i.ytimg.com/vi/Ikw5HhxC5UM/hqdefault.jpg"
     };
 
   this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(property) {
-    return e => this.setState({artwork: {[property]: e.target.value}});
+    return e => this.setState({[property]: e.target.value});
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
-    this.props.createArtwork(this.state)
+    console.log("submite state",this.state);
+    this.props.createArtwork({artwork: this.state})
       .then(data => this.props.history.push(`/artworks/${data.id}`));
   }
 

@@ -21,9 +21,9 @@ export const createArtwork = (artwork) => (
   })
 );
 
-export const deleteArtwork = (id) => (
+export const deleteArtwork = (artwork) => (
   $.ajax({
     method: 'DELETE',
-    url: `api/artworks/${id}`
+    url: `api/artworks/${artwork.id}`
   })
 );

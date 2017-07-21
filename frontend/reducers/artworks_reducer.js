@@ -24,7 +24,7 @@ const ArtworksReducer = (state=defaultState(), action) => {
       return Object.assign({}, state, {artworks: artworks});
     case DESTROY_ARTWORK:
       nextState = Object.assign({},state);
-      delete nextState.artworks[action.id];
+      delete nextState.artworks[action.artwork.id];
       return nextState;
     default:
       return state;

@@ -20,9 +20,9 @@ export const receiveArtworkErrors = errors => ({
   errors
 });
 
-export const destroyArtwork = id => ({
+export const destroyArtwork = artwork => ({
   type: DESTROY_ARTWORK,
-  id
+  artwork
 });
 
 // async thunk action creators
@@ -45,8 +45,8 @@ export const createArtwork = (artwork) => dispatch => {
   );
 };
 
-export const deleteArtwork = (id) => dispatch => {
-  return ArtworkAPIUtil.deleteArtwork(id).then(
-    artwork2 => dispatch(destroyArtwork(artwork2.id))
+export const deleteArtwork = (artwork) => dispatch => {
+  return ArtworkAPIUtil.deleteArtwork(artwork).then(
+    artwork2 => dispatch(destroyArtwork(artwork2))
   );
 };
