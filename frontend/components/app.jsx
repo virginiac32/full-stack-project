@@ -11,6 +11,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import ArtworkIndexContainer from './artwork/artwork_index_container';
 import ArtworkDetailContainer from './artwork/artwork_detail_container';
+import ArtworkCreateContainer from './artwork/artwork_create_container';
 import Footer from './footer';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 
@@ -32,6 +33,7 @@ class App extends React.Component {
             <AuthRoute path="/signup" component={SessionFormContainer} />
             <Route exact path="/" component={ArtworkIndexContainer} />
             <Route exact path="/artworks/:artworkId" component={ArtworkDetailContainer} />
+            <Route exact path="/new-artwork" component={ArtworkCreateContainer} />
           </Switch>
         </div>
         <Footer />

@@ -51,4 +51,4 @@
 | "/sign-in" | "AuthFormContainer" |
 | "/" | "HomeContainer" |
 | "/artwork/:artwork_id" | "ArtworkContainer" |
-| "/new-artwork" | "ArtworkFormContainer" |
+| "/new-artwork" | "ArtworkCreateContainer" |
