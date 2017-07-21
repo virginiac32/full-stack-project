@@ -24,9 +24,8 @@ class ArtworkCreate extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("submite state",this.state);
     this.props.createArtwork({artwork: this.state})
-      .then(data => this.props.history.push(`/artworks/${data.id}`));
+      .then(data => { this.props.history.push(`/artworks/${data.artwork.id}`);});
   }
 
   goBack() {
