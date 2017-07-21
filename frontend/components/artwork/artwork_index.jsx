@@ -16,7 +16,7 @@ class ArtworkIndex extends React.Component {
     return (
       <div className="artwork-index">
         <ul className="artwork-list">
-          {artworks.map(artwork => <ArtworkIndexItem key={artwork.id} artwork={artwork} deleteArtwork={deleteArtwork}/>)}
+          {artworks.map(artwork => <ArtworkIndexItem key={artwork.id} artwork={artwork}/>)}
         </ul>
       </div>
     );

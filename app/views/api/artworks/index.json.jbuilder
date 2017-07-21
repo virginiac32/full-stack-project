@@ -2,7 +2,7 @@ if @artworks
   @artworks.each do |artwork|
     json.set! artwork.id do
       json.extract! artwork, :title, :description, :artist,
-        :user_id, :link, :year
+        :user_id, :link, :year, :id
     end
   end
 end
