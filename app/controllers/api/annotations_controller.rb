@@ -14,14 +14,25 @@ class Api::AnnotationsController < ApplicationController
     render :show
   end
 
-  def destroy
+  def update
     @annotation = Annotation.find(params[:id])
-    if @annotation.destroy
-      render :index
+    if @annotation.update(annotation_params)
+      render :show
     else
       render json: @annotation.errors.full_messages, status: 422
     end
   end
+
+  def destroy
+    @annotation = Annotation.find(params[:id])
+    if @annotation.destroy
+      render :show
+    else
+      render json: @annotation.errors.full_messages, status: 422
+    end
+  end
+
+  private
 
   def annotation_params
     params.require(:annotation).permit(:user_id, :artwork_id, :body,

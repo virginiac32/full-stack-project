@@ -5,6 +5,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 import {login,signup,logout} from './actions/session_actions';
 import {fetchArtworks, fetchArtwork, createArtwork, deleteArtwork} from './actions/artwork_actions';
+import { fetchAnnotation, createAnnotation, deleteAnnotation, updateAnnotation} from './actions/annotation_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -27,5 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchArtworks = fetchArtworks;
   window.createArtwork = createArtwork;
   window.deleteArtwork = deleteArtwork;
+  window.fetchAnnotation = fetchAnnotation;
+  window.updateAnnotation = updateAnnotation;
+  window.createAnnotation = createAnnotation;
+  window.deleteAnnotation = deleteAnnotation;
 
 });
