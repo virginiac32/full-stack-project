@@ -34,7 +34,6 @@ class ArtworkDetail extends React.Component {
             <li>Date: {artwork.year}</li>
             <li>{artwork.description}</li>
           </ul>
-
         </div>
     </div>
     );
