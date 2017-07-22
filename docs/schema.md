@@ -25,7 +25,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key, indexed
 artwork_id  | integer   | not null, foreign key, indexed
-body        | string    | not null
+body        | text      | not null
 x_pos       | integer   | not null
 y_pos       | integer   | not null
 total_score | integer   | not null

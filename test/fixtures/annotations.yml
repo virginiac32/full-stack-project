@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  artwork_id: 1
+  body: MyText
+  x_pos: 1
+  y_pos: 1
+  total_score: 1
+
+two:
+  user_id: 1
+  artwork_id: 1
+  body: MyText
+  x_pos: 1
+  y_pos: 1
+  total_score: 1
