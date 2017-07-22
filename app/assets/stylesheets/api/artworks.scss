@@ -27,21 +27,44 @@
   align-items: center;
 }
 
+.artwork-img {
+  max-width: 60%;
+  height: auto;
+}
+
 .artwork-detail-bottom {
   background-color: white;
   width: 100%;
 }
 
 .artwork-detailed-info {
-  padding: 80px 180px; // update this to be more general
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .artwork-detailed-info li {
-  margin: 10px 0; // update this to be more general
+  margin: 10px 0;
+  max-width: 60%;
   font-size: 18px;
 }
 
 .artwork-form-list li label {
   display: flex;
   flex-direction: column;
+}
+
+.artwork-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.artwork-create {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
 }

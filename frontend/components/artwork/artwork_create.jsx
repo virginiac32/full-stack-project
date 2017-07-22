@@ -4,9 +4,6 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import {addImage} from '../../util/artwork_api_util';
 
-// const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/'+ENV['CLOUD_NAME']+'/upload';
-// const UPLOAD_PRESET = $;
-
 class ArtworkCreate extends React.Component {
   constructor(props) {
     super(props);
@@ -67,7 +64,7 @@ class ArtworkCreate extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="artwork-create">
         <form className="artwork-form" onSubmit={this.handleSubmit}>
           <h1>Add New Artwork</h1>
           <ul className="artwork-form-list">
