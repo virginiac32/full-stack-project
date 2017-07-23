@@ -2,7 +2,8 @@ import * as ArtworkAPIUtil from '../util/artwork_api_util';
 export const RECEIVE_ARTWORK = 'RECEIVE_ARTWORK';
 export const RECEIVE_ARTWORKS = 'RECEIVE_ARTWORKS';
 export const DESTROY_ARTWORK = 'DESTROY_ARTWORK';
-export const RECEIVE_ARTWORK_ERRORS = 'RECEIVE_ARTWORK_ERRORS';
+export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 // synchronous action creators
 export const receiveArtwork = artwork => ({
@@ -15,9 +16,13 @@ export const receiveArtworks = artworks => ({
   artworks
 });
 
-export const receiveArtworkErrors = errors => ({
-  type: RECEIVE_ARTWORK_ERRORS,
+export const receiveErrors = errors => ({
+  type: RECEIVE_ERRORS,
   errors
+});
+
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS
 });
 
 export const destroyArtwork = artwork => ({
@@ -41,7 +46,7 @@ export const fetchArtworks = () => dispatch => {
 export const createArtwork = (artwork) => dispatch => {
   return ArtworkAPIUtil.createArtwork(artwork).then(
     artwork2 => dispatch(receiveArtwork(artwork2)),
-    errors => dispatch(receiveArtworkErrors(errors.responseJSON))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   );
 };
 

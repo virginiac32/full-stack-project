@@ -1,4 +1,4 @@
-import {RECEIVE_ARTWORK_ERRORS} from '../actions/artwork_actions';
+import {RECEIVE_ERRORS, CLEAR_ERRORS} from '../actions/artwork_actions';
 import {merge} from 'lodash/merge';
 
 const defaultState = () => ({
@@ -9,9 +9,13 @@ const ErrorsReducer = (state=defaultState(), action) => {
   Object.freeze(state);
   let nextState = [];
   switch (action.type) {
-    case RECEIVE_ARTWORK_ERRORS:
+    case RECEIVE_ERRORS:
       const errors = action.errors;
       return merge({}, state, {errors});
+    case CLEAR_ERRORS:
+      nextState = merge({},state);
+      nextState.errors = [];
+      return nextState;
     default:
       return state;
   }
