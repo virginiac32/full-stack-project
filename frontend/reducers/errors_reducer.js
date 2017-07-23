@@ -1,4 +1,4 @@
-import {RECEIVE_ERRORS, CLEAR_ERRORS} from '../actions/artwork_actions';
+import {RECEIVE_ERRORS, CLEAR_ERRORS} from '../actions/session_actions';
 import {merge} from 'lodash/merge';
 
 const defaultState = () => ({

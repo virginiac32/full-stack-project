@@ -14,9 +14,15 @@ class SessionForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.loggedIn) {
+		if (nextProps.loggedIn) {
       this.props.history.push('/');
     }
+		console.log(this.props);
+		console.log(this.state);
+		if (nextProps.formType !== this.props.formType) {
+			this.props.clearErrors();
+			this.renderErrors();
+		}
   }
 
   update(field) {
@@ -50,7 +56,6 @@ class SessionForm extends React.Component {
       </ul>
     );
   }
-
 
 	handleDemo(e) {
   	e.preventDefault();

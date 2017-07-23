@@ -19,6 +19,7 @@ class ArtworkCreate extends React.Component {
     this.goBack = this.goBack.bind(this);
     this.upload = this.upload.bind(this);
     this.showThumbnail = this.showThumbnail.bind(this);
+    this.uploadButton = this.uploadButton.bind(this);
   }
 
   update(property) {
@@ -54,6 +55,14 @@ class ArtworkCreate extends React.Component {
     }
   }
 
+  uploadButton() {
+    if (!this.state.thumbnail) {
+      return <button onClick={this.upload}>Upload Artwork</button>;
+    } else {
+      return <button onClick={this.upload}>Change Artwork</button>;
+    }
+  }
+
   render() {
     return (
       <div className="artwork-create">
@@ -81,9 +90,7 @@ class ArtworkCreate extends React.Component {
               </label>
             </li>
             <li>
-              <button onClick={this.upload}>Upload Artwork</button>
-            </li>
-            <li>
+              {this.uploadButton()}
               <span>Uploaded Artwork: {this.showThumbnail()}</span>
             </li>
             <li>
