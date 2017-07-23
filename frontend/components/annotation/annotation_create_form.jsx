@@ -1,18 +1,19 @@
 import React from 'react';
 import {withRouter, Link} from 'react-router-dom';
 
-class AnnotationForm extends React.Component {
+class AnnotationCreateForm extends React.Component {
   constructor(props) {
     super(props);
     const currentUser = this.props.state.session.currentUser;
-    const currentArtwork = this.props.state.annotations.currentAnnotation;
+    const currentArtwork = this.props.state.artworks.currentArtwork;
+    console.log(currentArtwork);
     this.state = {
         body:"",
-        total_score:null,
+        total_score:0,
         user_id: currentUser.id,
-        artwork_id: currentArtwork.id,
-        x_pos:null,
-        y_pos:null
+        artwork_id: currentArtwork,
+        x_pos:1,
+        y_pos:2
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -53,4 +54,4 @@ class AnnotationForm extends React.Component {
   }
 }
 
-export default withRouter(AnnotationForm);
+export default withRouter(AnnotationCreateForm);

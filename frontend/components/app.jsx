@@ -12,6 +12,7 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import ArtworkIndexContainer from './artwork/artwork_index_container';
 import ArtworkDetailContainer from './artwork/artwork_detail_container';
 import ArtworkCreateContainer from './artwork/artwork_create_container';
+import {AnnotationUpdateFormContainer, AnnotationCreateFormContainer} from './annotation/annotation_form_container';
 import Footer from './footer';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 
@@ -34,6 +35,9 @@ class App extends React.Component {
             <Route exact path="/" component={ArtworkIndexContainer} />
             <Route exact path="/artworks/:artworkId" component={ArtworkDetailContainer} />
             <ProtectedRoute exact path="/new-artwork" component={ArtworkCreateContainer} />
+            <ProtectedRoute exact path="/annotations/:annotationId/edit" component={AnnotationUpdateFormContainer} />
+            <ProtectedRoute exact path="/artworks/:artworkId/new-annotation" component={AnnotationCreateFormContainer} />
+
           </Switch>
         </div>
         <Footer />

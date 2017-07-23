@@ -6,6 +6,7 @@ import Root from './components/root';
 import {login,signup,logout} from './actions/session_actions';
 import {fetchArtworks, fetchArtwork, createArtwork, deleteArtwork} from './actions/artwork_actions';
 import { fetchAnnotation, createAnnotation, deleteAnnotation, updateAnnotation} from './actions/annotation_actions';
+import {selectAllArtworks} from './reducers/selectors';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -32,5 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.updateAnnotation = updateAnnotation;
   window.createAnnotation = createAnnotation;
   window.deleteAnnotation = deleteAnnotation;
+  window.selectAllArtworks = selectAllArtworks;
 
 });
