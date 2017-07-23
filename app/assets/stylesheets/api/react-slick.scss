@@ -1,12 +1,16 @@
 .slick-list {
-  width: 800px;
+  width: 90vw;
 }
 
 .slick-image {
-  height: 500px;
+  height: 30vh;
 }
 
 .slick-initialized slick-slider {
   min-height: 0;
   min-width: 0;
+}
+
+.slick-slide {
+  padding: 10px;
 }

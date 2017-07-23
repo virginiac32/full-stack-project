@@ -15,12 +15,16 @@ class ArtworkIndex extends React.Component {
   render () {
     const {artworks, deleteArtwork} = this.props;
     let settings = {
+      accessibility: true,
       dots: true,
       infinite: true,
+      // autoplay: true,
+      // autoplaySpeed: 2000,
       speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      centerMode: true,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      variableWidth: true,
+      // centerMode: true,
       adaptiveHeight: true
     };
 
