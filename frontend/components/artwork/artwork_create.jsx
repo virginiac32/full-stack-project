@@ -18,6 +18,7 @@ class ArtworkCreate extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.goBack = this.goBack.bind(this);
     this.upload = this.upload.bind(this);
+    this.showThumbnail = this.showThumbnail.bind(this);
   }
 
   update(property) {
@@ -40,11 +41,18 @@ class ArtworkCreate extends React.Component {
     cloudinary.openUploadWidget(window.cloudinary_options, function(error, results) {
       if (!error) {
         that.setState({link:results[0].secure_url});
+        that.setState({thumbnail:results[0].thumbnail_url});
       }
     });
   }
 
-
+  showThumbnail() {
+    if (this.state.thumbnail) {
+      return (
+        <img className="artwork-thumbnail" src={this.state.thumbnail} alt={this.state.title} />
+      );
+    }
+  }
 
   render() {
     return (
@@ -76,7 +84,7 @@ class ArtworkCreate extends React.Component {
               <button onClick={this.upload}>Upload Artwork</button>
             </li>
             <li>
-              <button onClick={this.upload}>Upload Artwork</button>
+              <span>Uploaded Artwork: {this.showThumbnail()}</span>
             </li>
             <li>
               <button className="create-button">Submit</button>
