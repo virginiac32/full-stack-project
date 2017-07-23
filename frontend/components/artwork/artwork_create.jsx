@@ -1,51 +1,23 @@
 import React from 'react';
 import {withRouter, Link} from 'react-router-dom';
-import Dropzone from 'react-dropzone';
-import request from 'superagent';
-import {addImage} from '../../util/artwork_api_util';
 
 class ArtworkCreate extends React.Component {
   constructor(props) {
     super(props);
     const currentUser = this.props.state.session.currentUser;
-    const cloudinaryUploadUrl = 'https://api.cloudinary.com/v1_1/'+window.cloudinary_options.cloud_name+'/image/upload';
     this.state = {
         title:"",
         description:"",
         artist:"",
         user_id: currentUser.id,
         year:"",
-        link:""
+        link:"",
+        thumbnail:""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.goBack = this.goBack.bind(this);
     this.upload = this.upload.bind(this);
-  }
-
-  onImageDrop(files) {
-    this.setState({
-      uploadedFile: files[0]
-    });
-
-    // this.handleImageUpload(files[0]);
-  }
-
-  handleImageUpload(file) {
-    // let upload = request.post(this.cloudinaryUploadUrl).send({upload_preset: window.cloudinary_options.upload_preset, file: file}).set('Accept', 'application/json');
-    // upload.end((err, response) => {
-      // if (err) {
-      //   console.error(err);
-      // }
-
-    //   if (response.body.secure_url !== '') {
-    //     this.setState({
-    //       link: response.body.secure_url
-    //     });
-    //   }
-    // });
-
-    // addImage(file).then(res => console.log(res), err => console.log(err));
   }
 
   update(property) {
@@ -64,12 +36,15 @@ class ArtworkCreate extends React.Component {
 
   upload(e) {
     e.preventDefault();
+    const that = this;
     cloudinary.openUploadWidget(window.cloudinary_options, function(error, results) {
       if (!error) {
-        this.setState({[link]:results[0].secure_url});
+        that.setState({link:results[0].secure_url});
       }
     });
   }
+
+
 
   render() {
     return (
@@ -101,28 +76,17 @@ class ArtworkCreate extends React.Component {
               <button onClick={this.upload}>Upload Artwork</button>
             </li>
             <li>
+              <button onClick={this.upload}>Upload Artwork</button>
+            </li>
+            <li>
               <button className="create-button">Submit</button>
             </li>
           </ul>
         </form>
-        <div>
-          {this.state.link === '' ? null :
-          <div>
-            <p>{this.state.uploadedFile.name}</p>
-            <img src={this.state.link} />
-          </div>}
-        </div>
         <button onClick={this.goBack}>Cancel</button>
       </div>
     );
   }
 }
-
-// <Dropzone
-//   multiple={false}
-//   accept="image/*"
-//   onDrop={this.onImageDrop.bind(this)}>
-//   <p>Drop an image or click to select a file to upload.</p>
-// </Dropzone>
 
 export default withRouter(ArtworkCreate);
