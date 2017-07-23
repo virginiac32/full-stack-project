@@ -52,4 +52,30 @@ Artwork.create([
     year: "1859",
     link: "http://res.cloudinary.com/virginia-chen/image/upload/v1500588444/Seeds/Andes-Church.jpg"
   },
+  {
+    title: "Improvisation 27 (Garden of Love II)",
+    description: "In his influential treatise, Concerning the Spiritual in Art, Kandinsky theorized a new form of artistic expression that would reject the materialist world in favor of emotional and spiritual ideals, using abstract forms and color symbolism to evoke an inner, preconscious world. Composed of dark lines and abstract colorful masses, Improvisation 27 depicts three iterations of an embracing couple surrounded by serpentine forms. Kandinsky hints at the painting’s possible subject in the subtitle 'Garden of Love II,' likely a reference to biblical Eden.",
+    artist: "Vasily Kandinsky",
+    user_id: user1.id,
+    year: "1912",
+    link: ""
+  },
+  {
+    title: "A Rose",
+    description: "One of the most gifted American art teachers, Anshutz links the realism of his mentor Thomas Eakins with that of the Ashcan School, some of whom were his students. Perhaps because Anshutz spent so much time teaching, he painted only about 130 oils. Some of the most impressive belong to a series of images of Rebecca H. Whelen, daughter of a trustee of the Pennsylvania Academy of the Fine Arts, where Anshutz taught. The woman at leisure and the likening of a beautiful woman to a flower are common themes in late-nineteenth-century American painting. They reflect the contemporary definition of a woman's proper sphere: the realm of leisure, beauty, and the aesthetic, harmonious domestic environment. 'A Rose' reflects Anshutz's simultaneous appreciation of Eakins's academic rigor and psychological probing and John Singer Sargent's painterly freedom. "A Rose" also suggests the influence of Diego Velázquez and James McNeill Whistler on late-nineteenth-century painters, including Eakins and Sargent as well as Anshutz. In portraying the young woman as contemplative and yet intellectually and emotionally alert, Anshutz also anticipates the earthier women painted by members of the Ashcan School and other twentieth-century realists."
+    artist: "Thomas Anshutz",
+    user_id: user1.id,
+    year: "1907",
+    link: ""
+  },
+  {
+    title: "Antigraceful",
+    description: "In this bust of his mother, Cecilia Forlani Boccioni, the artist employs Cubist distortions and fragmentation to undermine conventional concepts of beauty. The title refers to Boccioni’s rejection of traditional artistic values, a view he expanded on in his 1914 book Pittura, scultura futuriste, "We must smash, demolish, and destroy our traditional harmony, which makes us fall into a gracefulness created by timid and sentimental cubs." Art historians have speculated that Pablo Picasso’s 1909 bronze Head of a Woman influenced Boccioni since the two works have striking stylistic similarities."
+    artist: "Umberto Boccioni",
+    user_id: user1.id,
+    year: "1913, cast 1950",
+    link: ""
+  },
+
+
 ])
