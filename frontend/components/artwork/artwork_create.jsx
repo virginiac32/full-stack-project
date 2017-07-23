@@ -15,12 +15,12 @@ class ArtworkCreate extends React.Component {
         artist:"",
         user_id: currentUser.id,
         year:"",
-        link:"",
-        uploadedFile: null
+        link:""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.goBack = this.goBack.bind(this);
+    this.upload = this.upload.bind(this);
   }
 
   onImageDrop(files) {
@@ -28,7 +28,7 @@ class ArtworkCreate extends React.Component {
       uploadedFile: files[0]
     });
 
-    this.handleImageUpload(files[0]);
+    // this.handleImageUpload(files[0]);
   }
 
   handleImageUpload(file) {
@@ -45,7 +45,7 @@ class ArtworkCreate extends React.Component {
     //   }
     // });
 
-    addImage(file).then(res => console.log(res), err => console.log(err));
+    // addImage(file).then(res => console.log(res), err => console.log(err));
   }
 
   update(property) {
@@ -60,6 +60,15 @@ class ArtworkCreate extends React.Component {
 
   goBack() {
     window.history.back();
+  }
+
+  upload(e) {
+    e.preventDefault();
+    cloudinary.openUploadWidget(window.cloudinary_options, function(error, results) {
+      if (!error) {
+        this.setState({[link]:results[0].secure_url});
+      }
+    });
   }
 
   render() {
@@ -88,12 +97,9 @@ class ArtworkCreate extends React.Component {
                 <textarea rows="6" cols="50" value={this.state.body} onChange={this.update('description')} />
               </label>
             </li>
-            <Dropzone
-              multiple={false}
-              accept="image/*"
-              onDrop={this.onImageDrop.bind(this)}>
-              <p>Drop an image or click to select a file to upload.</p>
-            </Dropzone>
+            <li>
+              <button onClick={this.upload}>Upload Artwork</button>
+            </li>
             <li>
               <button className="create-button">Submit</button>
             </li>
@@ -111,5 +117,12 @@ class ArtworkCreate extends React.Component {
     );
   }
 }
+
+// <Dropzone
+//   multiple={false}
+//   accept="image/*"
+//   onDrop={this.onImageDrop.bind(this)}>
+//   <p>Drop an image or click to select a file to upload.</p>
+// </Dropzone>
 
 export default withRouter(ArtworkCreate);
