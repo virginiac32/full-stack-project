@@ -5,6 +5,13 @@ export const fetchAnnotation = (id) => (
   })
 );
 
+export const fetchAnnotations = (artwork_id = null) => {
+  $.ajax({
+    method: 'GET',
+    url: `api/artworks/${artwork_id}/annotations`
+  });
+};
+
 export const createAnnotation = (annotation) => (
   $.ajax({
     method: 'POST',

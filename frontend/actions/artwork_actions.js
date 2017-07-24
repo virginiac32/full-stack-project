@@ -6,9 +6,10 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 // synchronous action creators
-export const receiveArtwork = artwork => ({
+export const receiveArtwork = (artwork, annotations) => ({
   type: RECEIVE_ARTWORK,
-  artwork
+  artwork,
+  annotations
 });
 
 export const receiveArtworks = artworks => ({
@@ -33,8 +34,9 @@ export const destroyArtwork = artwork => ({
 // async thunk action creators
 export const fetchArtwork = (id) => dispatch => {
   return ArtworkAPIUtil.fetchArtwork(id).then(
-    artwork2 => dispatch(receiveArtwork(artwork2))
-  );
+    ({artwork2,annotations}) => {dispatch(receiveArtwork(artwork2,annotations));
+    return artwork2;
+  });
 };
 
 export const fetchArtworks = () => dispatch => {

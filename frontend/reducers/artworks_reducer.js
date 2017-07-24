@@ -1,6 +1,5 @@
 import {RECEIVE_ARTWORK, RECEIVE_ARTWORKS,
-  DESTROY_ARTWORK, fetchArtworks, fetchArtwork, createArtwork,
-  deleteArtwork} from '../actions/artwork_actions';
+  DESTROY_ARTWORK} from '../actions/artwork_actions';
 import {merge} from 'lodash/merge';
 
 const defaultState = () => ({
@@ -13,6 +12,7 @@ const ArtworksReducer = (state=defaultState(), action) => {
   let nextState = [];
   switch (action.type) {
     case RECEIVE_ARTWORK:
+      console.log(action.artwork);
       const artwork = action.artwork;
       return Object.assign({}, state,
         {

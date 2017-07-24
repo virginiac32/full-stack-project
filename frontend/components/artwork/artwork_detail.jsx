@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import CommentIndexContainer from '../comment/comment_index_container';
+import AnnotationShowContainer from '../annotation/annotation_show_container';
+// import Modal from 'react-modal';
 
 class ArtworkDetail extends React.Component {
   constructor(props) {
@@ -35,6 +37,10 @@ class ArtworkDetail extends React.Component {
             <li>Date: {artwork.year}</li>
             <li>{artwork.description}</li>
           </ul>
+        </div>
+        <div className="annotations">
+          <span>Annotations</span>
+          {AnnotationShowContainer}
         </div>
         <div className="comments">
           <span>Comments</span>

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 class AnnotationShow extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
   }
 
   componentWillMount(){
@@ -17,7 +18,7 @@ class AnnotationShow extends React.Component {
   }
 
   render () {
-    const {annotation,deleteAnnotation,updateAnnotation} = this.props;
+    const {annotation,annotations,deleteAnnotation,updateAnnotation} = this.props;
     if (!annotation) return null;
 
     return (
