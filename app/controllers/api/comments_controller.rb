@@ -1,5 +1,14 @@
 class Api::CommentsController < ApplicationController
 
+  def index
+    if params[:artwork_id]
+      @comments = Comment.by_artwork(params[:artwork_id])
+    else
+      @comments = Comment.all
+    end
+    render :index
+  end
+
   def create
     @comment = Comment.new(comment_params)
     if @comment.save

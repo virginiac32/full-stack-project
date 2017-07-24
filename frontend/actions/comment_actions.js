@@ -11,10 +11,10 @@ export const receiveComment = comment => ({
   comment
 });
 
-// export const receiveComments = comments => ({
-//   type: RECEIVE_COMMENTS,
-//   comments
-// });
+export const receiveComments = comments => ({
+  type: RECEIVE_COMMENTS,
+  comments
+});
 
 export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
@@ -37,11 +37,12 @@ export const fetchComment = (id) => dispatch => {
   );
 };
 
-// export const fetchComments = () => dispatch => {
-//   return CommentAPIUtil.fetchComments().then(
-//     comments => dispatch(receiveComments(comments))
-//   );
-// };
+export const fetchComments = (artwork_id) => dispatch => {
+  return CommentAPIUtil.fetchComments(artwork_id).then(
+    comments => dispatch(receiveComments(comments)),
+    errors => dispatch(receiveErrors(errors.responseJSON))
+  );
+};
 
 export const createComment = (comment) => dispatch => {
   return CommentAPIUtil.createComment(comment).then(

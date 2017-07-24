@@ -4,4 +4,8 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :artwork
 
+  def self.by_artwork(artwork_id)
+    self.includes(:artwork).where("artworks.id" => artwork_id)
+  end
+
 end
