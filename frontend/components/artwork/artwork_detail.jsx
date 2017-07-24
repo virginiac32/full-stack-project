@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import CommentIndexContainer from '../comment/comment_index_container';
+import CommentFormContainer from '../comment/comment_form_container';
 import AnnotationShowContainer from '../annotation/annotation_show_container';
 // import Modal from 'react-modal';
 
@@ -14,6 +15,8 @@ class ArtworkDetail extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log("this props",this.props);
+    console.log("nextprops",nextProps);
     if (this.props.match.params.artworkId !== nextProps.match.params.artworkId) {
       this.props.fetchArtwork(nextProps.match.params.artworkId);
     }
@@ -37,9 +40,10 @@ class ArtworkDetail extends React.Component {
             <li>Date: {artwork.year}</li>
             <li>{artwork.description}</li>
           </ul>
-          
+
           <div className="comments">
             <span>Comments</span>
+            <CommentFormContainer />
             <CommentIndexContainer />
           </div>
         </div>

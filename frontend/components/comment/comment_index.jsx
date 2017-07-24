@@ -8,18 +8,17 @@ class CommentIndex extends React.Component {
   }
 
   componentDidMount(){
-    // this.props.fetchArtwork(this.props.artwork.id);
+    this.props.fetchArtwork(this.props.artwork.id);
   }
 
   render () {
     const {artwork, deleteComment, updateComment, createComment} = this.props;
-    const comments = artwork.comments;
-    console.log(comments);
+    // const comments = artwork.comments;
     return (
       <ul>
-        {comments.map(comment =>
+        {artwork.comments.map(comment =>
           <li>{comment.body}
-            <button onClick={deleteComment}>
+            <button onClick={deleteComment.bind(null,comment)}>
               <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
             </button>
           </li>
