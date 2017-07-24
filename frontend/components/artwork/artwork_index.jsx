@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-// import ArtworkIndexItem from './artwork_index_item';
 import Slider from 'react-slick';
 
 class ArtworkIndex extends React.Component {
@@ -47,16 +46,5 @@ class ArtworkIndex extends React.Component {
     );
   }
 }
-
-// <div className="artwork-index">
-
-// <ul className="artwork-list">
-//   <Slider {...settings}>
-//     {artworks.map(artwork => <ArtworkIndexItem key={artwork.id} artwork={artwork}/>)}
-//   </Slider>
-// </ul>
-
-// </div>
-
 
 export default ArtworkIndex;

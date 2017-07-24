@@ -12,9 +12,4 @@ class ArtworkIndexItem extends React.Component {
   }
 }
 
-// <Link to={`/artworks/${artwork.id}`} className="link-to-artwork">
-//   <span>{artwork.title}</span>
-//   <img height="450" src={artwork.link} alt={artwork.title} />
-// </Link>
-
 export default ArtworkIndexItem;

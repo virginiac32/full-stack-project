@@ -47,7 +47,7 @@ Objective: Annotations belong to specific sections of the artwork (either specif
 
 ### Phase 4: Comments (1 day)
 
-Objective: Comments belong to artwork. Comments can be created, read, edited, and destroyed through the API.
+Objective: Comments belong to artwork. Comments can be created, read, and destroyed through the API.
 
 ### Phase 5: Up/Down-Votes (1 day)
 

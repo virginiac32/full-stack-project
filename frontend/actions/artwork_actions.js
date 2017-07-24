@@ -5,10 +5,9 @@ export const RECEIVE_ARTWORKS = 'RECEIVE_ARTWORKS';
 export const DESTROY_ARTWORK = 'DESTROY_ARTWORK';
 
 // synchronous action creators
-export const receiveArtwork = (artwork, annotations) => ({
+export const receiveArtwork = (artwork) => ({
   type: RECEIVE_ARTWORK,
-  artwork,
-  annotations
+  artwork
 });
 
 export const receiveArtworks = artworks => ({
@@ -25,8 +24,7 @@ export const destroyArtwork = artwork => ({
 export const fetchArtwork = (id) => dispatch => {
   console.log("id",id);
   return ArtworkAPIUtil.fetchArtwork(id).then(
-    ({artwork2,annotations}) => {dispatch(receiveArtwork(artwork2,annotations));
-    return artwork2;
+    (artwork2) => {dispatch(receiveArtwork(artwork2));
   });
 };
 

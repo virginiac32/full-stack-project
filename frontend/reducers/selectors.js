@@ -7,11 +7,11 @@ export const selectArtwork = (artworks, artworkId) => {
   return artwork;
 };
 
-export const selectArtworkComments = ({comments},artworkId) => {
-  let artworkComments = [];
-  comments.forEach( comment => {
-    if (comment.artwork_id === artworkId) {
-      artworkComments.push(comment);
-    }});
-  return artworkComments;
-};
+// export const selectArtworkComments = ({comments},artworkId) => {
+//   let artworkComments = [];
+//   comments.forEach( comment => {
+//     if (comment.artwork_id === artworkId) {
+//       artworkComments.push(comment);
+//     }});
+//   return artworkComments;
+// };
