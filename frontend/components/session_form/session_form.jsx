@@ -23,10 +23,10 @@ class SessionForm extends React.Component {
 		}
   }
 
-	componentWillUnmount() {
-		this.props.clearErrors();
-		this.renderErrors();
-	}
+	// componentWillUnmount() {
+	// 	this.props.clearErrors();
+	// 	this.renderErrors();
+	// }
 
   update(field) {
     return e => this.setState({
@@ -49,7 +49,7 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-		this.props.clearErrors();
+		// this.props.clearErrors();
     return (
       <ul className="session-errors">
         {this.props.errors.map((error, i) => (

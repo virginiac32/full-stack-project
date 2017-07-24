@@ -1,11 +1,10 @@
 import * as AnnotationAPIUtil from '../util/annotation_api_util';
 import {receiveArtwork} from './artwork_actions';
+import {receiveErrors, clearErrors} from './error_actions';
 
 export const RECEIVE_ANNOTATION = 'RECEIVE_ANNOTATION';
 export const RECEIVE_ANNOTATIONS = 'RECEIVE_ANNOTATIONS';
 export const DESTROY_ANNOTATION = 'DESTROY_ANNOTATION';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 // synchronous action creators
 export const receiveAnnotation = annotation => ({
@@ -16,15 +15,6 @@ export const receiveAnnotation = annotation => ({
 export const receiveAnnotations = annotations => ({
   type: RECEIVE_ANNOTATIONS,
   annotations
-});
-
-export const receiveErrors = errors => ({
-  type: RECEIVE_ERRORS,
-  errors
-});
-
-export const clearErrors = () => ({
-  type: CLEAR_ERRORS
 });
 
 export const destroyAnnotation = annotation => ({

@@ -12,8 +12,8 @@ const ArtworksReducer = (state=defaultState(), action) => {
   let nextState = [];
   switch (action.type) {
     case RECEIVE_ARTWORK:
-      console.log(action.artwork);
       const artwork = action.artwork;
+      console.log("action",action);
       return Object.assign({}, state,
         {
           artworks: {[artwork.id]: artwork},

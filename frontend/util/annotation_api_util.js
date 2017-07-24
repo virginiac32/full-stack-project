@@ -5,7 +5,7 @@ export const fetchAnnotation = (id) => (
   })
 );
 
-export const fetchAnnotations = (artwork_id = null) => {
+export const fetchAnnotations = (artwork_id) => {
   $.ajax({
     method: 'GET',
     url: `api/artworks/${artwork_id}/annotations`

@@ -1,9 +1,8 @@
 import * as ArtworkAPIUtil from '../util/artwork_api_util';
+import {receiveErrors, clearErrors} from './error_actions';
 export const RECEIVE_ARTWORK = 'RECEIVE_ARTWORK';
 export const RECEIVE_ARTWORKS = 'RECEIVE_ARTWORKS';
 export const DESTROY_ARTWORK = 'DESTROY_ARTWORK';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 // synchronous action creators
 export const receiveArtwork = (artwork, annotations) => ({
@@ -17,15 +16,6 @@ export const receiveArtworks = artworks => ({
   artworks
 });
 
-export const receiveErrors = errors => ({
-  type: RECEIVE_ERRORS,
-  errors
-});
-
-export const clearErrors = () => ({
-  type: CLEAR_ERRORS
-});
-
 export const destroyArtwork = artwork => ({
   type: DESTROY_ARTWORK,
   artwork
@@ -33,6 +23,7 @@ export const destroyArtwork = artwork => ({
 
 // async thunk action creators
 export const fetchArtwork = (id) => dispatch => {
+  console.log("id",id);
   return ArtworkAPIUtil.fetchArtwork(id).then(
     ({artwork2,annotations}) => {dispatch(receiveArtwork(artwork2,annotations));
     return artwork2;

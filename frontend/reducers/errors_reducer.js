@@ -1,8 +1,9 @@
-import {RECEIVE_ERRORS, CLEAR_ERRORS} from '../actions/session_actions';
-import {merge} from 'lodash/merge';
+import {RECEIVE_ERRORS, CLEAR_ERRORS} from '../actions/error_actions';
+import merge from 'lodash/merge';
 
 const defaultState = () => ({
   errors: []
+  // update the keys to diff components
 });
 
 const ErrorsReducer = (state=defaultState(), action) => {
@@ -20,3 +21,5 @@ const ErrorsReducer = (state=defaultState(), action) => {
       return state;
   }
 };
+
+export default ErrorsReducer;

@@ -1,11 +1,7 @@
 class Api::AnnotationsController < ApplicationController
 
   def index
-    if params[:artwork_id]
-      @annotations = Annotation.where(artwork_id: params[:artwork_id])
-    else
-      @annotations = Annotation.all
-    end
+    @annotations = Annotation.where(artwork_id: params[:artwork_id])
     render :index
   end
 

@@ -1,9 +1,9 @@
 import * as CommentAPIUtil from '../util/comment_api_util';
+import {receiveErrors, clearErrors} from './error_actions';
+
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 export const DESTROY_COMMENT = 'DESTROY_COMMENT';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 // synchronous action creators
 export const receiveComment = comment => ({
@@ -14,15 +14,6 @@ export const receiveComment = comment => ({
 export const receiveComments = comments => ({
   type: RECEIVE_COMMENTS,
   comments
-});
-
-export const receiveErrors = errors => ({
-  type: RECEIVE_ERRORS,
-  errors
-});
-
-export const clearErrors = () => ({
-  type: CLEAR_ERRORS
 });
 
 export const destroyComment = comment => ({
