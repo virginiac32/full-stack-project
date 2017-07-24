@@ -17,13 +17,16 @@ class SessionForm extends React.Component {
 		if (nextProps.loggedIn) {
       this.props.history.push('/');
     }
-		console.log(this.props);
-		console.log(this.state);
 		if (nextProps.formType !== this.props.formType) {
 			this.props.clearErrors();
 			this.renderErrors();
 		}
   }
+
+	componentWillUnmount() {
+		this.props.clearErrors();
+		this.renderErrors();
+	}
 
   update(field) {
     return e => this.setState({
@@ -46,6 +49,7 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
+		this.props.clearErrors();
     return (
       <ul className="session-errors">
         {this.props.errors.map((error, i) => (
@@ -91,7 +95,6 @@ class SessionForm extends React.Component {
 					<Link to="/">
 						<i className="fa fa-times fa-lg" aria-hidden="true"></i>
 					</Link>
-
           <div className="login-form">
 						<span className="form-title">{formTitle}</span>
 		          {this.renderErrors()}
