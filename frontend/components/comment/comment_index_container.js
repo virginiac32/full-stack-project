@@ -5,7 +5,7 @@ import {fetchComments, fetchComment, createComment, updateComment, deleteComment
   from '../../actions/comment_actions';
 
 const mapStateToProps = (state,ownProps) => ({
-  comments: selectArtworkComments(state.comments, ownProps.annotations.artwork_id)
+  comments: selectArtworkComments(state.comments, ownProps.comments.artwork_id)
 });
 
 const mapDispatchToProps = (dispatch) => ({

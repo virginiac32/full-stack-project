@@ -7,8 +7,8 @@ import {login,signup,logout} from './actions/session_actions';
 import {fetchArtworks, fetchArtwork, createArtwork, deleteArtwork} from './actions/artwork_actions';
 import { fetchAnnotation, createAnnotation, deleteAnnotation, updateAnnotation} from './actions/annotation_actions';
 import {selectAllArtworks, selectArtworkComments} from './reducers/selectors';
-// import { fetchComment, fetchComments, createComment, deleteComment, updateComment} from './actions/comment_actions';
-import {fetchComments} from './util/comment_api_util';
+import { fetchComment, fetchComments, createComment, deleteComment, updateComment} from './actions/comment_actions';
+// import {fetchComments} from './util/comment_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.createAnnotation = createAnnotation;
   window.deleteAnnotation = deleteAnnotation;
   window.selectAllArtworks = selectAllArtworks;
-  // window.fetchComment = fetchComment;
+  window.fetchComment = fetchComment;
   window.fetchComments = fetchComments;
-  // window.createComment = createComment;
-  // window.deleteComment = deleteComment;
-  // window.updateComment = updateComment;
+  window.createComment = createComment;
+  window.deleteComment = deleteComment;
+  window.updateComment = updateComment;
 
 });

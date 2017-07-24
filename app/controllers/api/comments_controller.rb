@@ -2,7 +2,7 @@ class Api::CommentsController < ApplicationController
 
   def index
     if params[:artwork_id]
-      @comments = Comment.by_artwork(params[:artwork_id])
+      @comments = Comment.where(artwork_id: params[:artwork_id])
     else
       @comments = Comment.all
     end

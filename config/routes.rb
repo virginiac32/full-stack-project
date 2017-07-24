@@ -4,11 +4,11 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy, :show]
     resources :artworks, only: [:new, :create, :destroy, :show, :index] do
-      resources :annotations, only: [:new]
-      resources :comments, only: [:new]
+      resources :annotations, only: [:index]
+      resources :comments, only: [:index]
     end
     resources :annotations, only: [:create, :update, :destroy, :show]
-    resources :comments, only: [:index, :create, :update, :destroy, :show]
+    resources :comments, only: [:create, :update, :destroy, :show]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
