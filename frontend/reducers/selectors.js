@@ -7,7 +7,7 @@ export const selectArtwork = (artworks, artworkId) => {
   return artwork;
 };
 
-export const selectArtworkComments = (comments,artworkId) => {
+export const selectArtworkComments = ({comments},artworkId) => {
   let artworkComments = [];
   comments.forEach( comment => {
     if (comment.artwork_id === artworkId) {

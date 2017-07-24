@@ -41,5 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.createComment = createComment;
   window.deleteComment = deleteComment;
   window.updateComment = updateComment;
+  window.selectArtworkComments = selectArtworkComments;
 
 });
