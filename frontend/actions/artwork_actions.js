@@ -22,7 +22,6 @@ export const destroyArtwork = artwork => ({
 
 // async thunk action creators
 export const fetchArtwork = (id) => dispatch => {
-  console.log("id",id);
   return ArtworkAPIUtil.fetchArtwork(id).then(
     (artwork2) => {dispatch(receiveArtwork(artwork2));
   });

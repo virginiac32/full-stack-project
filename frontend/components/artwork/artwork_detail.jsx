@@ -15,8 +15,6 @@ class ArtworkDetail extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("this props",this.props);
-    console.log("nextprops",nextProps);
     if (this.props.match.params.artworkId !== nextProps.match.params.artworkId) {
       this.props.fetchArtwork(nextProps.match.params.artworkId);
     }

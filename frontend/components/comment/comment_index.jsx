@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   componentDidMount(){
@@ -13,15 +12,17 @@ class CommentIndex extends React.Component {
 
   render () {
     const {artwork, deleteComment, updateComment, createComment} = this.props;
-    // const comments = artwork.comments;
     return (
       <ul>
-        {artwork.comments.map(comment =>
-          <li>{comment.body}
-            <button onClick={deleteComment.bind(null,comment)}>
-              <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
-            </button>
-          </li>
+        {Object.values(artwork.comments).map(comment =>
+          <ul>
+            <li>{comment.body}</li>
+            <li>By: {comment.user.username}</li>
+              <li><button onClick={deleteComment.bind(null,comment)}>
+                <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+              </button>
+            </li>
+          </ul>
         )}
       </ul>
     );

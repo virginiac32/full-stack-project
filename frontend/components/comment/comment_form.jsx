@@ -39,7 +39,7 @@ class CommentForm extends React.Component {
     return (
       <div className="comment-create-update">
         <form className="comment-form" onSubmit={this.handleSubmit}>
-          <h1>Comment</h1>
+          <h1>Write Comment</h1>
           <ul className="comment-form-list">
             <li>
               <input className="input" value={this.state.body} onChange={this.update('body')} placeholder="The artwork represents..." />
