@@ -6,6 +6,7 @@ class CommentIndex extends React.Component {
     super(props);
 
     this.renderDelete = this.renderDelete.bind(this);
+    this.timeSince = this.timeSince.bind(this);
   }
 
   componentDidMount(){
@@ -22,6 +23,32 @@ class CommentIndex extends React.Component {
     }
   }
 
+  timeSince(date) {
+    console.log(date);
+    let seconds = Math.floor((new Date() - new Date(date)) / 1000);
+    let interval = Math.floor(seconds / 31536000);
+    if (interval > 1) {
+      return interval + " yrs ago";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+      return interval + " months ago";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+      return interval + " days ago";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+      return interval + " hrs ago";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+      return interval + " mins ago";
+    }
+    return "0 mins ago";
+  }
+
   render () {
     const {artwork, deleteComment, updateComment, createComment} = this.props;
     if (!artwork.comments) return null;
@@ -29,8 +56,8 @@ class CommentIndex extends React.Component {
       <ul>
         {Object.values(artwork.comments).map(comment =>
           <ul>
+            <li><h2>{comment.user.username}</h2>   {this.timeSince(comment.created_at)}</li>
             <li>{comment.body}</li>
-            <li>By: {comment.user.username}</li>
               <li>{this.renderDelete(comment,deleteComment)}
             </li>
           </ul>

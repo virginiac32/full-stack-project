@@ -5,7 +5,7 @@ if @artwork
   json.comments do
     @artwork.comments.each do |comment|
       json.set! comment.id do
-        json.extract! comment, :user, :id, :body, :total_score
+        json.extract! comment, :user, :id, :body, :total_score, :created_at
       end
     end
   end
@@ -13,7 +13,8 @@ if @artwork
   json.annotations do
     @artwork.annotations.each do |annotation|
       json.set! annotation.id do
-        json.extract! annotation, :user, :id, :body, :total_score, :x_pos, :y_pos
+        json.extract! annotation, :user, :id, :body, :total_score,
+          :x_pos, :y_pos, :created_at
       end
     end
   end

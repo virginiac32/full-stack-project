@@ -15,12 +15,7 @@ class CommentForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.goBack = this.goBack.bind(this);
   }
-
-  // goBack() {
-  //   window.history.back();
-  // }
 
   update(property) {
     return e => this.setState({[property]: e.target.value});
@@ -29,17 +24,17 @@ class CommentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createComment({comment: this.state}).then(() =>
-    (this.refs.comment_body.value = null));
+    (this.refs.comment_body.value = ""));
   }
 
   render() {
     return (
       <div className="comment-create-update">
         <form className="comment-form" onSubmit={this.handleSubmit}>
-          <h1>Write Comment</h1>
+          <h2>Write a comment:</h2>
           <ul className="comment-form-list">
             <li>
-              <input className="input" ref="comment_body" value={this.state.body} onChange={this.update('body')} placeholder="The artwork represents..." />
+              <textarea rows="6" cols="50" ref="comment_body" value={this.state.body} onChange={this.update('body')} placeholder="The artwork represents..." />
             </li>
             <li>
               <button className="submit-button">Submit</button>
