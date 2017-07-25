@@ -19,4 +19,12 @@ if @artwork
     end
   end
 
+  json.user do
+    @artwork.user do
+      json.set! user.id do
+        json.extract! user, :id, :votes
+      end
+    end
+  end
+
 end

@@ -23,8 +23,24 @@ class CommentIndex extends React.Component {
     }
   }
 
+  renderVote(value, comment, createVote, deleteVote) {
+    if (this.props.currentUser) {
+      const vote = {votable_id:comment.id, votable_type:"Comment",
+        user_id:this.props.currentUser.id, value: value};
+    }
+    return (
+      <div>
+        <button onClick={createVote.bind(null,vote)}>
+          <i className="fa fa-arrow-up fa-lg" aria-hidden="true"></i>
+        </button>
+        <button onClick={deleteVote.bind(null,vote)}>
+          <i className="fa fa-arrow-down fa-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+    );
+  }
+
   timeSince(date) {
-    console.log(date);
     let seconds = Math.floor((new Date() - new Date(date)) / 1000);
     let interval = Math.floor(seconds / 31536000);
     if (interval > 1) {
@@ -50,7 +66,8 @@ class CommentIndex extends React.Component {
   }
 
   render () {
-    const {artwork, deleteComment, updateComment, createComment} = this.props;
+    const {artwork, deleteComment, updateComment, createComment,
+      createVote, deleteVote} = this.props;
     if (!artwork.comments) return null;
     return (
       <ul>

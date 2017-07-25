@@ -1,6 +1,8 @@
 import {RECEIVE_COMMENT, RECEIVE_COMMENTS,
   DESTROY_COMMENT} from '../actions/comment_actions';
-import {merge} from 'lodash/merge';
+import {RECEIVE_COMMENT_VOTE, DESTROY_COMMENT_VOTE}
+  from '../actions/vote_actions';
+import merge from 'lodash/merge';
 
 const defaultState = () => ({
   comments: {},
@@ -24,6 +26,14 @@ const CommentsReducer = (state=defaultState(), action) => {
     case DESTROY_COMMENT:
       nextState = Object.assign({},state);
       delete nextState.comments[action.comment.id];
+      return nextState;
+    case RECEIVE_COMMENT_VOTE:
+      nextState = merge({},state);
+      nextState.comments[action.vote.votable_id].total_score += action.vote.value;
+      return nextState;
+    case DESTROY_COMMENT_VOTE:
+      nextState = merge({},state);
+      nextState.comments[action.vote.votable_id].total_score -= action.vote.value;
       return nextState;
     default:
       return state;

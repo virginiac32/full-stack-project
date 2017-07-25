@@ -1,7 +1,9 @@
 import {RECEIVE_ANNOTATION, RECEIVE_ANNOTATIONS,
   DESTROY_ANNOTATION} from '../actions/annotation_actions';
 import {RECEIVE_ARTWORK} from '../actions/artwork_actions';
-import {merge} from 'lodash/merge';
+import {RECEIVE_ANNOTATION_VOTE, DESTROY_ANNOTATION_VOTE}
+  from '../actions/vote_actions';
+import merge from 'lodash/merge';
 
 const defaultState = () => ({
   annotations: {},
@@ -27,6 +29,14 @@ const AnnotationsReducer = (state=defaultState(), action) => {
     case RECEIVE_ARTWORK:
       nextState = Object.assign({}, state, {annotations: action.annotations});
       nextState.currentAnnotation = null;
+      return nextState;
+    case RECEIVE_ANNOTATION_VOTE:
+      nextState = merge({},state);
+      nextState.annotations[action.vote.votable_id].total_score += action.vote.value;
+      return nextState;
+    case DESTROY_ANNOTATION_VOTE:
+      nextState = merge({},state);
+      nextState.annotations[action.vote.votable_id].total_score -= action.vote.value;
       return nextState;
     case DESTROY_ANNOTATION:
       nextState = Object.assign({},state);

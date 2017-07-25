@@ -3,18 +3,20 @@ class Api::VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
     if @vote.save
-      if @vote.annotation_id !== null
-        @annotation = Annotation.find_by(id: @vote.annotation_id)
+      if @vote.votable_type == 'Annotation'
+        @annotation = Annotation.find_by(id: @vote.votable_id)
         @annotation.total_score += @vote.value
         @annotation.save!
         render :show
-      elsif @vote.comment_id !== null
-        @comment = Comment.find_by(id: @vote.annotation_id)
+      elsif @vote.votable_type == 'Comment'
+        @comment = Comment.find_by(id: @vote.votable_id)
+        p @comment
         @comment.total_score += @vote.value
         @comment.save!
         render :show
       end
     else
+      p @vote.errors.full_messages
       render json: @vote.errors.full_messages, status: 422
     end
   end
@@ -22,14 +24,15 @@ class Api::VotesController < ApplicationController
   def destroy
     @vote = Vote.find(params[:id])
     if @vote.destroy
-      if @vote.annotation_id !== null
-        @annotation = Annotation.find_by(id: @vote.annotation_id)
+      if @vote.votable_type == 'Annotation'
+        @annotation = Annotation.find_by(id: @vote.votable_id)
         @annotation.total_score -= @vote.value
         @annotation.save!
         render :show
-      elsif @vote.comment_id !== null
-        @comment = Comment.find_by(id: @vote.annotation_id)
-        @comment.total_score += @vote.value
+      elsif @vote.votable_type == 'Comment'
+        @comment = Comment.find_by(id: @vote.votable_id)
+        p @comment
+        @comment.total_score -= @vote.value
         @comment.save!
         render :show
       end
@@ -41,7 +44,7 @@ class Api::VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:user_id, :annotation_id, :comment_id,
+    params.require(:vote).permit(:user_id, :votable_id, :votable_type,
       :value)
   end
 

@@ -9,6 +9,7 @@ import {fetchArtwork} from './util/artwork_api_util';
 import { fetchAnnotation, createAnnotation, deleteAnnotation, updateAnnotation} from './actions/annotation_actions';
 import {selectAllArtworks, selectArtworkComments} from './reducers/selectors';
 import { fetchComment, fetchComments, createComment, deleteComment, updateComment} from './actions/comment_actions';
+import { createVote, deleteVote} from './actions/vote_actions';
 // import {fetchComments} from './util/comment_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -43,5 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.deleteComment = deleteComment;
   window.updateComment = updateComment;
   window.selectArtworkComments = selectArtworkComments;
+  window.createVote = createVote;
+  window.deleteVote = deleteVote;
+
 
 });

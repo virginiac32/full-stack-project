@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :artworks
   has_many :annotations
   has_many :comments
+  has_many :votes
 
   attr_reader :password
 
