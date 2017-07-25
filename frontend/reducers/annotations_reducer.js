@@ -41,7 +41,7 @@ const AnnotationsReducer = (state=defaultState(), action) => {
       console.log("nstate",nextState);
       if (nextState.annotations && nextState.annotations[action.vote.votable_id]) {
         nextState.annotations[action.vote.votable_id].total_score -= action.vote.value;
-      }
+      } 
       return nextState;
     case DESTROY_ANNOTATION:
       nextState = Object.assign({},state);

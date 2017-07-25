@@ -23,8 +23,7 @@ const ArtworksReducer = (state=defaultState(), action) => {
       const comment = action.comment;
       const comment_id = comment.id;
       nextState = merge({},state);
-      console.log(nextState);
-      if (nextState.artworks[comment.artwork_id].comments) {
+      if (nextState.artworks[comment.artwork_id] && nextState.artworks[comment.artwork_id].comments) {
         nextState.artworks[comment.artwork_id].comments[action.comment.id] = action.comment;
       } else {
         nextState.artworks[comment.artwork_id]['comments'] = {comment_id: comment};
