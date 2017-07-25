@@ -32,7 +32,6 @@ class Api::VotesController < ApplicationController
         render :show
       elsif @vote.votable_type == 'Comment'
         @comment = Comment.find_by(id: @vote.votable_id)
-        p @comment
         @comment.total_score -= @vote.value
         @comment.save!
         render :show
