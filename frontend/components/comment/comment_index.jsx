@@ -12,6 +12,7 @@ class CommentIndex extends React.Component {
 
   render () {
     const {artwork, deleteComment, updateComment, createComment} = this.props;
+    if (!artwork.comments) return null;
     return (
       <ul>
         {Object.values(artwork.comments).map(comment =>
