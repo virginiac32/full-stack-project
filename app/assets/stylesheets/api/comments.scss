@@ -15,8 +15,12 @@
   margin-bottom: 10px;
 }
 
-.each-comment button i {
+.delete-comment i {
   color: #D74643;
+}
+
+.delete-comment i:hover {
+  color: #7D2927;
 }
 
 .each-comment button {

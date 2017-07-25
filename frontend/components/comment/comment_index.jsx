@@ -10,6 +10,8 @@ class CommentIndex extends React.Component {
     this.vote = this.vote.bind(this);
     this.handleUpvote = this.handleUpvote.bind(this);
     this.handleDownvote = this.handleDownvote.bind(this);
+    this.renderUpvoteColor = this.renderUpvoteColor.bind(this);
+    this.renderDownvoteColor = this.renderDownvoteColor.bind(this);
   }
 
   // componentDidMount(){
@@ -19,7 +21,7 @@ class CommentIndex extends React.Component {
   renderDelete(comment, deleteComment) {
     if (this.props.currentUser && this.props.currentUser.id === comment.user.id) {
       return (
-        <button onClick={() => deleteComment(comment)}>
+        <button className="delete-comment" onClick={() => deleteComment(comment)}>
           <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
         </button>
       );
@@ -42,13 +44,51 @@ class CommentIndex extends React.Component {
     if (this.props.currentUser) {
       const vote = {votable_id:comment_id, votable_type:"Comment",
         user_id:this.props.currentUser.id, value: value};
-
-      if (this.props.currentUser.votes[comment_id]) {
-        const oldVote = this.props.currentUser.votes[comment_id];
-        this.props.deleteVote(oldVote);
-      } else {
-        this.props.createVote({vote: vote});
+        console.log(this.props.currentUser);
+      if (this.props.currentUser.votes && this.props.currentUser.votes.Comment
+        && this.props.currentUser.votes.Comment[comment_id])
+        {
+          const oldVote = this.props.currentUser.votes.Comment[comment_id];
+          this.props.deleteVote(oldVote);
+        } else {
+          this.props.createVote({vote: vote});
       }
+    }
+  }
+
+  renderUpvoteColor(comment_id) {
+    let voteValue = 0;
+    if (this.props.currentUser.votes && this.props.currentUser.votes.Comment
+      && this.props.currentUser.votes.Comment[comment_id])
+      {
+        voteValue = this.props.currentUser.votes.Comment[comment_id].value;
+      }
+    if (voteValue === 1) {
+      return (
+        <span className="up-vote"><i className="fa fa-arrow-up fa-lg" aria-hidden="true"></i></span>
+      );
+    } else {
+      return (
+        <span className="no-vote"><i className="fa fa-arrow-up fa-lg" aria-hidden="true"></i></span>
+      );
+    }
+  }
+
+  renderDownvoteColor(comment_id) {
+    let voteValue = 0;
+    if (this.props.currentUser.votes && this.props.currentUser.votes.Comment
+      && this.props.currentUser.votes.Comment[comment_id])
+      {
+        voteValue = this.props.currentUser.votes.Comment[comment_id].value;
+      }
+    if (voteValue === -1) {
+      return (
+        <span className="down-vote"><i className="fa fa-arrow-down fa-lg" aria-hidden="true"></i></span>
+      );
+    } else {
+      return (
+        <span className="no-vote"><i className="fa fa-arrow-down fa-lg" aria-hidden="true"></i></span>
+      );
     }
   }
 
@@ -90,11 +130,11 @@ class CommentIndex extends React.Component {
           <li className="this-comment">{comment.body}</li>
             <div className="comment-votes">
               <button onClick={this.handleUpvote} id={comment.id}>
-                <i className="fa fa-arrow-up fa-lg" aria-hidden="true"></i>
+                {this.renderUpvoteColor(comment.id)}
               </button>
               {comment.total_score}
-              <button onClick={this.handleDownvote}>
-                <i className="fa fa-arrow-down fa-lg" aria-hidden="true"></i>
+              <button onClick={this.handleDownvote} id={comment.id}>
+                {this.renderDownvoteColor(comment.id)}
               </button>
             </div>
           </ul>
