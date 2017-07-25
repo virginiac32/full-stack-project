@@ -58,24 +58,22 @@ Artwork.create([
     artist: "Vasily Kandinsky",
     user_id: user1.id,
     year: "1912",
-    link: ""
+    link: "http://res.cloudinary.com/virginia-chen/image/upload/c_scale,w_1000/v1500963945/Improvisation-Kandinsky_u8vyna.png"
   },
   {
     title: "A Rose",
-    description: "One of the most gifted American art teachers, Anshutz links the realism of his mentor Thomas Eakins with that of the Ashcan School, some of whom were his students. Perhaps because Anshutz spent so much time teaching, he painted only about 130 oils. Some of the most impressive belong to a series of images of Rebecca H. Whelen, daughter of a trustee of the Pennsylvania Academy of the Fine Arts, where Anshutz taught. The woman at leisure and the likening of a beautiful woman to a flower are common themes in late-nineteenth-century American painting. They reflect the contemporary definition of a woman's proper sphere: the realm of leisure, beauty, and the aesthetic, harmonious domestic environment. 'A Rose' reflects Anshutz's simultaneous appreciation of Eakins's academic rigor and psychological probing and John Singer Sargent's painterly freedom. "A Rose" also suggests the influence of Diego Velázquez and James McNeill Whistler on late-nineteenth-century painters, including Eakins and Sargent as well as Anshutz. In portraying the young woman as contemplative and yet intellectually and emotionally alert, Anshutz also anticipates the earthier women painted by members of the Ashcan School and other twentieth-century realists."
-    artist: "Thomas Anshutz",
+    description: "One of the most gifted American art teachers, Anshutz links the realism of his mentor Thomas Eakins with that of the Ashcan School, some of whom were his students. Perhaps because Anshutz spent so much time teaching, he painted only about 130 oils. Some of the most impressive belong to a series of images of Rebecca H. Whelen, daughter of a trustee of the Pennsylvania Academy of the Fine Arts, where Anshutz taught. The woman at leisure and the likening of a beautiful woman to a flower are common themes in late-nineteenth-century American painting. They reflect the contemporary definition of a woman's proper sphere: the realm of leisure, beauty, and the aesthetic, harmonious domestic environment.",
+    artist:"Thomas Anshutz",
     user_id: user1.id,
     year: "1907",
-    link: ""
+    link: "http://res.cloudinary.com/virginia-chen/image/upload/c_scale,w_1000/v1500963948/Rose-Anshutz_hkpxon.png"
   },
   {
     title: "Antigraceful",
-    description: "In this bust of his mother, Cecilia Forlani Boccioni, the artist employs Cubist distortions and fragmentation to undermine conventional concepts of beauty. The title refers to Boccioni’s rejection of traditional artistic values, a view he expanded on in his 1914 book Pittura, scultura futuriste, "We must smash, demolish, and destroy our traditional harmony, which makes us fall into a gracefulness created by timid and sentimental cubs." Art historians have speculated that Pablo Picasso’s 1909 bronze Head of a Woman influenced Boccioni since the two works have striking stylistic similarities."
+    description: "In this bust of his mother, Cecilia Forlani Boccioni, the artist employs Cubist distortions and fragmentation to undermine conventional concepts of beauty. The title refers to Boccioni’s rejection of traditional artistic values, a view he expanded on in his 1914 book Pittura, scultura futuriste, "We must smash, demolish, and destroy our traditional harmony, which makes us fall into a gracefulness created by timid and sentimental cubs." Art historians have speculated that Pablo Picasso’s 1909 bronze Head of a Woman influenced Boccioni since the two works have striking stylistic similarities.",
     artist: "Umberto Boccioni",
     user_id: user1.id,
     year: "1913, cast 1950",
-    link: ""
-  },
-
-
+    link: "http://res.cloudinary.com/virginia-chen/image/upload/v1500963952/Antigraceful-Boccioni_lyhn0r.png"
+  }
 ])
