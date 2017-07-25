@@ -12,9 +12,9 @@ class CommentIndex extends React.Component {
     this.handleDownvote = this.handleDownvote.bind(this);
   }
 
-  componentDidMount(){
-    this.props.fetchArtwork(this.props.artwork.id);
-  }
+  // componentDidMount(){
+  //   this.props.fetchArtwork(this.props.artwork.id);
+  // }
 
   renderDelete(comment, deleteComment) {
     if (this.props.currentUser && this.props.currentUser.id === comment.user.id) {
@@ -47,7 +47,7 @@ class CommentIndex extends React.Component {
         const oldVote = this.props.currentUser.votes[comment_id];
         this.props.deleteVote(oldVote);
       } else {
-        this.props.createVote(vote);
+        this.props.createVote({vote: vote});
       }
     }
   }
@@ -84,12 +84,12 @@ class CommentIndex extends React.Component {
     return (
       <ul className="full-comments">
         {Object.values(artwork.comments).map(comment =>
-          <ul className="each-comment">
+          <ul className="each-comment" key={`comment-key-${comment.id}`}>
             <li><span className="comment-info"><h2>{comment.user.username}</h2>{this.renderDelete(comment,deleteComment)}</span></li>
             <li className="time-since">{this.timeSince(comment.created_at)}</li>
           <li className="this-comment">{comment.body}</li>
             <div className="comment-votes">
-              <button onClick={this.handleUpvote}>
+              <button onClick={this.handleUpvote} id={comment.id}>
                 <i className="fa fa-arrow-up fa-lg" aria-hidden="true"></i>
               </button>
               {comment.total_score}

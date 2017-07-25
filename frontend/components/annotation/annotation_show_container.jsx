@@ -6,14 +6,14 @@ import {fetchArtwork} from '../../actions/artwork_actions';
 
 const mapStateToProps = (state) => {
   return {
-  artwork: state.artworks.artworks[state.artworks.currentArtwork],
+  // artwork: state.artworks.artworks[state.artworks.currentArtwork],
   currentUser: state.session.currentUser,
   currentAnnotation: state.annotations.currentAnnotation
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchArtwork: (artwork_id) => dispatch(fetchArtwork(artwork_id)),
+  // fetchArtwork: (artwork_id) => dispatch(fetchArtwork(artwork_id)),
   createAnnotation: (annotation) => dispatch(createAnnotation(annotation)),
   fetchAnnotation: id => dispatch(fetchAnnotation(id)),
   // fetchAnnotations: id => dispatch(fetchAnnotation(id)),

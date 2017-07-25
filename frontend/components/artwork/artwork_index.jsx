@@ -9,7 +9,6 @@ class ArtworkIndex extends React.Component {
 
   componentDidMount(){
     this.props.fetchArtworks();
-    console.log('artwork mounted props',this.props);
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -38,7 +37,7 @@ class ArtworkIndex extends React.Component {
     let ArtworkIndexItems = [];
     if (artworks.length > 0){
       {ArtworkIndexItems = artworks.map(artwork => (
-        <div key={artwork.id}>
+        <div key={`artwork-key-${artwork.id}`}>
           <Link to={`/artworks/${artwork.id}`} className="link-to-artwork">
             <img className="slick-image" src={artwork.link} />
           </Link>

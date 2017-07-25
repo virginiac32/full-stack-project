@@ -4,13 +4,13 @@ import {Link} from 'react-router-dom';
 class AnnotationShow extends React.Component {
   constructor(props) {
     super(props);
-
+    
     this.renderButtons = this.renderButtons.bind(this);
   }
 
-  componentWillMount(){
-    this.props.fetchArtwork(this.props.artwork.id);
-  }
+  // componentWillMount(){
+  //   this.props.fetchArtwork(this.props.artwork.id);
+  // }
 
   // componentWillReceiveProps(nextProps) {
   //   if (this.props.match.params.annotationId !== nextProps.match.params.annotationId) {
@@ -19,7 +19,7 @@ class AnnotationShow extends React.Component {
   // }
 
   renderButtons(annotation, updateAnnotation, deleteAnnotation) {
-    if (this.props.currentUser.id === annotation.user.id) {
+    if (this.props.currentUser && this.props.currentUser.id === annotation.user.id) {
       return (
         <div>
           <button onClick={() => updateAnnotation(annotation)}>
@@ -45,7 +45,7 @@ class AnnotationShow extends React.Component {
     return (
       <div className="annotation-body">
           {Object.values(annotations).map(anno =>
-            <ul>
+            <ul key={`anno-key-${anno.id}`}>
               <li>By: {anno.user.username}</li>
               <li>{anno.body}</li>
               <li>{anno.total_score}</li>

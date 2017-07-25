@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {selectArtwork} from '../../reducers/selectors';
 import {fetchArtwork, createArtwork, deleteArtwork}
   from '../../actions/artwork_actions';
+import {selectAllArtworks} from '../../reducers/selectors';
 
 const mapStateToProps = (state) => {
   return {artwork: state.artworks.artworks[state.artworks.currentArtwork]};

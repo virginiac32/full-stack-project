@@ -29,11 +29,15 @@ const CommentsReducer = (state=defaultState(), action) => {
       return nextState;
     case RECEIVE_COMMENT_VOTE:
       nextState = merge({},state);
-      nextState.comments[action.vote.votable_id].total_score += action.vote.value;
+      if (nextState.comments[action.vote.votable_id]) {
+        nextState.comments[action.vote.votable_id].total_score += action.vote.value;
+      }
       return nextState;
     case DESTROY_COMMENT_VOTE:
       nextState = merge({},state);
-      nextState.comments[action.vote.votable_id].total_score -= action.vote.value;
+      if (nextState.comments[action.vote.votable_id]) {
+        nextState.comments[action.vote.votable_id].total_score -= action.vote.value;
+      }
       return nextState;
     default:
       return state;
