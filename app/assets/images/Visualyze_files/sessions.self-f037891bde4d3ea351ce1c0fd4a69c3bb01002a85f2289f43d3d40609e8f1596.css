@@ -1,0 +1,82 @@
+/* line 5, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: white;
+  padding: 20px;
+  padding-top: 10px;
+}
+
+/* line 14, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 20, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.lgin-form-box a {
+  justify-content: flex-start;
+}
+
+/* line 23, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form a {
+  padding: 30px;
+  color: #D74643;
+}
+
+/* line 28, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form-box a i {
+  color: #D74643;
+}
+
+/* line 32, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form a:hover {
+  text-decoration: underline;
+}
+
+/* line 36, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form input {
+  margin-top: 10px;
+  width: 85%;
+  height: 30px;
+}
+
+/* line 42, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form input[type="submit"], .login-form button {
+  width: 88%;
+  height: 20%;
+  font-size: 16px;
+  border-radius: 3px;
+}
+
+/* line 49, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form input[type="submit"] {
+  margin-top: 20px;
+  margin-bottom: 2px;
+}
+
+/* line 54, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form label input {
+  margin-left: 10px;
+}
+
+/* line 58, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.form-title {
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+
+/* line 63, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.session-errors {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: crimson;
+  list-style: none;
+  font-size: 14px;
+  margin-bottom: 5px;
+  width: 75%;
+  text-align: center;
+}

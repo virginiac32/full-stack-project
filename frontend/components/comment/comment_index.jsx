@@ -7,6 +7,9 @@ class CommentIndex extends React.Component {
 
     this.renderDelete = this.renderDelete.bind(this);
     this.timeSince = this.timeSince.bind(this);
+    this.vote = this.vote.bind(this);
+    this.handleUpvote = this.handleUpvote.bind(this);
+    this.handleDownvote = this.handleDownvote.bind(this);
   }
 
   componentDidMount(){
@@ -23,21 +26,30 @@ class CommentIndex extends React.Component {
     }
   }
 
-  renderVote(value, comment, createVote, deleteVote) {
+  handleUpvote(e) {
+    e.preventDefault();
+    let comment_id = parseInt(e.currentTarget.id);
+    this.vote(1,comment_id);
+  }
+
+  handleDownvote(e) {
+    e.preventDefault();
+    let comment_id = parseInt(e.currentTarget.id);
+    this.vote(-1,comment_id);
+  }
+
+  vote(value, comment_id) {
     if (this.props.currentUser) {
-      const vote = {votable_id:comment.id, votable_type:"Comment",
+      const vote = {votable_id:comment_id, votable_type:"Comment",
         user_id:this.props.currentUser.id, value: value};
+
+      if (this.props.currentUser.votes[comment_id]) {
+        const oldVote = this.props.currentUser.votes[comment_id];
+        this.props.deleteVote(oldVote);
+      } else {
+        this.props.createVote(vote);
+      }
     }
-    return (
-      <div>
-        <button onClick={createVote.bind(null,vote)}>
-          <i className="fa fa-arrow-up fa-lg" aria-hidden="true"></i>
-        </button>
-        <button onClick={deleteVote.bind(null,vote)}>
-          <i className="fa fa-arrow-down fa-lg" aria-hidden="true"></i>
-        </button>
-      </div>
-    );
   }
 
   timeSince(date) {
@@ -77,6 +89,14 @@ class CommentIndex extends React.Component {
             <li>{comment.body}</li>
               <li>{this.renderDelete(comment,deleteComment)}
             </li>
+            <div>
+              <button onClick={this.handleUpvote}>
+                <i className="fa fa-arrow-up fa-lg" aria-hidden="true"></i>
+              </button>
+              <button onClick={this.handleDownvote}>
+                <i className="fa fa-arrow-down fa-lg" aria-hidden="true"></i>
+              </button>
+            </div>
           </ul>
         )}
       </ul>

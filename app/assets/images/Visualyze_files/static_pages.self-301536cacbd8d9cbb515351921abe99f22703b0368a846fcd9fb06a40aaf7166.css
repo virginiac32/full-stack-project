@@ -1,0 +1,77 @@
+/* line 5, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+html {
+  background-image: url("http://res.cloudinary.com/virginia-chen/image/upload/v1500503763/museum-back_ubkwwy.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  height: 100%;
+}
+
+/* line 14, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+}
+
+/* line 24, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+}
+
+/* line 29, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+button:hover, input[type="submit"]:hover {
+  cursor: pointer;
+  color: #EDE8EA;
+}
+
+/* line 34, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+button, input[type="submit"] {
+  background-color: #D74643;
+  border: none;
+  color: white;
+  padding: 8px 0px;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 5px 10px;
+}
+
+/* line 47, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+input:focus {
+  outline: none;
+  font-size: 16px;
+}
+
+/* line 52, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+input {
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+/* line 57, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+input[type="submit"]:focus {
+  outline: none;
+  font-size: 16px;
+}
+
+/* line 62, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+a {
+  padding: 8px;
+  color: white;
+  text-decoration: none;
+}
+
+/* line 68, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+a:hover {
+  cursor: pointer;
+  color: #EDE8EA;
+}
+
+/* line 73, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+li {
+  list-style: none;
+}

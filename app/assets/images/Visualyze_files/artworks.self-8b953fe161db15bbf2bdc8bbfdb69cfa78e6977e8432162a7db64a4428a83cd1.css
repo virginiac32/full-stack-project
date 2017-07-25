@@ -1,0 +1,76 @@
+/* line 5, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #121314;
+  width: 100%;
+}
+
+/* line 14, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 21, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-image {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 30, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-img {
+  max-width: 60%;
+  height: auto;
+}
+
+/* line 35, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-detail-bottom {
+  background-color: white;
+  width: 100%;
+}
+
+/* line 40, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-detailed-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 46, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-detailed-info li {
+  margin: 10px 0;
+  max-width: 60%;
+  font-size: 18px;
+}
+
+/* line 52, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-form-list li label {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 57, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 64, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-create {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}

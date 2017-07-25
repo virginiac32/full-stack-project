@@ -1,0 +1,420 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/* line 1, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+/* remember to define focus styles! */
+/* line 20, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/reset.scss */
+:focus {
+  outline: 0;
+}
+
+/* line 23, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/reset.scss */
+body {
+  line-height: 1;
+  color: black;
+  background: white;
+}
+
+/* line 28, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+/* line 32, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/reset.scss */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* line 36, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/reset.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+}
+
+/* line 40, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+}
+
+/* line 44, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/reset.scss */
+blockquote, q {
+  quotes: "" "";
+}
+
+/* line 1, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/layout.scss */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+/* line 8, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/layout.scss */
+.visualyze {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* line 14, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/layout.scss */
+.visualyze-body {
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 55px;
+}
+
+/* line 24, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/layout.scss */
+.visualyze footer {
+  text-align: center;
+}
+
+/* line 5, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+html {
+  background-image: url("http://res.cloudinary.com/virginia-chen/image/upload/v1500503763/museum-back_ubkwwy.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  height: 100%;
+}
+
+/* line 14, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+}
+
+/* line 24, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+}
+
+/* line 29, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+button:hover, input[type="submit"]:hover {
+  cursor: pointer;
+  color: #EDE8EA;
+}
+
+/* line 34, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+button, input[type="submit"] {
+  background-color: #D74643;
+  border: none;
+  color: white;
+  padding: 8px 0px;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 5px 10px;
+}
+
+/* line 47, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+input:focus {
+  outline: none;
+  font-size: 16px;
+}
+
+/* line 52, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+input {
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+/* line 57, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+input[type="submit"]:focus {
+  outline: none;
+  font-size: 16px;
+}
+
+/* line 62, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+a {
+  padding: 8px;
+  color: white;
+  text-decoration: none;
+}
+
+/* line 68, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+a:hover {
+  cursor: pointer;
+  color: #EDE8EA;
+}
+
+/* line 73, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/static_pages.scss */
+li {
+  list-style: none;
+}
+
+/* line 5, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #121314;
+  width: 100%;
+}
+
+/* line 14, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 21, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-image {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 30, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-img {
+  max-width: 60%;
+  height: auto;
+}
+
+/* line 35, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-detail-bottom {
+  background-color: white;
+  width: 100%;
+}
+
+/* line 40, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-detailed-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 46, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-detailed-info li {
+  margin: 10px 0;
+  max-width: 60%;
+  font-size: 18px;
+}
+
+/* line 52, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-form-list li label {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line 57, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 64, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/artworks.scss */
+.artwork-create {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* line 1, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/footer.scss */
+i {
+  margin: 10px 0px;
+  color: white;
+}
+
+/* line 6, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/footer.scss */
+i:hover {
+  color: #EDE8EA;
+}
+
+/* line 10, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/footer.scss */
+footer {
+  background-color: #45484D;
+  padding: 10px;
+  color: #EDE8EA;
+  background: linear-gradient(rgba(69, 72, 77, 0.3), #121314);
+}
+
+/* line 18, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/footer.scss */
+.footer-logo {
+  margin: 20px 0;
+}
+
+/* line 22, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/footer.scss */
+footer h2 {
+  margin-bottom: 10px 0;
+}
+
+/* line 1, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/nav_bar.scss */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5em 0;
+  color: white;
+  height: 50px;
+  background: linear-gradient(#121314, rgba(69, 72, 77, 0.2));
+  position: fixed;
+  width: 100%;
+}
+
+/* line 13, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/nav_bar.scss */
+.logged-in {
+  display: flex;
+  align-items: center;
+}
+
+/* line 18, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/nav_bar.scss */
+.logged-out {
+  display: flex;
+  align-items: center;
+}
+
+/* line 1, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/react-slick.scss */
+.slick-list {
+  width: 90vw;
+}
+
+/* line 5, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/react-slick.scss */
+.slick-image {
+  height: 30vh;
+}
+
+/* line 9, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/react-slick.scss */
+.slick-initialized slick-slider {
+  min-height: 0;
+  min-width: 0;
+}
+
+/* line 14, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/react-slick.scss */
+.slick-slide {
+  padding: 10px;
+}
+
+/* line 5, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: white;
+  padding: 20px;
+  padding-top: 10px;
+}
+
+/* line 14, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 20, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.lgin-form-box a {
+  justify-content: flex-start;
+}
+
+/* line 23, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form a {
+  padding: 30px;
+  color: #D74643;
+}
+
+/* line 28, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form-box a i {
+  color: #D74643;
+}
+
+/* line 32, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form a:hover {
+  text-decoration: underline;
+}
+
+/* line 36, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form input {
+  margin-top: 10px;
+  width: 85%;
+  height: 30px;
+}
+
+/* line 42, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form input[type="submit"], .login-form button {
+  width: 88%;
+  height: 20%;
+  font-size: 16px;
+  border-radius: 3px;
+}
+
+/* line 49, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form input[type="submit"] {
+  margin-top: 20px;
+  margin-bottom: 2px;
+}
+
+/* line 54, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.login-form label input {
+  margin-left: 10px;
+}
+
+/* line 58, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.form-title {
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+
+/* line 63, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/sessions.scss */
+.session-errors {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: crimson;
+  list-style: none;
+  font-size: 14px;
+  margin-bottom: 5px;
+  width: 75%;
+  text-align: center;
+}

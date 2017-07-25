@@ -2,6 +2,7 @@ class Api::VotesController < ApplicationController
 
   def create
     @vote = Vote.new(vote_params)
+    p @vote
     if @vote.save
       if @vote.votable_type == 'Annotation'
         @annotation = Annotation.find_by(id: @vote.votable_id)

@@ -1,1 +1,1 @@
-json.extract! @vote, :id, :comment_id, :annotation_id, :user_id, :value
+json.extract! @vote, :id, :votable_id, :votable_type, :user_id, :value

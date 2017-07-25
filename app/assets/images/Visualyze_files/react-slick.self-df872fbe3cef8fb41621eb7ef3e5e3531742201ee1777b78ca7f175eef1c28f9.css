@@ -1,0 +1,20 @@
+/* line 1, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/react-slick.scss */
+.slick-list {
+  width: 90vw;
+}
+
+/* line 5, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/react-slick.scss */
+.slick-image {
+  height: 30vh;
+}
+
+/* line 9, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/react-slick.scss */
+.slick-initialized slick-slider {
+  min-height: 0;
+  min-width: 0;
+}
+
+/* line 14, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/api/react-slick.scss */
+.slick-slide {
+  padding: 10px;
+}

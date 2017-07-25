@@ -1,0 +1,30 @@
+/* line 1, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/layout.scss */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+/* line 8, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/layout.scss */
+.visualyze {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* line 14, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/layout.scss */
+.visualyze-body {
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 55px;
+}
+
+/* line 24, /Users/virginiachen/AppAcademy/full-stack-project/fullstackproj/app/assets/stylesheets/base/layout.scss */
+.visualyze footer {
+  text-align: center;
+}
