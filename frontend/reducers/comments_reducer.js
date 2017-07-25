@@ -12,7 +12,6 @@ const CommentsReducer = (state=defaultState(), action) => {
   let nextState = [];
   switch (action.type) {
     case RECEIVE_COMMENT:
-      debugger;
       const comment = action.comment;
       return Object.assign({}, state,
         {
@@ -23,7 +22,6 @@ const CommentsReducer = (state=defaultState(), action) => {
       const comments = action.comments;
       return Object.assign({}, state, {comments: comments});
     case DESTROY_COMMENT:
-      console.log("action",action);
       nextState = Object.assign({},state);
       delete nextState.comments[action.comment.id];
       return nextState;

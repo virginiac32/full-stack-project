@@ -24,10 +24,6 @@ class Api::ArtworksController < ApplicationController
       render :index
     else
       render json: @artwork.errors.full_messages, status: 422
-    #   render(
-    #     json: ['Artwork deletion unsuccessful'],
-    #     status: 422
-    #   )
     end
   end
 

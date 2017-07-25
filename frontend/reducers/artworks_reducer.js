@@ -26,7 +26,14 @@ const ArtworksReducer = (state=defaultState(), action) => {
       return nextState;
     case DESTROY_COMMENT:
       nextState = merge({},state);
-      delete nextState.artworks[action.comment.artwork_id].comments[action.comment.id];
+      let allComments = nextState.artworks[action.comment.artwork_id].comments;
+      let thisCommentIdx = null;
+      for (let i = 0; i < allComments.length; i++) {
+        if (allComments[i].id === action.comment.id) {
+          thisCommentIdx = i;
+        }
+      }
+      nextState.artworks[action.comment.artwork_id].comments.splice(thisCommentIdx,1);
       return nextState;
     case RECEIVE_ARTWORKS:
       const artworks = action.artworks;
