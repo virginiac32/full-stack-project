@@ -5,7 +5,6 @@ import {fetchAnnotation, fetchAnnotations, createAnnotation, deleteAnnotation, u
 import {fetchArtwork} from '../../actions/artwork_actions';
 
 const mapStateToProps = (state) => {
-  console.log("thestate",state);
   return {
   artwork: state.artworks.artworks[state.artworks.currentArtwork],
   currentUser: state.session.currentUser,

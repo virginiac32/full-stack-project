@@ -9,7 +9,15 @@ class ArtworkIndex extends React.Component {
 
   componentDidMount(){
     this.props.fetchArtworks();
+    console.log('artwork mounted props',this.props);
   }
+
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.match.params.artworkId !== nextProps.match.params.artworkId) {
+  //     console.log('artworkprops',nextProps.match.params.artworkId);
+  //     this.props.fetchArtworks();
+  //   }
+  // }
 
   render () {
     const {artworks, deleteArtwork} = this.props;

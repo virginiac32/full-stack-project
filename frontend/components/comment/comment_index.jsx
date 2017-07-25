@@ -17,9 +17,9 @@ class CommentIndex extends React.Component {
   }
 
   renderDelete(comment, deleteComment) {
-    if (this.props.currentUser.id === comment.user.id) {
+    if (this.props.currentUser && this.props.currentUser.id === comment.user.id) {
       return (
-        <button onClick={deleteComment.bind(null,comment)}>
+        <button onClick={() => deleteComment(comment)}>
           <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
         </button>
       );
@@ -85,8 +85,9 @@ class CommentIndex extends React.Component {
       <ul className="full-comments">
         {Object.values(artwork.comments).map(comment =>
           <ul className="each-comment">
-            <li><span className="comment-info"><h2>{comment.user.username}</h2><span className="time-since">{this.timeSince(comment.created_at)}</span>{this.renderDelete(comment,deleteComment)}</span></li>
-            <li>{comment.body}</li>
+            <li><span className="comment-info"><h2>{comment.user.username}</h2>{this.renderDelete(comment,deleteComment)}</span></li>
+            <li className="time-since">{this.timeSince(comment.created_at)}</li>
+          <li className="this-comment">{comment.body}</li>
             <div className="comment-votes">
               <button onClick={this.handleUpvote}>
                 <i className="fa fa-arrow-up fa-lg" aria-hidden="true"></i>

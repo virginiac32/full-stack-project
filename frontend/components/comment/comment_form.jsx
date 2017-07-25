@@ -4,14 +4,18 @@ import {withRouter, Link} from 'react-router-dom';
 class CommentForm extends React.Component {
   constructor(props) {
     super(props);
-    const currentUser = this.props.state.session.currentUser;
+    console.log("artwork",this.props.state.artworks.currentArtwork);
+    let currentUser = null;
+    if (this.props.state.session.currentUser) {
+      currentUser = this.props.state.session.currentUser;
+    }
     const currentArtwork = this.props.state.artworks.currentArtwork;
-    console.log(currentArtwork);
+
     this.state = {
         body:"",
         total_score:0,
-        user_id: currentUser.id,
-        artwork_id: currentArtwork
+        user_id: currentUser,
+        artwork_id: this.props.state.artworks.currentArtwork
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,6 +27,9 @@ class CommentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (this.state.user_id === null) {
+      this.props.history.push(`/login`);
+    }
     this.props.createComment({comment: this.state}).then(() =>
     (this.refs.comment_body.value = ""));
   }

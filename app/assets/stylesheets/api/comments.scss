@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .comments {
-  width: 70%;
+  width: 60%;
 }
 
 .comment-info {
@@ -23,21 +23,10 @@
   padding: 0px;
   margin: 0px;
   width: 0px;
-
-  // background-color: #D74643;
-  // border: none;
-  // color: white;
-  // padding: 8px 0px;
-  // width: 100px;
-  // text-align: center;
-  // text-decoration: none;
-  // display: inline-block;
-  // font-size: 14px;
-  // margin: 5px 10px;
 }
 
 .each-comment {
-  border: 1px solid black;
+  border: 1px solid #6A6869;
   padding: 10px;
   margin: 10px 10px;
 }
@@ -52,4 +41,8 @@
 
 .time-since {
   color: #6A6869;
+}
+
+.this-comment {
+  padding: 20px;
 }

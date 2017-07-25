@@ -10,8 +10,6 @@ class AnnotationShow extends React.Component {
 
   componentWillMount(){
     this.props.fetchArtwork(this.props.artwork.id);
-    console.log(this.props);
-
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -24,10 +22,10 @@ class AnnotationShow extends React.Component {
     if (this.props.currentUser.id === annotation.user.id) {
       return (
         <div>
-          <button onClick={updateAnnotation.bind(null,annotation)}>
+          <button onClick={() => updateAnnotation(annotation)}>
             <i className="fa fa-pencil fa-lg" aria-hidden="true"></i>
           </button>
-          <button onClick={deleteAnnotation.bind(null,annotation)}>
+          <button onClick={() => deleteAnnotation(annotation)}>
             <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
           </button>
         </div>
