@@ -43,7 +43,7 @@ class ArtworkDetail extends React.Component {
             <AnnotationShowContainer />
           </div>
           <div className="comments">
-            <span>Comments</span>
+            <h1>Comments</h1>
             <CommentFormContainer />
             <CommentIndexContainer />
           </div>

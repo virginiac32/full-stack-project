@@ -82,17 +82,16 @@ class CommentIndex extends React.Component {
       createVote, deleteVote} = this.props;
     if (!artwork.comments) return null;
     return (
-      <ul>
+      <ul className="full-comments">
         {Object.values(artwork.comments).map(comment =>
-          <ul>
-            <li><h2>{comment.user.username}</h2>   {this.timeSince(comment.created_at)}</li>
+          <ul className="each-comment">
+            <li><span className="comment-info"><h2>{comment.user.username}</h2><span className="time-since">{this.timeSince(comment.created_at)}</span>{this.renderDelete(comment,deleteComment)}</span></li>
             <li>{comment.body}</li>
-              <li>{this.renderDelete(comment,deleteComment)}
-            </li>
-            <div>
+            <div className="comment-votes">
               <button onClick={this.handleUpvote}>
                 <i className="fa fa-arrow-up fa-lg" aria-hidden="true"></i>
               </button>
+              {comment.total_score}
               <button onClick={this.handleDownvote}>
                 <i className="fa fa-arrow-down fa-lg" aria-hidden="true"></i>
               </button>
