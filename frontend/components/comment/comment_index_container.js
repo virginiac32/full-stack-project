@@ -6,7 +6,8 @@ import {fetchArtwork} from '../../actions/artwork_actions';
 
 const mapStateToProps = (state) => {
   return {
-    artwork: state.artworks.artworks[state.artworks.currentArtwork]
+    artwork: state.artworks.artworks[state.artworks.currentArtwork],
+    currentUser: state.session.currentUser
   };
 };
 

@@ -28,11 +28,8 @@ class CommentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createComment({comment: this.state});
-      // .then(data => {
-      //       this.props.history.push(`/comments/${data.comment.id}`);
-            // this.props.fetchArtwork(this.state.artwork_id);
-          // });
+    this.props.createComment({comment: this.state}).then(() =>
+    (this.refs.comment_body.value = null));
   }
 
   render() {
@@ -42,7 +39,7 @@ class CommentForm extends React.Component {
           <h1>Write Comment</h1>
           <ul className="comment-form-list">
             <li>
-              <input className="input" value={this.state.body} onChange={this.update('body')} placeholder="The artwork represents..." />
+              <input className="input" ref="comment_body" value={this.state.body} onChange={this.update('body')} placeholder="The artwork represents..." />
             </li>
             <li>
               <button className="submit-button">Submit</button>

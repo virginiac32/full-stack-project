@@ -4,10 +4,22 @@ import {Link} from 'react-router-dom';
 class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
+
+    this.renderDelete = this.renderDelete.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchArtwork(this.props.artwork.id);
+  }
+
+  renderDelete(comment, deleteComment) {
+    if (this.props.currentUser.id === comment.user.id) {
+      return (
+        <button onClick={deleteComment.bind(null,comment)}>
+          <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+        </button>
+      );
+    }
   }
 
   render () {
@@ -19,9 +31,7 @@ class CommentIndex extends React.Component {
           <ul>
             <li>{comment.body}</li>
             <li>By: {comment.user.username}</li>
-              <li><button onClick={deleteComment.bind(null,comment)}>
-                <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
-              </button>
+              <li>{this.renderDelete(comment,deleteComment)}
             </li>
           </ul>
         )}
