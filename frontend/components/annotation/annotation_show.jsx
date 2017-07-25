@@ -4,33 +4,43 @@ import {Link} from 'react-router-dom';
 class AnnotationShow extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
   }
 
   componentWillMount(){
-    this.props.fetchAnnotation(this.props.match.params.annotationId);
+    this.props.fetchArtwork(this.props.artwork.id);
+    console.log(this.props);
+
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.match.params.annotationId !== nextProps.match.params.annotationId) {
-      this.props.fetchAnnotation(nextProps.match.params.annotationId);
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.match.params.annotationId !== nextProps.match.params.annotationId) {
+  //     this.props.fetchAnnotation(nextProps.match.params.annotationId);
+  //   }
+  // }
 
   render () {
-    const {annotation,annotations,deleteAnnotation,updateAnnotation} = this.props;
-    if (!annotation) return null;
+    const {artwork,deleteAnnotation,updateAnnotation} = this.props;
+    let annotation = null;
+    let annotations = this.props.artwork.annotations;
+    if (this.props.artwork.annotations) {
+      annotation = this.props.artwork.annotations[this.props.currentAnnotation];
+    }
+    console.log("theanno",annotation);
+    console.log("annos",Object.values(annotations));
+    if (!annotations) return null;
 
     return (
       <div className="annotation-body">
-        <ul>
-          <li>User_id (how to get username?): {annotation.user_id}</li>
-          <li>{annotation.body}</li>
-          <li>{annotation.total_score}</li>
-        </ul>
-        <button className="update-button" onClick={() => updateAnnotation(annotation).then(() => this.props.history.push('/annotations/${annotation.id}'))}>Update</button>
-        <button className="delete-button" onClick={() => deleteAnnotation(annotation).then(() => this.props.history.push('/artworks/${annotation.artwork_id}'))}>Delete</button>
-      </div>
+          {Object.values(annotations).map(anno =>
+            <ul>
+              <li>By: {anno.user.username}</li>
+              <li>{anno.body}</li>
+              <li>{anno.total_score}</li>
+            <button className="update-button" onClick={() => updateAnnotation(anno)}>Update</button>
+            <button className="delete-button" onClick={() => deleteAnnotation(anno)}>Delete</button>
+          </ul>
+        )}
+    </div>
     );
   }
 }

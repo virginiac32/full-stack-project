@@ -38,7 +38,10 @@ class ArtworkDetail extends React.Component {
             <li>Date: {artwork.year}</li>
             <li>{artwork.description}</li>
           </ul>
-
+          <div className="annotations">
+            <span>Annotations</span>
+            <AnnotationShowContainer />
+          </div>
           <div className="comments">
             <span>Comments</span>
             <CommentFormContainer />
