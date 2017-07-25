@@ -70,7 +70,7 @@ Artwork.create([
   },
   {
     title: "Antigraceful",
-    description: "In this bust of his mother, Cecilia Forlani Boccioni, the artist employs Cubist distortions and fragmentation to undermine conventional concepts of beauty. The title refers to Boccioni’s rejection of traditional artistic values, a view he expanded on in his 1914 book Pittura, scultura futuriste, "We must smash, demolish, and destroy our traditional harmony, which makes us fall into a gracefulness created by timid and sentimental cubs." Art historians have speculated that Pablo Picasso’s 1909 bronze Head of a Woman influenced Boccioni since the two works have striking stylistic similarities.",
+    description: "In this bust of his mother, Cecilia Forlani Boccioni, the artist employs Cubist distortions and fragmentation to undermine conventional concepts of beauty. The title refers to Boccioni’s rejection of traditional artistic values, a view he expanded on in his 1914 book Pittura, scultura futuriste, \'We must smash, demolish, and destroy our traditional harmony, which makes us fall into a gracefulness created by timid and sentimental cubs.\' Art historians have speculated that Pablo Picasso’s 1909 bronze Head of a Woman influenced Boccioni since the two works have striking stylistic similarities.",
     artist: "Umberto Boccioni",
     user_id: user1.id,
     year: "1913, cast 1950",
