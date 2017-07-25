@@ -13,8 +13,8 @@ const Footer = () => {
           <i className="fa fa-linkedin-square fa-lg" aria-hidden="true"></i>
           </a>
           <i className="fa fa-pencil fa-lg" aria-hidden="true"></i>
-          <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
           <i className="fa fa-dot-circle-o fa-lg" aria-hidden="true"></i>
+            <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
           <i className="fa fa-upload fa-lg" aria-hidden="true"></i>
           <i className="fa fa-arrow-up fa-lg" aria-hidden="true"></i>
           <i className="fa fa-arrow-down fa-lg" aria-hidden="true"></i>

@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom';
 class AnnotationShow extends React.Component {
   constructor(props) {
     super(props);
+
+    this.renderButtons = this.renderButtons.bind(this);
   }
 
   componentWillMount(){
@@ -18,6 +20,21 @@ class AnnotationShow extends React.Component {
   //   }
   // }
 
+  renderButtons(annotation, updateAnnotation, deleteAnnotation) {
+    if (this.props.currentUser.id === annotation.user.id) {
+      return (
+        <div>
+          <button onClick={updateAnnotation.bind(null,annotation)}>
+            <i className="fa fa-pencil fa-lg" aria-hidden="true"></i>
+          </button>
+          <button onClick={deleteAnnotation.bind(null,annotation)}>
+            <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+          </button>
+        </div>
+      );
+    }
+  }
+
   render () {
     const {artwork,deleteAnnotation,updateAnnotation} = this.props;
     let annotation = null;
@@ -25,8 +42,6 @@ class AnnotationShow extends React.Component {
     if (this.props.artwork.annotations) {
       annotation = this.props.artwork.annotations[this.props.currentAnnotation];
     }
-    console.log("theanno",annotation);
-    console.log("annos",Object.values(annotations));
     if (!annotations) return null;
 
     return (
@@ -36,8 +51,7 @@ class AnnotationShow extends React.Component {
               <li>By: {anno.user.username}</li>
               <li>{anno.body}</li>
               <li>{anno.total_score}</li>
-            <button className="update-button" onClick={() => updateAnnotation(anno)}>Update</button>
-            <button className="delete-button" onClick={() => deleteAnnotation(anno)}>Delete</button>
+            {this.renderButtons(anno,updateAnnotation,deleteAnnotation)}
           </ul>
         )}
     </div>

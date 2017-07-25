@@ -44,6 +44,6 @@ column name   | data type | details
 --------------|-----------|-----------------------
 id            | integer   | not null, primary key
 user_id       | integer   | not null, foreign key, indexed
-annotation_id | integer   | foreign key
-comment_id    | integer   | foreign key
+annotation_id | integer   | foreign key, indexed
+comment_id    | integer   | foreign key, indexed
 value         | integer   | not null
