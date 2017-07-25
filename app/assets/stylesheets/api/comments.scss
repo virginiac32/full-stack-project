@@ -12,6 +12,7 @@
   justify-content: space-between;
   align-items: center;
   width: 95%;
+  margin-bottom: 10px;
 }
 
 .each-comment button i {
@@ -27,8 +28,8 @@
 
 .each-comment {
   border: 1px solid #6A6869;
-  padding: 10px;
-  margin: 10px 10px;
+  padding: 20px;
+  margin: 10px 0;
 }
 
 .comment-votes {
@@ -45,4 +46,17 @@
 
 .this-comment {
   padding: 20px;
+}
+
+.comment-form {
+  font-size: 16px;
+  // how to make below width exactly the same as the comment boxes?
+  width: 100%;
+  margin: 5px 0;
+}
+
+.comment-form button {
+  margin: 0;
+  margin-bottom: 10px;
+  width: 20%;
 }

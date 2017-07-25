@@ -3,14 +3,14 @@ import {Link} from 'react-router-dom';
 import CommentIndexContainer from '../comment/comment_index_container';
 import CommentFormContainer from '../comment/comment_form_container';
 import AnnotationShowContainer from '../annotation/annotation_show_container';
-// import Modal from 'react-modal';
 
 class ArtworkDetail extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  componentWillMount(){
+  componentDidMount(){
+    console.log(this.props.match.params.artworkId);
     this.props.fetchArtwork(this.props.match.params.artworkId);
   }
 
@@ -43,7 +43,7 @@ class ArtworkDetail extends React.Component {
             <AnnotationShowContainer />
           </div>
           <div className="comments">
-            <h1>Comments</h1>
+            <h2>RESPONSES</h2>
             <CommentFormContainer />
             <CommentIndexContainer />
           </div>
