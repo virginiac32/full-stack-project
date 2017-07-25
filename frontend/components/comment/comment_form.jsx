@@ -5,17 +5,25 @@ class CommentForm extends React.Component {
   constructor(props) {
     super(props);
     let currentUser = null;
+    const currentArtwork = this.props.state.artworks.currentArtwork;
     if (this.props.state.session.currentUser) {
       currentUser = this.props.state.session.currentUser;
+      this.state = {
+          body:"",
+          total_score:0,
+          user_id: currentUser.id,
+          artwork_id: this.props.state.artworks.currentArtwork
+      };
+    } else {
+      this.state = {
+          body:"",
+          total_score:0,
+          user_id: currentUser,
+          artwork_id: this.props.state.artworks.currentArtwork
+      };
     }
-    const currentArtwork = this.props.state.artworks.currentArtwork;
 
-    this.state = {
-        body:"",
-        total_score:0,
-        user_id: currentUser.id,
-        artwork_id: this.props.state.artworks.currentArtwork
-    };
+
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }

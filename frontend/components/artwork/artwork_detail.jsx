@@ -18,9 +18,9 @@ class ArtworkDetail extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-    this.state.artworks = null;
-  }
+  // componentWillUnmount() {
+  //    = null;
+  // }
 
   render () {
     const {artwork,deleteArtwork} = this.props;

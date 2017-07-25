@@ -69,7 +69,7 @@ class AnnotationShow extends React.Component {
 
   renderUpvoteColor(anno_id) {
     let voteValue = 0;
-    if (this.props.currentUser.votes && this.props.currentUser.votes.Annotation
+    if (this.props.currentUser && this.props.currentUser.votes && this.props.currentUser.votes.Annotation
       && this.props.currentUser.votes.Annotation[anno_id])
       {
         voteValue = this.props.currentUser.votes.Annotation[anno_id].value;
@@ -87,7 +87,7 @@ class AnnotationShow extends React.Component {
 
   renderDownvoteColor(anno_id) {
     let voteValue = 0;
-    if (this.props.currentUser.votes && this.props.currentUser.votes.Annotation
+    if (this.props.currentUser && this.props.currentUser.votes && this.props.currentUser.votes.Annotation
       && this.props.currentUser.votes.Annotation[anno_id])
       {
         voteValue = this.props.currentUser.votes.Annotation[anno_id].value;

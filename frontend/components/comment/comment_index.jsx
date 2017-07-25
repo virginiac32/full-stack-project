@@ -58,7 +58,7 @@ class CommentIndex extends React.Component {
 
   renderUpvoteColor(comment_id) {
     let voteValue = 0;
-    if (this.props.currentUser.votes && this.props.currentUser.votes.Comment
+    if (this.props.currentUser && this.props.currentUser.votes && this.props.currentUser.votes.Comment
       && this.props.currentUser.votes.Comment[comment_id])
       {
         voteValue = this.props.currentUser.votes.Comment[comment_id].value;
@@ -76,7 +76,7 @@ class CommentIndex extends React.Component {
 
   renderDownvoteColor(comment_id) {
     let voteValue = 0;
-    if (this.props.currentUser.votes && this.props.currentUser.votes.Comment
+    if (this.props.currentUser && this.props.currentUser.votes && this.props.currentUser.votes.Comment
       && this.props.currentUser.votes.Comment[comment_id])
       {
         voteValue = this.props.currentUser.votes.Comment[comment_id].value;
@@ -121,7 +121,7 @@ class CommentIndex extends React.Component {
     const {artwork, deleteComment, updateComment, createComment,
       createVote, deleteVote} = this.props;
     if (!artwork.comments) return null;
-    
+
     return (
       <ul className="full-comments">
         {Object.values(artwork.comments).map(comment =>
