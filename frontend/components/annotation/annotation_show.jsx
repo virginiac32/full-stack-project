@@ -42,6 +42,7 @@ class AnnotationShow extends React.Component {
   handleUpvote(e) {
     e.preventDefault();
     let anno_id = parseInt(e.currentTarget.id);
+    console.log(anno_id);
     this.vote(1,anno_id);
   }
 
@@ -128,30 +129,30 @@ class AnnotationShow extends React.Component {
   }
 
   render () {
-    const {artwork,deleteAnnotation,updateAnnotation} = this.props;
-    let annotation = null;
-    let annotations = this.props.artwork.annotations;
-    if (this.props.artwork.annotations) {
-      annotation = this.props.artwork.annotations[this.props.currentAnnotation];
-    }
-    if (!annotations) return null;
+    const {artwork,deleteAnnotation,updateAnnotation, createAnnotation} = this.props;
+    // let annotation = null;
+    // let annotations = this.props.artwork.annotations;
+    // if (this.props.artwork.annotations) {
+    //   annotation = this.props.artwork.annotations[this.props.currentAnnotation];
+    // }
+    console.log("art",artwork);
+    if (!artwork.annotations) return null;
 
     return (
       <div className="annotation-body">
-          {Object.values(annotations).map(anno =>
+          {Object.values(artwork.annotations).map(anno =>
             <ul key={`anno-key-${anno.id}`}>
               <li>By: {anno.user.username}</li>
               <li className="time-since">{this.timeSince(anno.created_at)}</li>
               <li>{anno.body}</li>
-              <li>{anno.total_score}</li>
             {this.renderButtons(anno,updateAnnotation,deleteAnnotation)}
             <div className="annotation-votes">
-              <button onClick={this.handleUpvote} id={annotation.id}>
-                {this.renderUpvoteColor(annotation.id)}
+              <button onClick={this.handleUpvote} id={anno.id}>
+                {this.renderUpvoteColor(anno.id)}
               </button>
-              {annotation.total_score}
-              <button onClick={this.handleDownvote} id={annotation.id}>
-                {this.renderDownvoteColor(annotation.id)}
+              {anno.total_score}
+              <button onClick={this.handleDownvote} id={anno.id}>
+                {this.renderDownvoteColor(anno.id)}
               </button>
             </div>
           </ul>

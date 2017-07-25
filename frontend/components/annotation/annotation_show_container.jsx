@@ -3,12 +3,13 @@ import {connect} from 'react-redux';
 import {fetchAnnotation, fetchAnnotations, createAnnotation, deleteAnnotation, updateAnnotation}
   from '../../actions/annotation_actions';
 import {fetchArtwork} from '../../actions/artwork_actions';
+import {createVote, deleteVote} from '../../actions/vote_actions';
 
 const mapStateToProps = (state) => {
   return {
   // artwork: state.artworks.artworks[state.artworks.currentArtwork],
   currentUser: state.session.currentUser,
-  currentAnnotation: state.annotations.currentAnnotation
+  // currentAnnotation: state.annotations.currentAnnotation
   };
 };
 
@@ -19,6 +20,8 @@ const mapDispatchToProps = (dispatch) => ({
   // fetchAnnotations: id => dispatch(fetchAnnotation(id)),
   deleteAnnotation: (id) => dispatch(deleteAnnotation(id)),
   updateAnnotation: (annotation) => dispatch(updateAnnotation(annotation)),
+  createVote: vote => dispatch(createVote(vote)),
+  deleteVote: vote => dispatch(deleteVote(vote))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(AnnotationShow);

@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   createComment: (comment) => dispatch(createComment(comment)),
   fetchComments: artwork_id => dispatch(fetchComments(artwork_id)),
-  updateComment: comment => dispatch(updateComment(comment)),
+  // updateComment: comment => dispatch(updateComment(comment)),
   deleteComment: comment => dispatch(deleteComment(comment)),
   createVote: vote => dispatch(createVote(vote)),
   deleteVote: vote => dispatch(deleteVote(vote))
