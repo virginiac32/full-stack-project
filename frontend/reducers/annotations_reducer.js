@@ -16,7 +16,7 @@ const AnnotationsReducer = (state=defaultState(), action) => {
   switch (action.type) {
     case RECEIVE_ANNOTATION:
       const annotation = action.annotation;
-      return Object.assign({}, defaultState(),
+      return Object.assign({}, state,
         {
           annotations: {[annotation.id]: annotation},
           currentAnnotation: annotation.id
