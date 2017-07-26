@@ -6,15 +6,23 @@ import AnnotationShowContainer from '../annotation/annotation_show_container';
 
 class ArtworkDetail extends React.Component {
 
-  componentWillMount(){
-    this.props.fetchArtwork(this.props.match.params.artworkId);
-    console.log(this.props);
-    console.log(this.state);
+  componentDidMount(){
+    this.props.fetchArtwork(this.props.match.params.artworkId)
+    .then(
+      () => {
+        this.props.fetchComments(this.props.artwork.id);
+        this.props.fetchAnnotations(this.props.artwork.id);
+    });
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.artworkId !== nextProps.match.params.artworkId) {
-      this.props.fetchArtwork(nextProps.match.params.artworkId);
+      this.props.fetchArtwork(nextProps.match.params.artworkId)
+        .then(
+          () => {
+            this.props.fetchComments(nextProps.match.params.artworkId);
+            this.props.fetchAnnotations(nextProps.match.params.artworkId);
+        });
     }
   }
 
@@ -46,12 +54,12 @@ class ArtworkDetail extends React.Component {
             </ul>
             <div className="annotations">
               <span>Annotations</span>
-              <AnnotationShowContainer artwork={artwork}/>
+              <AnnotationShowContainer annotations={this.props.annotations}/>
             </div>
             <div className="comments">
               <h2>RESPONSES</h2>
               <CommentFormContainer />
-              <CommentIndexContainer artwork={artwork}/>
+              <CommentIndexContainer comments={this.props.comments}/>
             </div>
           </div>
       </div>

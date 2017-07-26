@@ -6,8 +6,10 @@ export const fetchComment = (id) => (
 );
 
 export const fetchComments = (artwork_id = null) => {
-  $.ajax({
+  return $.ajax({
     method: 'GET',
+    // url: "/api/comments",
+    // data: (artwork_id ? { artwork_id } : {})
     url: `api/artworks/${artwork_id}/comments`
   });
 };

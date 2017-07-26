@@ -29,9 +29,9 @@ export const fetchComment = (id) => dispatch => {
 };
 
 export const fetchComments = (artwork_id) => dispatch => {
-  return CommentAPIUtil.fetchComments(artwork_id).then(
-    comments => dispatch(receiveComments(comments)),
-    errors => dispatch(receiveErrors(errors.responseJSON))
+  return CommentAPIUtil.fetchComments(artwork_id)
+    .then(comments => dispatch(receiveComments(comments)),
+        errors => dispatch(receiveErrors(errors.responseJSON))
   );
 };
 

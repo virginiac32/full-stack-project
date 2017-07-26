@@ -118,13 +118,13 @@ class CommentIndex extends React.Component {
   }
 
   render () {
-    const {artwork, deleteComment, updateComment, createComment,
+    const {comments, deleteComment, updateComment, createComment,
       createVote, deleteVote} = this.props;
-    if (!artwork.comments) return null;
+    if (!comments) return null;
 
     return (
       <ul className="full-comments">
-        {Object.values(artwork.comments).map(comment =>
+        {Object.values(comments).map(comment =>
           <ul className="each-comment" key={`comment-key-${comment.id}`}>
             <li><span className="comment-info"><h2>{comment.user.username}</h2>{this.renderDelete(comment,deleteComment)}</span></li>
             <li className="time-since">{this.timeSince(comment.created_at)}</li>

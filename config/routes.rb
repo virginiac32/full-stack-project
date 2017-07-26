@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:index]
     end
     resources :annotations, only: [:create, :update, :destroy, :show]
-    resources :comments, only: [:create, :update, :destroy, :show]
+    resources :comments, only: [:create, :update, :destroy, :show, :index]
     resources :votes, only: [:create, :destroy]
   end
 

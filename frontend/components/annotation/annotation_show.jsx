@@ -129,18 +129,17 @@ class AnnotationShow extends React.Component {
   }
 
   render () {
-    const {artwork,deleteAnnotation,updateAnnotation, createAnnotation} = this.props;
+    const {annotations,deleteAnnotation,updateAnnotation, createAnnotation} = this.props;
     // let annotation = null;
     // let annotations = this.props.artwork.annotations;
     // if (this.props.artwork.annotations) {
     //   annotation = this.props.artwork.annotations[this.props.currentAnnotation];
     // }
-    console.log("art",artwork);
-    if (!artwork.annotations) return null;
+    if (!annotations) return null;
 
     return (
       <div className="annotation-body">
-          {Object.values(artwork.annotations).map(anno =>
+          {Object.values(annotations).map(anno =>
             <ul key={`anno-key-${anno.id}`}>
               <li>By: {anno.user.username}</li>
               <li className="time-since">{this.timeSince(anno.created_at)}</li>

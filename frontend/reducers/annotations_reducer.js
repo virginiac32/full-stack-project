@@ -12,24 +12,24 @@ const defaultState = () => ({
 
 const AnnotationsReducer = (state=defaultState(), action) => {
   Object.freeze(state);
-  let nextState = [];
+  let nextState;
   switch (action.type) {
     case RECEIVE_ANNOTATION:
       const annotation = action.annotation;
-      return Object.assign({}, state,
+      return Object.assign({}, defaultState(),
         {
           annotations: {[annotation.id]: annotation},
           currentAnnotation: annotation.id
         });
     case RECEIVE_ANNOTATIONS:
       const annotations2 = action.annotations;
-      return Object.assign({}, state, {annotations: annotations2});
+      return Object.assign({}, defaultState(), {annotations: annotations2});
 
     // do I need the below case?
-    case RECEIVE_ARTWORK:
-      nextState = Object.assign({}, state, {annotations: action.annotations});
-      nextState.currentAnnotation = null;
-      return nextState;
+    // case RECEIVE_ARTWORK:
+    //   nextState = merge({}, state, {annotations: action.annotations});
+    //   nextState.currentAnnotation = null;
+    //   return nextState;
     case RECEIVE_ANNOTATION_VOTE:
       nextState = merge({},state);
       if (nextState.annotations[action.vote.votable_id]) {
@@ -41,7 +41,7 @@ const AnnotationsReducer = (state=defaultState(), action) => {
       console.log("nstate",nextState);
       if (nextState.annotations && nextState.annotations[action.vote.votable_id]) {
         nextState.annotations[action.vote.votable_id].total_score -= action.vote.value;
-      } 
+      }
       return nextState;
     case DESTROY_ANNOTATION:
       nextState = Object.assign({},state);

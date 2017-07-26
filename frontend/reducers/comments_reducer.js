@@ -11,20 +11,21 @@ const defaultState = () => ({
 
 const CommentsReducer = (state=defaultState(), action) => {
   Object.freeze(state);
-  let nextState = [];
+  let nextState;
   switch (action.type) {
     case RECEIVE_COMMENT:
-      const comment = action.comment;
-      return Object.assign({}, state,
+      // const comment = action.comment;
+      return merge({}, defaultState(),
         {
-          comments: {[comment.id]: comment},
-          currentComment: comment.id
+          comments: {[action.comment.id]: action.comment},
+          currentComment: action.comment.id
         });
     case RECEIVE_COMMENTS:
-      const comments = action.comments;
-      return Object.assign({}, state, {comments: comments});
+      nextState = Object.assign({}, defaultState());
+      nextState.comments = merge(nextState.comments, action.comments);
+      return nextState;
     case DESTROY_COMMENT:
-      nextState = Object.assign({},state);
+      nextState = merge({},state);
       delete nextState.comments[action.comment.id];
       return nextState;
     case RECEIVE_COMMENT_VOTE:

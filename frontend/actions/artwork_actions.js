@@ -23,7 +23,8 @@ export const destroyArtwork = artwork => ({
 // async thunk action creators
 export const fetchArtwork = (id) => dispatch => {
   return ArtworkAPIUtil.fetchArtwork(id).then(
-    (artwork2) => {dispatch(receiveArtwork(artwork2));
+    (artwork) => {dispatch(receiveArtwork(artwork));
+      return artwork;
   });
 };
 
