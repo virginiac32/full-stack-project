@@ -5,6 +5,25 @@ import CommentFormContainer from '../comment/comment_form_container';
 import AnnotationShowContainer from '../annotation/annotation_show_container';
 
 class ArtworkDetail extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      annotations: this.props.annotations,
+      user: this.props.currentUser,
+      artwork: this.props.artwork,
+      annotationFormOpen: false,
+      annotationOpen: false,
+      annotationFormPos:[],
+      isMouseInside: false
+    };
+
+    this.handleClick = this.handleClick.bind(this);
+    this.openAnnotationForm = this.openAnnotationForm.bind(this);
+    this.closeAnnotationForm = this.closeAnnotationForm.bind(this);
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+  }
 
   componentDidMount(){
     this.props.fetchArtwork(this.props.match.params.artworkId)
@@ -30,6 +49,37 @@ class ArtworkDetail extends React.Component {
   //    = null;
   // }
 
+  openAnnotationForm(e) {
+    // more
+    this.setState(
+      {annotationFormOpen: true,
+        annotationFormPos: [this.x_pos, this.y_pos]
+    });
+  }
+
+  closeAnnotationForm() {
+    // more
+    this.setState(
+      {annotationFormOpen: false,
+        annotationFormPos: []
+    });
+  }
+
+  handleClick(e) {
+    if (this.state.annotationFormOpen === true) {
+      this.closeAnnotationForm();
+    }
+    // more
+  }
+
+  handleMouseOver() {
+    this.setState({ isMouseInside: true });
+  }
+
+  handleMouseOut() {
+    this.setState({ isMouseInside: false });
+  }
+
   render () {
     const {artwork,deleteArtwork} = this.props;
     if (!artwork) return null;
@@ -42,8 +92,11 @@ class ArtworkDetail extends React.Component {
         <div className="artwork-detail">
           <Link to="/">Back Home</Link>
           <div className="artwork-image">
-            <img className="artwork-img" src={artwork.link} alt={artwork.title} />
-            <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>Delete</button>
+            <div className="just-artwork" onClick={this.handleClick} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
+              <img className="artwork-img" src={artwork.link} alt={artwork.title} />
+              {this.state.isMouseInside ? <button>Your Button</button> : null}
+            </div>
+          <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>Delete</button>
           </div>
           <div className="artwork-detail-bottom">
             <ul className="artwork-detailed-info">

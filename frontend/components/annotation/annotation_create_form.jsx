@@ -6,14 +6,13 @@ class AnnotationCreateForm extends React.Component {
     super(props);
     const currentUser = this.props.state.session.currentUser;
     const currentArtwork = this.props.state.artworks.currentArtwork;
-    console.log(currentArtwork);
     this.state = {
         body:"",
         total_score:0,
         user_id: currentUser.id,
         artwork_id: currentArtwork,
-        x_pos:1,
-        y_pos:2
+        x_pos:null,
+        y_pos:null
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
