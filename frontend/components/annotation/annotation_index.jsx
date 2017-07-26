@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-class AnnotationShow extends React.Component {
+class AnnotationIndex extends React.Component {
   constructor(props) {
     super(props);
 
@@ -129,34 +129,37 @@ class AnnotationShow extends React.Component {
   }
 
   render () {
-    const {annotation, user, artwork, deleteAnnotation,updateAnnotation, createAnnotation} = this.props;
+    const {annotations,deleteAnnotation,updateAnnotation, createAnnotation} = this.props;
     console.log(this.props);
     // let annotation = null;
     // let annotations = this.props.artwork.annotations;
     // if (this.props.artwork.annotations) {
     //   annotation = this.props.artwork.annotations[this.props.currentAnnotation];
     // }
-    if (!annotation) return null;
+    if (!annotations) return null;
 
     return (
-      <div className="annotation-body" style={this.props.style}>
-              <li>By: {user.username}</li>
-              <li className="time-since">{this.timeSince(annotation.created_at)}</li>
-              <li>{annotation.body}</li>
-            {this.renderButtons(annotation,updateAnnotation,deleteAnnotation)}
+      <div className="annotation-body">
+          {Object.values(annotations).map(anno =>
+            <ul key={`anno-key-${anno.id}`} style={this.props.style}>
+              <li>By: {anno.user.username}</li>
+              <li className="time-since">{this.timeSince(anno.created_at)}</li>
+              <li>{anno.body}</li>
+            {this.renderButtons(anno,updateAnnotation,deleteAnnotation)}
             <div className="annotation-votes">
-              <button onClick={this.handleUpvote} id={annotation.id}>
-                {this.renderUpvoteColor(annotation.id)}
+              <button onClick={this.handleUpvote} id={anno.id}>
+                {this.renderUpvoteColor(anno.id)}
               </button>
-              {annotation.total_score}
-              <button onClick={this.handleDownvote} id={annotation.id}>
-                {this.renderDownvoteColor(annotation.id)}
+              {anno.total_score}
+              <button onClick={this.handleDownvote} id={anno.id}>
+                {this.renderDownvoteColor(anno.id)}
               </button>
             </div>
+          </ul>
         )}
     </div>
     );
   }
 }
 
-export default AnnotationShow;
+export default AnnotationIndex;

@@ -19,7 +19,8 @@ class ArtworkDetail extends React.Component {
       annotationPixelPos:[],
       annotationBoxPos:[],
       annotationBoxStyle:{},
-      isMouseInside: false
+      isMouseInside: false,
+      currentAnno: {}
     };
 
     this.handleImageClick = this.handleImageClick.bind(this);
@@ -85,8 +86,10 @@ class ArtworkDetail extends React.Component {
 
     this.setState(
       {annotationOpen: true,
-        annotationBoxStyle: style
+        annotationBoxStyle: style,
+        currentAnno: currentAnno
     });
+    console.log(this.state);
   }
 
   // closes the form or the annotation
@@ -94,7 +97,8 @@ class ArtworkDetail extends React.Component {
     this.setState(
       {annotationFormOpen: false,
         annotationOpen: false,
-        annotationPosition: []
+        annotationPosition: [],
+        currentAnno: {}
     });
   }
 
@@ -166,7 +170,7 @@ class ArtworkDetail extends React.Component {
               <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
               {this.state.annotationFormOpen ? <AnnotationCreateFormContainer style={this.state.annotationBoxStyle} position={this.state.annotationPosition} user={this.state.user} artwork={this.state.artwork} /> : null}
               <button onClick={this.handleAnnoClick}></button>
-              {this.state.annotationOpen ? <AnnotationShowContainer style={this.state.annotationBoxStyle} /> : null}
+              {this.state.annotationOpen ? <AnnotationShowContainer style={this.state.annotationBoxStyle} user={this.state.user} artwork={this.state.artwork} annotation={this.state.currentAnno} /> : null}
             </div>
           <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>Delete</button>
           <div className="artwork-detail-bottom">
