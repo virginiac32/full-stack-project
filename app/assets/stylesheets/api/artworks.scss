@@ -81,7 +81,6 @@
 }
 
 .pointers {
-  // padding: 5px;
   background-color: transparent;
   margin: 0;
   width: 0;
@@ -91,9 +90,7 @@
 .artwork-image:hover .pointers {
   display: block;
 }
-// .child{ display:none; }
-// .parent:hover .child{ display:block; }
 
-// .pointers:hover {
-//   transform: scale(1.1);
-// }
+.pointers i:hover {
+  transform: scale(1.1);
+}
