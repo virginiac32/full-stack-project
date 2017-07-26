@@ -29,8 +29,8 @@ class AnnotationCreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createAnnotation({annotation: this.state})
-      .then(data => { this.props.history.push(`/annotations/${data.annotation.id}`);});
+    this.props.createAnnotation({annotation: this.state});
+      // .then(data => { this.props.history.push(`/annotations/${data.annotation.id}`);});
   }
 
   render() {

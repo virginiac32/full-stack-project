@@ -50,7 +50,9 @@ class ArtworkDetail extends React.Component {
   // }
 
   openAnnotationForm(e) {
-    // more
+    this.x_pos = Math.floor(e.pageX - $("#artwork-img").offset().left);
+    this.y_pos = Math.floor(e.pageY - $("#artwork-img").offset().top);
+    
     this.setState(
       {annotationFormOpen: true,
         annotationFormPos: [this.x_pos, this.y_pos]
@@ -93,7 +95,7 @@ class ArtworkDetail extends React.Component {
           <Link to="/">Back Home</Link>
           <div className="artwork-image">
             <div className="just-artwork" onClick={this.handleClick} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
-              <img className="artwork-img" src={artwork.link} alt={artwork.title} />
+              <img id="artwork-img" className="artwork-img" src={artwork.link} alt={artwork.title} />
               {this.state.isMouseInside ? <button>Your Button</button> : null}
             </div>
           <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>Delete</button>
