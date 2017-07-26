@@ -34,11 +34,16 @@ class AnnotationCreateForm extends React.Component {
       x_pos:this.props.position[0],
       y_pos:this.props.position[1]
     }});
+    // is the below correct?
+    this.setState({opacity:0});
   }
 
   render() {
+    // let style = this.props.style;
+    // style[top] = style[top]-($("#annotation-create-update").height()/2);
+    //
     return (
-      <div className="annotation-create-update">
+      <div style={this.props.style} className="annotation-create-update" id="annotation-create-update">
         <form className="annotation-form" onSubmit={this.handleSubmit}>
           <h1>Annotate</h1>
           <ul className="annotation-form-list">

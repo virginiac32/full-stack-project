@@ -15,7 +15,9 @@ class ArtworkDetail extends React.Component {
       artwork: this.props.artwork,
       annotationFormOpen: false,
       annotationOpen: false,
-      annotationFormPos:[],
+      annotationPosition:[],
+      annotationPixelPos:[],
+      annotationBoxPos:[],
       isMouseInside: false
     };
 
@@ -24,6 +26,8 @@ class ArtworkDetail extends React.Component {
     this.closeAnnotationForm = this.closeAnnotationForm.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseOut = this.handleMouseOut.bind(this);
+    this.setAnnotationBoxPos = this.setAnnotationBoxPos.bind(this);
+
   }
 
   componentDidMount(){
@@ -51,21 +55,30 @@ class ArtworkDetail extends React.Component {
   // }
 
   openAnnotationForm(e) {
-    console.log(e);
-    this.x_pos = Math.floor(e.pageX - $("#artwork-img").offset().left);
-    this.y_pos = Math.floor(e.pageY - $("#artwork-img").offset().top);
+    let xPixelPos = Math.floor(e.pageX - $("#artwork-img").offset().left);
+    let yPixelPos = Math.floor(e.pageY - $("#artwork-img").offset().top);
+    this.setState({annotationPixelPos: [xPixelPos, yPixelPos]});
+    console.log(xPixelPos);
+    console.log($("#artwork-img").width());
+
+    // save position values as percentage of image size
+    this.x_pos = (xPixelPos/($("#artwork-img").width()))*100;
+    this.y_pos = (yPixelPos/($("#artwork-img").height()))*100;
 
     this.setState(
       {annotationFormOpen: true,
-        annotationFormPos: [this.x_pos, this.y_pos]
+        annotationPosition: [this.x_pos, this.y_pos]
     });
   }
+
+  setAnnotationBoxPos(annotationPosition) {
+    }
 
   closeAnnotationForm() {
     // more
     this.setState(
       {annotationFormOpen: false,
-        annotationFormPos: []
+        annotationPosition: []
     });
   }
 
@@ -92,6 +105,31 @@ class ArtworkDetail extends React.Component {
   render () {
     const {artwork,deleteArtwork} = this.props;
     if (!artwork) return null;
+
+    // styling position of annotation box
+    let top = this.state.annotationPixelPos[1];
+    // if y_pos is less than 15% from the top of the image, offset the height of the annotation box
+    if (this.y_pos < 15) {
+      top = this.state.annotationPixelPos[1] + (($("#artwork-img").height())/6);
+    }
+
+    let side = (this.x_pos < 50 ? 'left' : 'right');
+
+    let style = {};
+    if (side === 'left') {
+      style = {
+        position: 'absolute',
+        top: top,
+        left: '0px'
+      };
+    } else {
+      style = {
+        position: 'absolute',
+        top: top,
+        right: '0px'
+      };
+    }
+
     // if (this.props.artwork === null) {
     //   return (
     //     <i className="fa fa-spinner fa-lg" aria-hidden="true"></i>
@@ -102,7 +140,7 @@ class ArtworkDetail extends React.Component {
           <Link to="/">Back Home</Link>
           <div className="artwork-image">
               <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
-              {this.state.annotationFormOpen ? <AnnotationCreateFormContainer position={this.state.annotationFormPos} user={this.state.user} artwork={this.state.artwork} /> : null}
+              {this.state.annotationFormOpen ? <AnnotationCreateFormContainer style={style} position={this.state.annotationPosition} user={this.state.user} artwork={this.state.artwork} /> : null}
             </div>
           <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>Delete</button>
           <div className="artwork-detail-bottom">
