@@ -140,7 +140,7 @@ class AnnotationShow extends React.Component {
     return (
       <div className="annotation-body">
           {Object.values(annotations).map(anno =>
-            <ul key={`anno-key-${anno.id}`}>
+            <ul key={`anno-key-${anno.id}`} style={this.props.style}>
               <li>By: {anno.user.username}</li>
               <li className="time-since">{this.timeSince(anno.created_at)}</li>
               <li>{anno.body}</li>
