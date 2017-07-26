@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import CommentIndexContainer from '../comment/comment_index_container';
 import CommentFormContainer from '../comment/comment_form_container';
 import AnnotationShowContainer from '../annotation/annotation_show_container';
+import AnnotationPointers from '../annotation/annotation_pointers';
 import {AnnotationCreateFormContainer} from '../annotation/annotation_form_container';
 
 class ArtworkDetail extends React.Component {
@@ -103,7 +104,7 @@ class ArtworkDetail extends React.Component {
   }
 
   handleImageClick(e) {
-    if (this.state.annotationFormOpen === true) {
+    if (this.state.annotationFormOpen === true || this.state.annotationOpen === true) {
       this.closeAnnotation();
     } else {
       this.openAnnotationForm(e);
@@ -163,13 +164,16 @@ class ArtworkDetail extends React.Component {
     //     <i className="fa fa-spinner fa-lg" aria-hidden="true"></i>
     //   );
     // } else {
+
+    let imageDimensions = [($("#artwork-img").width()),($("#artwork-img").height())];
+
       return (
         <div className="artwork-detail">
           <Link to="/">Back Home</Link>
-          <div className="artwork-image">
+            <div className="artwork-image">
               <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
+              {this.state.isMouseInside ? <AnnotationPointers handleAnnoClick={this.handleAnnoClick} annotations={this.props.annotations} imageDimensions={imageDimensions}/> : null}
               {this.state.annotationFormOpen ? <AnnotationCreateFormContainer style={this.state.annotationBoxStyle} position={this.state.annotationPosition} user={this.state.user} artwork={this.state.artwork} /> : null}
-              <button onClick={this.handleAnnoClick}></button>
               {this.state.annotationOpen ? <AnnotationShowContainer style={this.state.annotationBoxStyle} user={this.state.user} artwork={this.state.artwork} annotation={this.state.currentAnno} /> : null}
             </div>
           <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>Delete</button>
