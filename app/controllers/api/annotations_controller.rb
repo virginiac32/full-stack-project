@@ -10,6 +10,7 @@ class Api::AnnotationsController < ApplicationController
     if @annotation.save
       render :show
     else
+      p @annotation.errors.full_messages
       render json: @annotation.errors.full_messages, status: 422
     end
   end

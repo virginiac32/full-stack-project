@@ -37,14 +37,14 @@ export const fetchAnnotations = (artwork_id) => dispatch => {
 
 export const createAnnotation = (annotation) => dispatch => {
   return AnnotationAPIUtil.createAnnotation(annotation).then(
-    ({artwork, annotation2}) => dispatch(receiveArtwork(artwork, annotation2)),
+    (annotation2) => dispatch(receiveArtwork(annotation2)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   );
 };
 
 export const updateAnnotation = (annotation) => dispatch => {
   return AnnotationAPIUtil.updateAnnotation(annotation).then(
-    ({artwork, annotation2}) => dispatch(receiveArtwork(artwork, annotation2)),
+    (annotation2) => dispatch(receiveArtwork(annotation2)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   );
 };

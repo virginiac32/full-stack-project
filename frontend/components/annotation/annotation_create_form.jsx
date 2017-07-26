@@ -4,6 +4,7 @@ import {withRouter, Link} from 'react-router-dom';
 class AnnotationCreateForm extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
 
     this.state = {
         body:"",
@@ -23,15 +24,15 @@ class AnnotationCreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const currentUser = this.props.state.session.currentUser;
-    const currentArtwork = this.props.state.artworks.currentArtwork;
+    const currentUser = this.props.user.id;
+    const currentArtwork = this.props.match.params.artworkId;
     this.props.createAnnotation({annotation: {
       body:this.state.body,
       total_score:0,
-      user_id: currentUser.id,
+      user_id: currentUser,
       artwork_id: currentArtwork,
-      x_pos:this.props.annotationFormPos[0],
-      y_pos:this.props.annotationFormPos[1]
+      x_pos:this.props.position[0],
+      y_pos:this.props.position[1]
     }});
   }
 

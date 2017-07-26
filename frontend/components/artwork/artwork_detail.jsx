@@ -102,7 +102,7 @@ class ArtworkDetail extends React.Component {
           <Link to="/">Back Home</Link>
           <div className="artwork-image">
               <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
-              {this.state.annotationFormOpen ? <AnnotationCreateFormContainer position={this.state.annotationFormPos} /> : null}
+              {this.state.annotationFormOpen ? <AnnotationCreateFormContainer position={this.state.annotationFormPos} user={this.state.user} artwork={this.state.artwork} /> : null}
             </div>
           <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>Delete</button>
           <div className="artwork-detail-bottom">

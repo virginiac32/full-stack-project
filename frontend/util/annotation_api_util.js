@@ -12,14 +12,14 @@ export const fetchAnnotations = (artwork_id) => {
   });
 };
 
-export const createAnnotation = (annotation) => (
-  $.ajax({
+export const createAnnotation = (annotation) => {
+  return $.ajax({
     method: 'POST',
     url: 'api/annotations/',
     dataType: 'json',
     data: annotation
-  })
-);
+  });
+};
 
 export const updateAnnotation = (annotation) => {
   return $.ajax({

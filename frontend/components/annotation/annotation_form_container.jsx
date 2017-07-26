@@ -3,10 +3,10 @@ import AnnotationUpdateForm from './annotation_update_form';
 import AnnotationCreateForm from './annotation_create_form';
 import {createAnnotation, updateAnnotation, fetchAnnotation} from '../../actions/annotation_actions';
 
-const mapStateToProps = ({annotation, location}) => {
+const mapStateToProps = ({location}) => {
   // console.log(state);
   // console.log(location.pathname);
-  return {annotation: annotation};
+  // return {annotation: annotation, artwork: artwork};
   // location: location.pathname};
 };
 
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export const AnnotationUpdateFormContainer = connect(mapStateToProps,mapDispatchToProps)(AnnotationUpdateForm);
-export const AnnotationCreateFormContainer = connect(mapStateToProps,mapDispatchToProps)(AnnotationCreateForm);
+export const AnnotationCreateFormContainer = connect(null,mapDispatchToProps)(AnnotationCreateForm);
