@@ -19,13 +19,13 @@
 }
 
 .artwork-image {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  // padding-top: 20px;
+  // padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+  // width: 60%;
   // correct?
   position: relative;
 }
@@ -78,4 +78,10 @@
 
 .slick-image:hover {
   transform: scale(1.1);
+}
+
+.pointers {
+  padding: 0;
+  margin: 0;
+  width: 0;
 }

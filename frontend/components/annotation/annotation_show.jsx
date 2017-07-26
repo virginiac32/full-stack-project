@@ -130,7 +130,6 @@ class AnnotationShow extends React.Component {
 
   render () {
     const {annotation, user, artwork, deleteAnnotation,updateAnnotation, createAnnotation} = this.props;
-    console.log(this.props);
     // let annotation = null;
     // let annotations = this.props.artwork.annotations;
     // if (this.props.artwork.annotations) {

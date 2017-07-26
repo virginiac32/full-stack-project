@@ -7,7 +7,7 @@ const Footer = () => {
       <img className="footer-logo" height="45" src="http://res.cloudinary.com/virginia-chen/image/upload/v1500533990/logo_frxltw.png" alt="Logo" />
         <h2>Crowdsourced art knowledge</h2>
           <a href="https://github.com/virginiac32/full-stack-project">
-          <i className="fa fa-github fa-lg" aria-hidden="true"></i>
+          <i id="github" className="fa fa-github fa-lg" aria-hidden="true"></i>
           </a>
           <a href="https://www.linkedin.com/in/virginia-chen/">
           <i className="fa fa-linkedin-square fa-lg" aria-hidden="true"></i>
