@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import CommentIndexContainer from '../comment/comment_index_container';
 import CommentFormContainer from '../comment/comment_form_container';
 import AnnotationShowContainer from '../annotation/annotation_show_container';
+import {AnnotationCreateFormContainer} from '../annotation/annotation_form_container';
 
 class ArtworkDetail extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class ArtworkDetail extends React.Component {
       isMouseInside: false
     };
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleImageClick = this.handleImageClick.bind(this);
     this.openAnnotationForm = this.openAnnotationForm.bind(this);
     this.closeAnnotationForm = this.closeAnnotationForm.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
@@ -50,9 +51,10 @@ class ArtworkDetail extends React.Component {
   // }
 
   openAnnotationForm(e) {
+    console.log(e);
     this.x_pos = Math.floor(e.pageX - $("#artwork-img").offset().left);
     this.y_pos = Math.floor(e.pageY - $("#artwork-img").offset().top);
-    
+
     this.setState(
       {annotationFormOpen: true,
         annotationFormPos: [this.x_pos, this.y_pos]
@@ -67,11 +69,16 @@ class ArtworkDetail extends React.Component {
     });
   }
 
-  handleClick(e) {
+  handleImageClick(e) {
     if (this.state.annotationFormOpen === true) {
       this.closeAnnotationForm();
+    } else {
+      this.openAnnotationForm(e);
     }
-    // more
+  }
+
+  handlePointerClick(e) {
+
   }
 
   handleMouseOver() {
@@ -94,12 +101,10 @@ class ArtworkDetail extends React.Component {
         <div className="artwork-detail">
           <Link to="/">Back Home</Link>
           <div className="artwork-image">
-            <div className="just-artwork" onClick={this.handleClick} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}>
-              <img id="artwork-img" className="artwork-img" src={artwork.link} alt={artwork.title} />
-              {this.state.isMouseInside ? <button>Your Button</button> : null}
+              <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
+              {this.state.annotationFormOpen ? <AnnotationCreateFormContainer position={this.state.annotationFormPos} /> : null}
             </div>
           <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>Delete</button>
-          </div>
           <div className="artwork-detail-bottom">
             <ul className="artwork-detailed-info">
               <li><h2><b>{artwork.title}</b></h2></li>

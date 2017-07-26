@@ -3,10 +3,10 @@ import AnnotationUpdateForm from './annotation_update_form';
 import AnnotationCreateForm from './annotation_create_form';
 import {createAnnotation, updateAnnotation, fetchAnnotation} from '../../actions/annotation_actions';
 
-const mapStateToProps = (state, {location}) => {
+const mapStateToProps = ({annotation, location}) => {
   // console.log(state);
   // console.log(location.pathname);
-  return {state: state};
+  return {annotation: annotation};
   // location: location.pathname};
 };
 
