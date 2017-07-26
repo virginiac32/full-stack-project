@@ -124,8 +124,9 @@ class ArtworkDetail extends React.Component {
     this.setState({ isMouseInside: true });
   }
 
-  handleMouseOut() {
-    this.setState({ isMouseInside: false });
+  handleMouseOut(e) {
+    this.setState({ isMouseInside: true });
+    console.log(e);
   }
 
   annotationBoxStyle(x_pos,y_pos,yPixelPos) {
@@ -171,8 +172,8 @@ class ArtworkDetail extends React.Component {
         <div className="artwork-detail">
           <Link to="/">Back Home</Link>
             <div className="artwork-image">
-                <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
-                {this.state.isMouseInside ? <AnnotationPointers handleAnnoClick={this.handleAnnoClick} annotations={this.props.annotations} imageDimensions={imageDimensions}/> : null}
+                <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} onMouseOver={this.handleMouseOver} onMouseLeave={this.handleMouseOut}/>
+                {this.state.isMouseInside? <AnnotationPointers handleAnnoClick={this.handleAnnoClick} annotations={this.props.annotations} imageDimensions={imageDimensions}/> : null}
                 {this.state.annotationFormOpen ? <AnnotationCreateFormContainer style={this.state.annotationBoxStyle} position={this.state.annotationPosition} user={this.state.user} artwork={this.state.artwork} /> : null}
                 {this.state.annotationOpen ? <AnnotationShowContainer style={this.state.annotationBoxStyle} user={this.state.user} artwork={this.state.artwork} annotation={this.state.currentAnno} /> : null}
             </div>

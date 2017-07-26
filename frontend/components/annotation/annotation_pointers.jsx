@@ -17,6 +17,7 @@ const AnnotationPointers = ({annotations,imageDimensions,handleAnnoClick}) => {
     return {pixelAnno: pixelAnno, style: style};
   });
 
+
   return (
     <div className="pointers">
     {annotationsWithPixelPos.map(anno =>
