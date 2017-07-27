@@ -52,8 +52,6 @@ class AnnotationCreateForm extends React.Component {
       y_pos:this.props.position[1]
     }});
     this.props.closeAnnotation();
-    // // is the below correct?
-    // this.setState({opacity:0});
   }
 
   render() {

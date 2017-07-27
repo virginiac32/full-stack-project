@@ -18,6 +18,8 @@ class ArtworkDetail extends React.Component {
       loading: true
     };
 
+    console.log(this.props);
+
   }
 
   componentDidMount(){
@@ -31,6 +33,9 @@ class ArtworkDetail extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // if (this.props.errors) {
+    //   this.props.clearErrors();
+    // }
     if (this.props.match.params.artworkId !== nextProps.match.params.artworkId) {
       this.props.fetchArtwork(nextProps.match.params.artworkId)
         .then(
@@ -48,7 +53,7 @@ class ArtworkDetail extends React.Component {
 
   renderErrors() {
     return (
-      <ul className="session-errors">
+      <ul className="errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -57,16 +62,6 @@ class ArtworkDetail extends React.Component {
       </ul>
     );
   }
-
-  // renderDelete(artwork, deleteArtwork) {
-  //   if (this.props.currentUser && (this.props.currentUser.id === artwork.user.id)) {
-  //     return (
-  //       <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>
-  //         <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-  //       </button>
-  //     );
-  //   }
-  // }
 
   render () {
     const {artwork,deleteArtwork, annotations,comments} = this.props;
@@ -78,7 +73,7 @@ class ArtworkDetail extends React.Component {
       return (
         <div className='sweet-loading'>
                 <DotLoader
-                  color={'#123abc'}
+                  color={'#45484D'}
                   loading={this.state.loading}
                 />
         </div>
@@ -87,8 +82,9 @@ class ArtworkDetail extends React.Component {
 
     return (
       <div className="artwork-detail">
-        <AnnotationPointers annotations={annotations} artwork={artwork} deleteArtwork={deleteArtwork}/>
-
+        <AnnotationPointers annotations={annotations} artwork={artwork}
+          deleteArtwork={deleteArtwork} currentUser={this.props.currentUser}
+          history={this.props.history}/>
           <div className="artwork-detail-bottom">
           <ul className="artwork-detailed-info">
             <li><h1><b>{artwork.title}</b></h1></li>

@@ -36,12 +36,23 @@ class AnnotationPointers extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(this.setState({spinner: false}), 5000);
+    // this code doesnt do anything, but annotation pointers don't initially show up without it
+    setTimeout(this.setState({spinner: false}), 1000);
     window.addEventListener("resize", this.handleResize);
   }
 
   componentWillUnmount() {
       window.removeEventListener("resize", this.handleResize);
+  }
+
+  renderDelete(artwork, deleteArtwork) {
+    if (this.props.currentUser && (this.props.currentUser.id === artwork.user_id)) {
+      return (
+        <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>
+          <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+        </button>
+      );
+    }
   }
 
   handleResize(e) {
@@ -154,11 +165,15 @@ class AnnotationPointers extends React.Component {
       let artwork = this.props.artwork;
       let allAnnos = merge({},this.props.annotations);
       // returns the annotations with their absolute positions on the screen
+      console.log("top offset", $("#artwork-img").offset().top);
       let annotationsWithPixelPos = Object.keys(allAnnos).map(anno => {
         let pixelAnno = allAnnos[anno];
-        pixelAnno['x_pos'] = Math.floor(((pixelAnno['x_pos']*imageDimensions[0])/100)+$("#artwork-img").offset().left);
-        pixelAnno['y_pos'] = Math.floor(((pixelAnno['y_pos']*imageDimensions[1])/100))-($("#github").width()/2);
-
+        pixelAnno['x_pos'] = Math.floor(((pixelAnno['x_pos']*imageDimensions[0])/100))+$("#artwork-img").offset().left;
+        pixelAnno['y_pos'] = Math.floor(pixelAnno['y_pos']*($("#artwork-img").height()/100))-$("#artwork-img").offset().top;
+        // if (pixelAnno['y_pos'] < $("#artwork-img").offset().top) {
+        //   pixelAnno['y_pos'] = $("#artwork-img").offset().top;
+        // }
+        // console.log("before offset", Math.floor(pixelAnno['y_pos']*($("#artwork-img").height()/100)));
         let style = {
           position: 'absolute',
           top: pixelAnno['y_pos']+'px',
@@ -180,18 +195,20 @@ class AnnotationPointers extends React.Component {
 
   render () {
     let artwork = this.props.artwork;
-
       return (
         <div className="artwork-image" >
-          <button className="delete-button" onClick={() => this.props.deleteArtwork(artwork).then(() => this.props.history.push('/'))}>
-            <i className="fa fa-trash-o fa-1x" aria-hidden="true"></i>
-          </button>
+          {this.renderDelete(artwork,this.props.deleteArtwork)}
             <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} />
               <div className="pointers">
                 {this.renderPointers()}
               </div>
-            {this.state.annotationFormOpen ? <AnnotationCreateFormContainer style={this.state.annotationBoxStyle} position={this.state.annotationPosition} user={this.state.user} artwork={this.state.artwork} closeAnnotation={this.closeAnnotation}/> : null}
-            {this.state.annotationOpen ? <AnnotationShowContainer style={this.state.annotationBoxStyle} artwork={this.state.artwork} annotation={this.state.currentAnno} closeAnnotation={this.closeAnnotation} /> : null}
+            {this.state.annotationFormOpen ? <AnnotationCreateFormContainer
+              style={this.state.annotationBoxStyle} position={this.state.annotationPosition}
+              user={this.state.user} artwork={this.state.artwork}
+              closeAnnotation={this.closeAnnotation} /> : null}
+            {this.state.annotationOpen ? <AnnotationShowContainer
+              style={this.state.annotationBoxStyle} artwork={this.state.artwork}
+              annotation={this.state.currentAnno} closeAnnotation={this.closeAnnotation} /> : null}
         </div>
 
 

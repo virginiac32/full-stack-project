@@ -23,8 +23,6 @@ class CommentForm extends React.Component {
       };
     }
 
-
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -37,8 +35,11 @@ class CommentForm extends React.Component {
     if (this.state.user_id === null) {
       this.props.history.push(`/login`);
     }
-    this.props.createComment({comment: this.state}).then(() =>
-    (this.refs.comment_body.value = ""));
+    this.props.createComment({comment: this.state}).then(() => {
+    this.props.clearErrors();
+    this.refs.comment_body.value = "";
+    document.body.scrollTop = document.body.scrollHeight;
+    });
   }
 
   renderSubmit() {

@@ -82,3 +82,15 @@
     border-radius: 3px;
     margin: 5px 10px;
 }
+
+.errors {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  color: crimson;
+  list-style: none;
+  font-size: 14px;
+  // margin-bottom: 5px;
+  width: 75%;
+  text-align: center;
+}
