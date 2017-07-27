@@ -13,3 +13,11 @@
 .down-vote i {
   color: red;
 }
+
+.votes, .action-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 20%;
+}

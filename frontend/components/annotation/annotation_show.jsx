@@ -27,7 +27,7 @@ class AnnotationShow extends React.Component {
   renderButtons(annotation, updateAnnotation, deleteAnnotation) {
     if (this.props.currentUser && this.props.currentUser.id === annotation.user.id) {
       return (
-        <div>
+        <div className="action-buttons">
           <button onClick={() => {this.props.closeAnnotation(); updateAnnotation(annotation).then(this.props.receiveAnnotation);}}>
             <i className="fa fa-pencil fa-lg" aria-hidden="true"></i>
           </button>
@@ -139,11 +139,12 @@ class AnnotationShow extends React.Component {
 
     return (
       <div className="annotation-body" style={this.props.style}>
-              <li>By: {currentUser.username}</li>
+            <i className="fa fa-times fa-lg" aria-hidden="true" onClick={this.props.closeAnnotation}></i>
+              <li>{currentUser.username}</li>
               <li className="time-since">{this.timeSince(annotation.created_at)}</li>
               <li>{annotation.body}</li>
             {this.renderButtons(annotation,updateAnnotation,deleteAnnotation)}
-            <div className="annotation-votes">
+            <div className="votes">
               <button onClick={this.handleUpvote} id={annotation.id}>
                 {this.renderUpvoteColor(annotation.id)}
               </button>

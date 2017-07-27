@@ -8,18 +8,34 @@
     bottom: 0;
 }
 
-.annotation-create-update {
+// .annotation-create-update {
+//   background-color: white;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   width: 15%;
+// }
+
+.annotation-body, .annotation-create-update {
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 17%;
+  width: 15%;
+  padding: 20px;
 }
 
-.annotation-body {
+.annotation-body button {
   background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 17%;
+  padding: 0px;
+  margin: 0px;
+  width: 0px;
+}
+
+.action-buttons i, .annotation-body i {
+  color: #D74643;
+}
+
+.action-buttons i:hover, .annotation-body i:hover {
+  color: #7D2927;
 }

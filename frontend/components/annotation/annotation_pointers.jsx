@@ -26,6 +26,7 @@ class AnnotationPointers extends React.Component {
     };
 
     this.handleImageClick = this.handleImageClick.bind(this);
+    // this.handleWrapperClick = this.handleWrapperClick.bind(this);
     this.handleAnnoClick = this.handleAnnoClick.bind(this);
     this.openAnnotationForm = this.openAnnotationForm.bind(this);
     this.openAnnotation = this.openAnnotation.bind(this);
@@ -96,6 +97,12 @@ class AnnotationPointers extends React.Component {
     }
   }
 
+  // handleWrapperClick(e) {
+  //   if (this.state.annotationFormOpen === true || this.state.annotationOpen === true) {
+  //     this.closeAnnotation();
+  //   }
+  // }
+
   handleAnnoClick(annoId,e) {
     e.preventDefault();
     if (this.state.annotationOpen === true) {
@@ -120,13 +127,13 @@ class AnnotationPointers extends React.Component {
       style = {
         position: 'absolute',
         top: top,
-        left: '2%'
+        left: '1%'
       };
     } else {
       style = {
         position: 'absolute',
         top: top,
-        right: '2%'
+        right: '1%'
       };
     }
     return style;
@@ -152,7 +159,7 @@ class AnnotationPointers extends React.Component {
 
     return (
 
-      <div className="artwork-image">
+      <div className="artwork-image" >
           <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} />
             <div className="pointers">
             {annotationsWithPixelPos.map(anno =>

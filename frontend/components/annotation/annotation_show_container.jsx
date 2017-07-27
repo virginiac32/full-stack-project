@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {receiveAnnotation, fetchAnnotation, fetchAnnotations, createAnnotation, deleteAnnotation, updateAnnotation}
   from '../../actions/annotation_actions';
 import {fetchArtwork} from '../../actions/artwork_actions';
-import {createVote, deleteVote} from '../../actions/vote_actions';
+import {createVote, deleteVote, receiveAnnotationVote} from '../../actions/vote_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -22,7 +22,8 @@ const mapDispatchToProps = (dispatch) => ({
   deleteAnnotation: (id) => dispatch(deleteAnnotation(id)),
   updateAnnotation: (annotation) => dispatch(updateAnnotation(annotation)),
   createVote: vote => dispatch(createVote(vote)),
-  deleteVote: vote => dispatch(deleteVote(vote))
+  deleteVote: vote => dispatch(deleteVote(vote)),
+  receiveAnnotationVote: vote => dispatch(receiveAnnotationVote(vote))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(AnnotationShow);

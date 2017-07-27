@@ -21,7 +21,7 @@ class CommentIndex extends React.Component {
   renderDelete(comment, deleteComment) {
     if (this.props.currentUser && this.props.currentUser.id === comment.user.id) {
       return (
-        <button className="delete-comment" onClick={() => deleteComment(comment)}>
+        <button className="action-buttons" onClick={() => deleteComment(comment)}>
           <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
         </button>
       );
@@ -129,7 +129,7 @@ class CommentIndex extends React.Component {
             <li><span className="comment-info"><h2>{comment.user.username}</h2>{this.renderDelete(comment,deleteComment)}</span></li>
             <li className="time-since">{this.timeSince(comment.created_at)}</li>
           <li className="this-comment">{comment.body}</li>
-            <div className="comment-votes">
+            <div className="votes">
               <button onClick={this.handleUpvote} id={comment.id}>
                 {this.renderUpvoteColor(comment.id)}
               </button>
