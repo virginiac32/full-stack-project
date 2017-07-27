@@ -22,8 +22,7 @@ class AnnotationPointers extends React.Component {
       annotationBoxStyle:{},
       isMouseInside: false,
       currentAnno: {},
-      windowResize:[],
-      spinner: true
+      windowResize:[]
     };
 
     this.handleImageClick = this.handleImageClick.bind(this);
@@ -149,29 +148,39 @@ class AnnotationPointers extends React.Component {
     return style;
   }
 
-  render () {
-    let imageDimensions = [($("#artwork-img").width()),($("#artwork-img").height())];
-    let artwork = this.props.artwork;
-    let allAnnos = merge({},this.props.annotations);
-    // returns the annotations with their absolute positions on the screen
-    let annotationsWithPixelPos = Object.keys(allAnnos).map(anno => {
-      let pixelAnno = allAnnos[anno];
-      pixelAnno['x_pos'] = Math.floor(((pixelAnno['x_pos']*imageDimensions[0])/100)+$("#artwork-img").offset().left);
-      pixelAnno['y_pos'] = Math.floor(((pixelAnno['y_pos']*imageDimensions[1])/100))-($("#github").width()/2);
+  renderPointers() {
+    if ($("#artwork-img").offset()) {
+      let imageDimensions = [($("#artwork-img").width()),($("#artwork-img").height())];
+      let artwork = this.props.artwork;
+      let allAnnos = merge({},this.props.annotations);
+      // returns the annotations with their absolute positions on the screen
+      let annotationsWithPixelPos = Object.keys(allAnnos).map(anno => {
+        let pixelAnno = allAnnos[anno];
+        pixelAnno['x_pos'] = Math.floor(((pixelAnno['x_pos']*imageDimensions[0])/100)+$("#artwork-img").offset().left);
+        pixelAnno['y_pos'] = Math.floor(((pixelAnno['y_pos']*imageDimensions[1])/100))-($("#github").width()/2);
 
-      let style = {
-        position: 'absolute',
-        top: pixelAnno['y_pos']+'px',
-        left: pixelAnno['x_pos']+'px'
-      };
-      return {pixelAnno: pixelAnno, style: style};
-    });
+        let style = {
+          position: 'absolute',
+          top: pixelAnno['y_pos']+'px',
+          left: pixelAnno['x_pos']+'px'
+        };
+        return {pixelAnno: pixelAnno, style: style};
+      });
 
-    if (this.state.spinner === true) {
       return (
-        <i className="fa fa-spinner fa-5x" aria-hidden="true"></i>
-      );
-    } else {
+        annotationsWithPixelPos.map(anno => (
+          <button className="pointers" key={`anno-pointer-${anno.pixelAnno.id}`} onClick={this.handleAnnoClick.bind(null,anno.pixelAnno.id)} style={anno.style}>
+            <i id="pointer" className="fa fa-dot-circle-o fa-lg" aria-hidden="true"></i>
+          </button>
+        )
+      )
+    );
+    }
+  }
+
+  render () {
+    let artwork = this.props.artwork;
+
       return (
         <div className="artwork-image" >
           <button className="delete-button" onClick={() => this.props.deleteArtwork(artwork).then(() => this.props.history.push('/'))}>
@@ -179,11 +188,7 @@ class AnnotationPointers extends React.Component {
           </button>
             <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} />
               <div className="pointers">
-              {annotationsWithPixelPos.map(anno =>
-                <button className="pointers" key={`anno-pointer-${anno.pixelAnno.id}`} onClick={this.handleAnnoClick.bind(null,anno.pixelAnno.id)} style={anno.style}>
-                  <i id="pointer" className="fa fa-dot-circle-o fa-lg" aria-hidden="true"></i>
-                </button>
-              )}
+                {this.renderPointers()}
               </div>
             {this.state.annotationFormOpen ? <AnnotationCreateFormContainer style={this.state.annotationBoxStyle} position={this.state.annotationPosition} user={this.state.user} artwork={this.state.artwork} closeAnnotation={this.closeAnnotation}/> : null}
             {this.state.annotationOpen ? <AnnotationShowContainer style={this.state.annotationBoxStyle} artwork={this.state.artwork} annotation={this.state.currentAnno} closeAnnotation={this.closeAnnotation} /> : null}
@@ -192,7 +197,6 @@ class AnnotationPointers extends React.Component {
 
       );
     }
-  }
 
 }
 

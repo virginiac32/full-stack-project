@@ -89,16 +89,21 @@ class ArtworkCreate extends React.Component {
                 <textarea rows="6" cols="50" value={this.state.body} onChange={this.update('description')} />
               </label>
             </li>
-            <li>
-              {this.uploadButton()}
-              <span>Uploaded Artwork: {this.showThumbnail()}</span>
-            </li>
-            <li>
-              <button className="create-button">Submit</button>
-            </li>
-          </ul>
+            </ul>
+
+
+            {this.uploadButton()}
+              <li id="uploaded-artwork">
+              Uploaded Artwork:
+              </li>
+              <li>
+              {this.showThumbnail()}
+              </li>
+
+                <button className="create-button">Submit</button>
+
+          <button onClick={this.goBack}>Cancel</button>
         </form>
-        <button onClick={this.goBack}>Cancel</button>
       </div>
     );
   }

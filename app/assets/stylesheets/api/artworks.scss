@@ -1,6 +1,7 @@
 // Place all the styles related to the Api::Artworks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//
 
 .artwork-detail {
   display: flex;
@@ -73,6 +74,18 @@
   padding: 20px;
 }
 
+.artwork-create label {
+  padding: 5px 0;
+}
+
+.artwork-create input {
+  margin: 5px 0;
+}
+
+.artwork-form-list textarea {
+  border: gray;
+}
+
 .pointers {
   background-color: transparent;
   margin: 0;
@@ -102,3 +115,14 @@
 .pointers i:hover, .delete-button i:hover {
   transform: scale(1.1);
 }
+
+#uploaded-artwork {
+  margin-bottom: 10px;
+}
+
+// .upload-items {
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: column;
+//   align-items: center;
+// }

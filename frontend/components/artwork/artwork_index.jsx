@@ -47,9 +47,9 @@ class ArtworkIndex extends React.Component {
     }
 
     return (
-      <Slider {...settings}>
-        {ArtworkIndexItems}
-      </Slider>
+        <Slider {...settings}>
+          {ArtworkIndexItems}
+        </Slider>
     );
   }
 }

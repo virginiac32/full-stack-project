@@ -21,7 +21,7 @@ class ArtworkDetail extends React.Component {
   }
 
   componentDidMount(){
-    setTimeout(this.setState({loading: false}), 5000);
+    setTimeout(() => this.setState({loading: false}), 1000);
     this.props.fetchArtwork(this.props.match.params.artworkId)
     .then(
       () => {
@@ -81,9 +81,9 @@ class ArtworkDetail extends React.Component {
                   color={'#123abc'}
                   loading={this.state.loading}
                 />
-              </div>
+        </div>
       );
-    }
+    } else {
 
     return (
       <div className="artwork-detail">
@@ -105,6 +105,7 @@ class ArtworkDetail extends React.Component {
     </div>
     );
   }
+}
 }
 
 export default ArtworkDetail;
