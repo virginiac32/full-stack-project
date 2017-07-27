@@ -45,6 +45,7 @@
   flex-direction: column;
   align-items: flex-start;
   width: 60%;
+  margin: 20px 0;
 }
 
 .artwork-detailed-info li {
@@ -70,10 +71,6 @@
   flex-direction: column;
   justify-content: center;
   padding: 20px;
-}
-
-.slick-image:hover {
-  transform: scale(1.1);
 }
 
 .pointers {

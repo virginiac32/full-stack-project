@@ -3,7 +3,11 @@
 }
 
 .slick-image {
-  height: 30vh;
+  height: 35vh;
+}
+
+.slick-image:hover {
+  transform: scale(1.05);
 }
 
 .slick-initialized slick-slider {
@@ -12,5 +16,5 @@
 }
 
 .slick-slide {
-  padding: 10px;
+  padding: 12px;
 }

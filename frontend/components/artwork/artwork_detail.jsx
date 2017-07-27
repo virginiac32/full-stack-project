@@ -5,6 +5,7 @@ import CommentFormContainer from '../comment/comment_form_container';
 // import AnnotationShowContainer from '../annotation/annotation_show_container';
 import AnnotationPointers from '../annotation/annotation_pointers';
 // import {AnnotationCreateFormContainer} from '../annotation/annotation_form_container';
+import {DotLoader} from 'react-spinners';
 
 class ArtworkDetail extends React.Component {
   constructor(props) {
@@ -14,13 +15,13 @@ class ArtworkDetail extends React.Component {
       annotations: this.props.annotations,
       user: this.props.currentUser,
       artwork: this.props.artwork,
-      spinner: true
+      loading: true
     };
 
   }
 
   componentDidMount(){
-    setTimeout(this.setState({spinner: false}), 5000);
+    setTimeout(this.setState({loading: false}), 5000);
     this.props.fetchArtwork(this.props.match.params.artworkId)
     .then(
       () => {
@@ -73,33 +74,36 @@ class ArtworkDetail extends React.Component {
 
     // setTimeout(this.setState({spinner: false}), 5000);
 
-    if (this.state.spinner === true) {
+    if (this.state.loading === true) {
       return (
-        <i className="fa fa-spinner fa-5x" aria-hidden="true"></i>
-      );
-    } else {
-
-      return (
-        <div className="artwork-detail">
-          <AnnotationPointers annotations={annotations} artwork={artwork} deleteArtwork={deleteArtwork}/>
-
-            <div className="artwork-detail-bottom">
-            <ul className="artwork-detailed-info">
-              <li><h2><b>{artwork.title}</b></h2></li>
-              <li>Artist: {artwork.artist}</li>
-              <li>Date: {artwork.year}</li>
-              <li>{artwork.description}</li>
-              {this.renderErrors()}
-            </ul>
-            <div className="comments">
-              <h2>RESPONSES</h2>
-              <CommentFormContainer />
-              <CommentIndexContainer comments={comments}/>
-            </div>
-          </div>
-      </div>
+        <div className='sweet-loading'>
+                <DotLoader
+                  color={'#123abc'}
+                  loading={this.state.loading}
+                />
+              </div>
       );
     }
+
+    return (
+      <div className="artwork-detail">
+        <AnnotationPointers annotations={annotations} artwork={artwork} deleteArtwork={deleteArtwork}/>
+
+          <div className="artwork-detail-bottom">
+          <ul className="artwork-detailed-info">
+            <li><h1><b>{artwork.title}</b></h1></li>
+            <li>Artist: {artwork.artist}</li>
+            <li>Date: {artwork.year}</li>
+            <li>{artwork.description}</li>
+            {this.renderErrors()}
+          </ul>
+          <div className="comments">
+            <CommentFormContainer />
+            <CommentIndexContainer comments={comments}/>
+          </div>
+        </div>
+    </div>
+    );
   }
 }
 
