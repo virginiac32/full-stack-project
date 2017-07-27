@@ -129,17 +129,18 @@ class AnnotationShow extends React.Component {
   }
 
   render () {
-    const {annotation, user, artwork, deleteAnnotation,updateAnnotation, createAnnotation} = this.props;
+    const {annotation, currentUser, artwork, deleteAnnotation,updateAnnotation, createAnnotation} = this.props;
     // let annotation = null;
     // let annotations = this.props.artwork.annotations;
     // if (this.props.artwork.annotations) {
     //   annotation = this.props.artwork.annotations[this.props.currentAnnotation];
     // }
+    console.log(this.props);
     if (!annotation) return null;
 
     return (
       <div className="annotation-body" style={this.props.style}>
-              <li>By: {user.username}</li>
+              <li>By: {currentUser.username}</li>
               <li className="time-since">{this.timeSince(annotation.created_at)}</li>
               <li>{annotation.body}</li>
             {this.renderButtons(annotation,updateAnnotation,deleteAnnotation)}

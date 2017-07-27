@@ -6,11 +6,9 @@ import {fetchArtwork} from '../../actions/artwork_actions';
 import {createVote, deleteVote} from '../../actions/vote_actions';
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
   // artwork: state.artworks.artworks[state.artworks.currentArtwork],
-  currentUser: state.session.currentUser,
-  annotation: state.annotations,
+  currentUser: state.session.currentUser
   // currentAnnotation: state.annotations.currentAnnotation
   };
 };
@@ -26,4 +24,4 @@ const mapDispatchToProps = (dispatch) => ({
   deleteVote: vote => dispatch(deleteVote(vote))
 });
 
-export default connect(null,mapDispatchToProps)(AnnotationShow);
+export default connect(mapStateToProps,mapDispatchToProps)(AnnotationShow);
