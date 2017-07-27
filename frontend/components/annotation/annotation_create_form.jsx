@@ -39,6 +39,7 @@ class AnnotationCreateForm extends React.Component {
       x_pos:this.props.position[0],
       y_pos:this.props.position[1]
     }});
+    this.props.closeAnnotation();
     // // is the below correct?
     // this.setState({opacity:0});
   }
@@ -60,7 +61,7 @@ class AnnotationCreateForm extends React.Component {
             </li>
           </ul>
         </form>
-        <button onClick={this.goBack}>Cancel</button>
+        <button onClick={this.props.closeAnnotation}>Cancel</button>
       </div>
     );
   }

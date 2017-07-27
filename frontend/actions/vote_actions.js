@@ -29,7 +29,7 @@ export const destroyCommentVote = vote => ({
 export const createVote = (vote) => dispatch => {
   return VoteAPIUtil.createVote(vote).then(
     (vote2) => {
-      if (vote.votable_type === 'Annotation') {
+      if (vote2.votable_type === 'Annotation') {
         dispatch(receiveAnnotationVote(vote2));
       } else {
         dispatch(receiveCommentVote(vote2));
@@ -41,7 +41,7 @@ export const createVote = (vote) => dispatch => {
 export const deleteVote = (vote) => dispatch => {
   return VoteAPIUtil.deleteVote(vote).then(
     (vote2) => {
-      if (vote.votable_type === 'Annotation') {
+      if (vote2.votable_type === 'Annotation') {
         dispatch(destroyAnnotationVote(vote2));
       } else {
         dispatch(destroyCommentVote(vote2));

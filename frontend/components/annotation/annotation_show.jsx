@@ -17,7 +17,7 @@ class AnnotationShow extends React.Component {
   // componentWillMount(){
   //   this.props.fetchArtwork(this.props.artwork.id);
   // }
-
+  //
   // componentWillReceiveProps(nextProps) {
   //   if (this.props.match.params.annotationId !== nextProps.match.params.annotationId) {
   //     this.props.fetchAnnotation(nextProps.match.params.annotationId);
@@ -28,10 +28,10 @@ class AnnotationShow extends React.Component {
     if (this.props.currentUser && this.props.currentUser.id === annotation.user.id) {
       return (
         <div>
-          <button onClick={() => updateAnnotation(annotation)}>
+          <button onClick={() => {this.props.closeAnnotation(); updateAnnotation(annotation).then(this.props.receiveAnnotation);}}>
             <i className="fa fa-pencil fa-lg" aria-hidden="true"></i>
           </button>
-          <button onClick={() => deleteAnnotation(annotation)}>
+          <button onClick={() => {this.props.closeAnnotation(); deleteAnnotation(annotation).then(this.props.receiveAnnotation);}}>
             <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
           </button>
         </div>
@@ -135,7 +135,6 @@ class AnnotationShow extends React.Component {
     // if (this.props.artwork.annotations) {
     //   annotation = this.props.artwork.annotations[this.props.currentAnnotation];
     // }
-    console.log(this.props);
     if (!annotation) return null;
 
     return (
@@ -148,7 +147,7 @@ class AnnotationShow extends React.Component {
               <button onClick={this.handleUpvote} id={annotation.id}>
                 {this.renderUpvoteColor(annotation.id)}
               </button>
-              {annotation.total_score}
+              {this.props.annotation.total_score}
               <button onClick={this.handleDownvote} id={annotation.id}>
                 {this.renderDownvoteColor(annotation.id)}
               </button>

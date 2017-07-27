@@ -68,8 +68,6 @@ class AnnotationPointers extends React.Component {
 
   openAnnotation(annoId) {
     let currentAnno = this.props.annotations[annoId];
-    console.log("props",this.props);
-    console.log(currentAnno);
     let yPixelPos = ((currentAnno.y_pos)*($("#artwork-img").height()))/100;
     let style = this.annotationBoxStyle(currentAnno.x_pos, currentAnno.y_pos,yPixelPos);
 
@@ -163,8 +161,8 @@ class AnnotationPointers extends React.Component {
               </button>
             )}
             </div>
-          {this.state.annotationFormOpen ? <AnnotationCreateFormContainer style={this.state.annotationBoxStyle} position={this.state.annotationPosition} user={this.state.user} artwork={this.state.artwork} /> : null}
-          {this.state.annotationOpen ? <AnnotationShowContainer style={this.state.annotationBoxStyle} artwork={this.state.artwork} annotation={this.state.currentAnno} /> : null}
+          {this.state.annotationFormOpen ? <AnnotationCreateFormContainer style={this.state.annotationBoxStyle} position={this.state.annotationPosition} user={this.state.user} artwork={this.state.artwork} closeAnnotation={this.closeAnnotation}/> : null}
+          {this.state.annotationOpen ? <AnnotationShowContainer style={this.state.annotationBoxStyle} artwork={this.state.artwork} annotation={this.state.currentAnno} closeAnnotation={this.closeAnnotation} /> : null}
       </div>
 
 
