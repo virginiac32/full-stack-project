@@ -14,13 +14,13 @@ class ArtworkDetail extends React.Component {
       annotations: this.props.annotations,
       user: this.props.currentUser,
       artwork: this.props.artwork,
-      spinner: true
+      spinner: false
     };
 
   }
 
-  componentDidMount(){
-    setTimeout(this.setState({spinner: false}), 5000);
+  componentWillMount(){
+    // setTimeout(this.setState({spinner: false}), 5000);
     this.props.fetchArtwork(this.props.match.params.artworkId)
     .then(
       () => {
@@ -57,6 +57,16 @@ class ArtworkDetail extends React.Component {
     );
   }
 
+  // renderDelete(artwork, deleteArtwork) {
+  //   if (this.props.currentUser && (this.props.currentUser.id === artwork.user.id)) {
+  //     return (
+  //       <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>
+  //         <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+  //       </button>
+  //     );
+  //   }
+  // }
+
   render () {
     const {artwork,deleteArtwork, annotations,comments} = this.props;
     if (!artwork) return null;
@@ -71,8 +81,10 @@ class ArtworkDetail extends React.Component {
         <div className="artwork-detail">
           <Link to="/">Back Home</Link>
           <AnnotationPointers annotations={annotations} artwork={artwork}/>
-          <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>Delete</button>
-          <div className="artwork-detail-bottom">
+            <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>
+              <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+            </button>
+            <div className="artwork-detail-bottom">
             <ul className="artwork-detailed-info">
               <li><h2><b>{artwork.title}</b></h2></li>
               <li>Artist: {artwork.artist}</li>
