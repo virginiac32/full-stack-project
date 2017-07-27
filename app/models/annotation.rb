@@ -3,5 +3,5 @@ class Annotation < ApplicationRecord
 
   belongs_to :user
   belongs_to :artwork
-  has_many :votes, as: :votable
+  has_many :votes, as: :votable, dependent: :destroy
 end

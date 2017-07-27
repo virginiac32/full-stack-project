@@ -3,7 +3,7 @@ class Comment < ApplicationRecord
 
   belongs_to :user
   belongs_to :artwork
-  has_many :votes, as: :votable
+  has_many :votes, as: :votable, dependent: :destroy
 
   # def self.by_artwork(artwork_id)
   #   self.includes(:artwork).where("artworks.id" => artwork_id)

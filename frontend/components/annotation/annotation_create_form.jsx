@@ -67,15 +67,13 @@ class AnnotationCreateForm extends React.Component {
             </li>
             <li>
             <textarea className="comment-form" rows="6"
-                ref="comment_body" value={this.state.body}
+                ref="comment_body" value={this.state.body} autoFocus={focus}
                 onChange={this.update('body')} placeholder="Make an annotation..." />
             </li>
-            <li>
-              {this.renderSubmit()}
-            </li>
           </ul>
+          {this.renderSubmit()}
+          <button onClick={this.props.closeAnnotation}>Cancel</button>
         </form>
-        <button onClick={this.props.closeAnnotation}>Cancel</button>
       </div>
     );
   }

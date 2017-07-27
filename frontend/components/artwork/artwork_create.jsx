@@ -86,7 +86,7 @@ class ArtworkCreate extends React.Component {
             </li>
             <li>
               <label>Description:
-                <textarea rows="6" cols="50" value={this.state.body} onChange={this.update('description')} />
+                <textarea rows="6" cols="50" value={this.state.body} onChange={this.update('description')} placeholder="The artwork depicts..."/>
               </label>
             </li>
             </ul>

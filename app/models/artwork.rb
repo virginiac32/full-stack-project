@@ -2,8 +2,8 @@ class Artwork < ApplicationRecord
   validates :title, :artist, :user, :link, presence: true
 
   belongs_to :user
-  has_many :annotations
-  has_many :comments
+  has_many :annotations, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   # are the below correct?
   has_many :votes,
