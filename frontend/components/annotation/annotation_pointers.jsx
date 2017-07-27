@@ -164,6 +164,9 @@ class AnnotationPointers extends React.Component {
 
     return (
       <div className="artwork-image" >
+        <button className="delete-button" onClick={() => this.props.deleteArtwork(artwork).then(() => this.props.history.push('/'))}>
+          <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+        </button>
           <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} />
             <div className="pointers">
             {annotationsWithPixelPos.map(anno =>

@@ -56,7 +56,7 @@ class CommentForm extends React.Component {
   render() {
     return (
       <div className="comment-create">
-        <form className="comment-form" onSubmit={this.handleSubmit}>
+        <form className="comment-form-all" onSubmit={this.handleSubmit}>
           <ul className="comment-form-list">
             <li>
               <textarea className="comment-form" rows="6"

@@ -32,7 +32,7 @@
 }
 
 .artwork-detail-bottom {
-  background-color: white;
+  background-color: #F7F3F5;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -83,14 +83,21 @@
   display: none;
 }
 
-// .artwork-image {
-//   min-height: 300px;
-// }
+.delete-button {
+  display: none;
+  margin: 0;
+  width: 0;
+  background-color: transparent;
+  color: #D74643;
+  position: absolute;
+  bottom: 0;
+  right: 4%;
+}
 
-.artwork-image:hover .pointers {
+.artwork-image:hover .pointers, .artwork-image:hover .delete-button {
   display: block;
 }
 
-.pointers i:hover {
+.pointers i:hover, .delete-button i:hover {
   transform: scale(1.1);
 }

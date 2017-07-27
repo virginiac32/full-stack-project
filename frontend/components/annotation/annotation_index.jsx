@@ -76,11 +76,11 @@ class AnnotationIndex extends React.Component {
       }
     if (voteValue === 1) {
       return (
-        <span className="up-vote"><i className="fa fa-arrow-up fa-lg" aria-hidden="true"></i></span>
+        <span className="up-vote"><i className="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></span>
       );
     } else {
       return (
-        <span className="no-vote"><i className="fa fa-arrow-up fa-lg" aria-hidden="true"></i></span>
+        <span className="no-vote"><i className="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></span>
       );
     }
   }
@@ -94,11 +94,11 @@ class AnnotationIndex extends React.Component {
       }
     if (voteValue === -1) {
       return (
-        <span className="down-vote"><i className="fa fa-arrow-down fa-lg" aria-hidden="true"></i></span>
+        <span className="down-vote"><i className="fa fa-thumbs-down fa-lg" aria-hidden="true"></i></span>
       );
     } else {
       return (
-        <span className="no-vote"><i className="fa fa-arrow-down fa-lg" aria-hidden="true"></i></span>
+        <span className="no-vote"><i className="fa fa-thumbs-down fa-lg" aria-hidden="true"></i></span>
       );
     }
   }

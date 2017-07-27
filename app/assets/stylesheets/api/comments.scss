@@ -31,9 +31,10 @@
 }
 
 .each-comment {
-  border: 1px solid #6A6869;
+  border: 1px solid #F7F3F5;
   padding: 20px;
-  margin: 10px 0;
+  // margin: 10px 0;
+  background-color: white;
 }
 
 .comment-votes {
@@ -56,12 +57,12 @@
   font-size: 16px;
   // how to make below width exactly the same as the comment boxes?
   width: 100%;
-  margin: 5px 0;
+  padding: 5px;
 }
 
-.comment-form button, .login-link {
+.comment-form-list button, .login-link {
   margin: 0;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   width: 20%;
 }
 

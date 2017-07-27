@@ -80,10 +80,8 @@ class ArtworkDetail extends React.Component {
       return (
         <div className="artwork-detail">
           <Link to="/">Back Home</Link>
-          <AnnotationPointers annotations={annotations} artwork={artwork}/>
-            <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>
-              <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-            </button>
+          <AnnotationPointers annotations={annotations} artwork={artwork} deleteArtwork={deleteArtwork}/>
+
             <div className="artwork-detail-bottom">
             <ul className="artwork-detailed-info">
               <li><h2><b>{artwork.title}</b></h2></li>
