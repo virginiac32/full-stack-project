@@ -13,12 +13,14 @@ class ArtworkDetail extends React.Component {
     this.state = {
       annotations: this.props.annotations,
       user: this.props.currentUser,
-      artwork: this.props.artwork
+      artwork: this.props.artwork,
+      spinner: true
     };
 
   }
 
   componentDidMount(){
+    setTimeout(this.setState({spinner: false}), 5000);
     this.props.fetchArtwork(this.props.match.params.artworkId)
     .then(
       () => {
@@ -34,23 +36,36 @@ class ArtworkDetail extends React.Component {
           () => {
             this.props.fetchComments(nextProps.match.params.artworkId);
             this.props.fetchAnnotations(nextProps.match.params.artworkId);
+            this.props.clearErrors();
         });
     }
   }
 
-  // componentWillUnmount() {
-  //    = null;
-  // }
+  componentWillUnmount() {
+     this.props.clearErrors();
+  }
+
+  renderErrors() {
+    return (
+      <ul className="session-errors">
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   render () {
     const {artwork,deleteArtwork, annotations,comments} = this.props;
     if (!artwork) return null;
 
-    // if (this.props.artwork === null) {
-    //   return (
-    //     <i className="fa fa-spinner fa-lg" aria-hidden="true"></i>
-    //   );
-    // } else {
+    if (this.state.spinner === true) {
+      return (
+        <i className="fa fa-spinner fa-5x" aria-hidden="true"></i>
+      );
+    } else {
 
       return (
         <div className="artwork-detail">
@@ -63,6 +78,7 @@ class ArtworkDetail extends React.Component {
               <li>Artist: {artwork.artist}</li>
               <li>Date: {artwork.year}</li>
               <li>{artwork.description}</li>
+              {this.renderErrors()}
             </ul>
             <div className="comments">
               <h2>RESPONSES</h2>
@@ -73,7 +89,7 @@ class ArtworkDetail extends React.Component {
       </div>
       );
     }
-
+  }
 }
 
 export default ArtworkDetail;

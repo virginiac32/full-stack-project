@@ -27,6 +27,18 @@ class AnnotationCreateForm extends React.Component {
     return e => this.setState({[property]: e.target.value});
   }
 
+  renderSubmit() {
+    if (this.props.currentUser === null) {
+      return (
+        <Link className="login-link" to="/login">Login to Annotate</Link>
+      );
+    } else {
+      return (
+        <button className="submit-button">Annotate</button>
+      );
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const currentUser = this.props.currentUser.id;
@@ -61,7 +73,7 @@ class AnnotationCreateForm extends React.Component {
                 onChange={this.update('body')} placeholder="Make an annotation..." />
             </li>
             <li>
-              <button className="submit-button">Submit</button>
+              {this.renderSubmit()}
             </li>
           </ul>
         </form>

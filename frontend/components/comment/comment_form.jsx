@@ -41,6 +41,18 @@ class CommentForm extends React.Component {
     (this.refs.comment_body.value = ""));
   }
 
+  renderSubmit() {
+    if (this.state.user_id === null) {
+      return (
+        <Link className="login-link" to="/login">Login to Comment</Link>
+      );
+    } else {
+      return (
+        <button className="submit-button">Post</button>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="comment-create">
@@ -52,7 +64,7 @@ class CommentForm extends React.Component {
                 onChange={this.update('body')} placeholder="Write a response..." />
             </li>
             <li>
-              <button className="submit-button">Post</button>
+              {this.renderSubmit()}
             </li>
           </ul>
         </form>

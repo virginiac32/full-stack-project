@@ -4,7 +4,6 @@ import {login, logout, signup} from '../../actions/session_actions';
 import {clearErrors} from '../../actions/error_actions';
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return  {
             loggedIn: Boolean(state.session.currentUser),
             errors: state.errors.errors

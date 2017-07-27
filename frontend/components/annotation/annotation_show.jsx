@@ -140,7 +140,7 @@ class AnnotationShow extends React.Component {
     return (
       <div className="annotation-body" style={this.props.style}>
             <i className="fa fa-times fa-lg" aria-hidden="true" onClick={this.props.closeAnnotation}></i>
-              <li>{currentUser.username}</li>
+              <li>{annotation.user.username}</li>
               <li className="time-since">{this.timeSince(annotation.created_at)}</li>
               <li>{annotation.body}</li>
             {this.renderButtons(annotation,updateAnnotation,deleteAnnotation)}

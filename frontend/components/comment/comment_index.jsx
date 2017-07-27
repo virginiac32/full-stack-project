@@ -18,6 +18,27 @@ class CommentIndex extends React.Component {
   //   this.props.fetchArtwork(this.props.artwork.id);
   // }
 
+  // componentWillReceiveProps(nextProps) {
+		// this.props.clearErrors();
+		// this.renderErrors();
+  // }
+
+  // componentWillUnmount() {
+  //   this.props.clearErrors();
+  // }
+
+  renderErrors() {
+    return (
+      <ul className="errors">
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   renderDelete(comment, deleteComment) {
     if (this.props.currentUser && this.props.currentUser.id === comment.user.id) {
       return (
@@ -124,6 +145,7 @@ class CommentIndex extends React.Component {
 
     return (
       <ul className="full-comments">
+        {this.renderErrors()}
         {Object.values(comments).map(comment =>
           <ul className="each-comment" key={`comment-key-${comment.id}`}>
             <li><span className="comment-info"><h2>{comment.user.username}</h2>{this.renderDelete(comment,deleteComment)}</span></li>

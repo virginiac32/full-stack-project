@@ -59,8 +59,12 @@
   margin: 5px 0;
 }
 
-.comment-form button {
+.comment-form button, .login-link {
   margin: 0;
   margin-bottom: 10px;
   width: 20%;
+}
+
+.login-link {
+  background-color: green;
 }

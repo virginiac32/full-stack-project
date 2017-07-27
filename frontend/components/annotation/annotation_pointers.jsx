@@ -22,7 +22,7 @@ class AnnotationPointers extends React.Component {
       annotationBoxStyle:{},
       isMouseInside: false,
       currentAnno: {},
-      windowResize:[]
+      windowResize:[],
     };
 
     this.handleImageClick = this.handleImageClick.bind(this);
@@ -115,9 +115,14 @@ class AnnotationPointers extends React.Component {
   annotationBoxStyle(x_pos,y_pos,yPixelPos) {
     // styling position of annotation box
     let top = yPixelPos;
-    // if y_pos is less than 15% from the top of the image, offset the height of the annotation box
+    // if y_pos is less than 15% from the top of the image, offset the position of the annotation box
     if (y_pos < 15) {
       top = yPixelPos + (($("#artwork-img").height())/6);
+    }
+
+    // if y_pos is less than 15% from the bottom of the image, offset the position of the annotation box
+    if (y_pos > 85) {
+      top = yPixelPos - (($("#artwork-img").height())/4);
     }
 
     let side = (x_pos < 50 ? 'left' : 'right');
@@ -158,7 +163,6 @@ class AnnotationPointers extends React.Component {
     });
 
     return (
-
       <div className="artwork-image" >
           <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} />
             <div className="pointers">
@@ -175,6 +179,7 @@ class AnnotationPointers extends React.Component {
 
     );
   }
+
 }
 
 // {this.state.isMouseInside? <AnnotationPointers handleAnnoClick={this.handleAnnoClick} annotations={this.props.annotations} imageDimensions={imageDimensions}/> : null}
