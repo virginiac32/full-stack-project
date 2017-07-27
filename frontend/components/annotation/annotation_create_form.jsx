@@ -6,16 +6,22 @@ class AnnotationCreateForm extends React.Component {
     super(props);
 
     this.state = {
-        body:"",
-        opacity:0
+        body:""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    this.setState({opacity:100});
+  // componentDidMount() {
+  //
+  // }
+
+  componentWillReceiveProps(nextProps) {
+    this.props.fetchAnnotation(nextProps.match.params.annotationId);
+    console.log("nextProps",nextProps);
   }
+
+
 
   update(property) {
     return e => this.setState({[property]: e.target.value});
@@ -33,8 +39,8 @@ class AnnotationCreateForm extends React.Component {
       x_pos:this.props.position[0],
       y_pos:this.props.position[1]
     }});
-    // is the below correct?
-    this.setState({opacity:0});
+    // // is the below correct?
+    // this.setState({opacity:0});
   }
 
   render() {

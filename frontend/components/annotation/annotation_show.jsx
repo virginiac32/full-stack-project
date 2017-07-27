@@ -153,7 +153,6 @@ class AnnotationShow extends React.Component {
                 {this.renderDownvoteColor(annotation.id)}
               </button>
             </div>
-        )}
     </div>
     );
   }

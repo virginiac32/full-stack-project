@@ -99,8 +99,6 @@ class AnnotationPointers extends React.Component {
   }
 
   handleAnnoClick(annoId,e) {
-    console.log(annoId);
-    console.log(e);
     e.preventDefault();
     if (this.state.annotationOpen === true) {
       this.closeAnnotation();

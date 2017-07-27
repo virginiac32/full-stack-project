@@ -4,8 +4,6 @@ import AnnotationCreateForm from './annotation_create_form';
 import {createAnnotation, updateAnnotation, fetchAnnotation} from '../../actions/annotation_actions';
 
 const mapStateToProps = (state) => {
-  console.log(state);
-  console.log(location.pathname);
   return {currentUser : state.session.currentUser};
 };
 
