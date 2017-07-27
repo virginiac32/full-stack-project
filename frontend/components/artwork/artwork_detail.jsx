@@ -14,13 +14,13 @@ class ArtworkDetail extends React.Component {
       annotations: this.props.annotations,
       user: this.props.currentUser,
       artwork: this.props.artwork,
-      spinner: false
+      spinner: true
     };
 
   }
 
-  componentWillMount(){
-    // setTimeout(this.setState({spinner: false}), 5000);
+  componentDidMount(){
+    setTimeout(this.setState({spinner: false}), 5000);
     this.props.fetchArtwork(this.props.match.params.artworkId)
     .then(
       () => {
@@ -71,6 +71,8 @@ class ArtworkDetail extends React.Component {
     const {artwork,deleteArtwork, annotations,comments} = this.props;
     if (!artwork) return null;
 
+    // setTimeout(this.setState({spinner: false}), 5000);
+
     if (this.state.spinner === true) {
       return (
         <i className="fa fa-spinner fa-5x" aria-hidden="true"></i>
@@ -79,7 +81,6 @@ class ArtworkDetail extends React.Component {
 
       return (
         <div className="artwork-detail">
-          <Link to="/">Back Home</Link>
           <AnnotationPointers annotations={annotations} artwork={artwork} deleteArtwork={deleteArtwork}/>
 
             <div className="artwork-detail-bottom">

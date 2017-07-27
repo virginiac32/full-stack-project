@@ -23,6 +23,7 @@ class AnnotationPointers extends React.Component {
       isMouseInside: false,
       currentAnno: {},
       windowResize:[],
+      spinner: true
     };
 
     this.handleImageClick = this.handleImageClick.bind(this);
@@ -36,6 +37,7 @@ class AnnotationPointers extends React.Component {
   }
 
   componentDidMount() {
+    setTimeout(this.setState({spinner: false}), 5000);
     window.addEventListener("resize", this.handleResize);
   }
 
@@ -68,6 +70,9 @@ class AnnotationPointers extends React.Component {
   }
 
   openAnnotation(annoId) {
+    if (this.state.annotationFormOpen === true) {
+      this.setState({annotationFormOpen: false});
+    }
     let currentAnno = this.props.annotations[annoId];
     let yPixelPos = ((currentAnno.y_pos)*($("#artwork-img").height()))/100;
     let style = this.annotationBoxStyle(currentAnno.x_pos, currentAnno.y_pos,yPixelPos);
@@ -162,30 +167,33 @@ class AnnotationPointers extends React.Component {
       return {pixelAnno: pixelAnno, style: style};
     });
 
-    return (
-      <div className="artwork-image" >
-        <button className="delete-button" onClick={() => this.props.deleteArtwork(artwork).then(() => this.props.history.push('/'))}>
-          <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-        </button>
-          <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} />
-            <div className="pointers">
-            {annotationsWithPixelPos.map(anno =>
-              <button className="pointers" key={`anno-pointer-${anno.pixelAnno.id}`} onClick={this.handleAnnoClick.bind(null,anno.pixelAnno.id)} style={anno.style}>
-                <i id="pointer" className="fa fa-dot-circle-o fa-lg" aria-hidden="true"></i>
-              </button>
-            )}
-            </div>
-          {this.state.annotationFormOpen ? <AnnotationCreateFormContainer style={this.state.annotationBoxStyle} position={this.state.annotationPosition} user={this.state.user} artwork={this.state.artwork} closeAnnotation={this.closeAnnotation}/> : null}
-          {this.state.annotationOpen ? <AnnotationShowContainer style={this.state.annotationBoxStyle} artwork={this.state.artwork} annotation={this.state.currentAnno} closeAnnotation={this.closeAnnotation} /> : null}
-      </div>
+    if (this.state.spinner === true) {
+      return (
+        <i className="fa fa-spinner fa-5x" aria-hidden="true"></i>
+      );
+    } else {
+      return (
+        <div className="artwork-image" >
+          <button className="delete-button" onClick={() => this.props.deleteArtwork(artwork).then(() => this.props.history.push('/'))}>
+            <i className="fa fa-trash-o fa-1x" aria-hidden="true"></i>
+          </button>
+            <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} />
+              <div className="pointers">
+              {annotationsWithPixelPos.map(anno =>
+                <button className="pointers" key={`anno-pointer-${anno.pixelAnno.id}`} onClick={this.handleAnnoClick.bind(null,anno.pixelAnno.id)} style={anno.style}>
+                  <i id="pointer" className="fa fa-dot-circle-o fa-lg" aria-hidden="true"></i>
+                </button>
+              )}
+              </div>
+            {this.state.annotationFormOpen ? <AnnotationCreateFormContainer style={this.state.annotationBoxStyle} position={this.state.annotationPosition} user={this.state.user} artwork={this.state.artwork} closeAnnotation={this.closeAnnotation}/> : null}
+            {this.state.annotationOpen ? <AnnotationShowContainer style={this.state.annotationBoxStyle} artwork={this.state.artwork} annotation={this.state.currentAnno} closeAnnotation={this.closeAnnotation} /> : null}
+        </div>
 
 
-    );
+      );
+    }
   }
 
 }
-
-// {this.state.isMouseInside? <AnnotationPointers handleAnnoClick={this.handleAnnoClick} annotations={this.props.annotations} imageDimensions={imageDimensions}/> : null}
-
 
 export default AnnotationPointers;

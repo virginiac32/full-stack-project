@@ -139,20 +139,24 @@ class AnnotationShow extends React.Component {
 
     return (
       <div className="annotation-body" style={this.props.style}>
-            <i className="fa fa-times fa-lg" aria-hidden="true" onClick={this.props.closeAnnotation}></i>
-              <li>{annotation.user.username}</li>
-              <li className="time-since">{this.timeSince(annotation.created_at)}</li>
-              <li>{annotation.body}</li>
-            {this.renderButtons(annotation,updateAnnotation,deleteAnnotation)}
-            <div className="votes">
-              <button onClick={this.handleUpvote} id={annotation.id}>
-                {this.renderUpvoteColor(annotation.id)}
-              </button>
-              {this.props.annotation.total_score}
-              <button onClick={this.handleDownvote} id={annotation.id}>
-                {this.renderDownvoteColor(annotation.id)}
-              </button>
-            </div>
+        <li className="exit-icon">
+          <i className="fa fa-times fa-lg" aria-hidden="true" onClick={this.props.closeAnnotation}></i>
+        </li>
+        <li className="comment-info"><h2>{annotation.user.username}</h2></li>
+          <li className="time-since">{this.timeSince(annotation.created_at)}</li>
+          <li className="this-comment">{annotation.body}</li>
+        <div className="annotation-actions">
+          {this.renderButtons(annotation,updateAnnotation,deleteAnnotation)}
+          <div className="votes">
+            <button onClick={this.handleUpvote} id={annotation.id}>
+              {this.renderUpvoteColor(annotation.id)}
+            </button>
+            {this.props.annotation.total_score}
+            <button onClick={this.handleDownvote} id={annotation.id}>
+              {this.renderDownvoteColor(annotation.id)}
+            </button>
+          </div>
+        </div>
     </div>
     );
   }

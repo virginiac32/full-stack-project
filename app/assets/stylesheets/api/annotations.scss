@@ -8,13 +8,11 @@
     bottom: 0;
 }
 
-// .annotation-create-update {
-//   background-color: white;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   width: 15%;
-// }
+.exit-icon {
+  display: flex;
+  // flex-direction: flex-end;
+  justify-content: flex-end;
+}
 
 .annotation-body, .annotation-create-update {
   background-color: white;
@@ -39,4 +37,11 @@
 
 .action-buttons i:hover, .annotation-body i:hover, .annotation-create-update i:hover{
   color: #7D2927;
+}
+
+.annotation-actions {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
 }

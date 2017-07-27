@@ -90,12 +90,16 @@
   background-color: transparent;
   color: #D74643;
   position: absolute;
-  bottom: 0;
-  right: 4%;
+  top: 0;
+  right: 2%;
 }
 
 .artwork-image:hover .pointers, .artwork-image:hover .delete-button {
   display: block;
+}
+
+#artwork-img:hover {
+  cursor: crosshair;
 }
 
 .pointers i:hover, .delete-button i:hover {

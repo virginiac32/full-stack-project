@@ -64,7 +64,7 @@ class AnnotationCreateForm extends React.Component {
       <div style={this.props.style} className="annotation-create-update" id="annotation-create-update">
         <form className="annotation-form" onSubmit={this.handleSubmit}>
           <ul className="annotation-form-list">
-            <li>
+            <li className="exit-icon">
               <i className="fa fa-times fa-lg" aria-hidden="true" onClick={this.props.closeAnnotation}></i>
             </li>
             <li>
