@@ -47,12 +47,12 @@
 .artwork-detailed-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  width: 60%;
 }
 
 .artwork-detailed-info li {
-  margin: 10px 0;
-  max-width: 60%;
+  margin: 5px 0;
   font-size: 18px;
 }
 

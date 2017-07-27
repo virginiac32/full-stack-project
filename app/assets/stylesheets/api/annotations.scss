@@ -32,10 +32,11 @@
   width: 0px;
 }
 
-.action-buttons i, .annotation-body i {
+.action-buttons i, .annotation-body i, .annotation-create-update i {
   color: #D74643;
 }
 
-.action-buttons i:hover, .annotation-body i:hover {
+
+.action-buttons i:hover, .annotation-body i:hover, .annotation-create-update i:hover{
   color: #7D2927;
 }

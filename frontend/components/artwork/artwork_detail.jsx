@@ -10,14 +10,11 @@ class ArtworkDetail extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log(this.props);
-
     this.state = {
       annotations: this.props.annotations,
       user: this.props.currentUser,
       artwork: this.props.artwork
     };
-    console.log(this.state.artwork);
 
   }
 

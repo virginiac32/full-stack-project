@@ -51,10 +51,14 @@ class AnnotationCreateForm extends React.Component {
     return (
       <div style={this.props.style} className="annotation-create-update" id="annotation-create-update">
         <form className="annotation-form" onSubmit={this.handleSubmit}>
-          <h2>Annotate</h2>
           <ul className="annotation-form-list">
             <li>
-              <input className="input" value={this.state.body} onChange={this.update('body')} placeholder="This aspect of the artwork represents..." />
+              <i className="fa fa-times fa-lg" aria-hidden="true" onClick={this.props.closeAnnotation}></i>
+            </li>
+            <li>
+            <textarea className="comment-form" rows="6"
+                ref="comment_body" value={this.state.body}
+                onChange={this.update('body')} placeholder="Make an annotation..." />
             </li>
             <li>
               <button className="submit-button">Submit</button>
