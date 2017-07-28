@@ -12,6 +12,11 @@
   display: flex;
   // flex-direction: flex-end;
   justify-content: flex-end;
+  color: #D74643;
+}
+
+.exit-icon i:hover {
+  color: #7D2927;
 }
 
 .annotation-body, .annotation-create-update {

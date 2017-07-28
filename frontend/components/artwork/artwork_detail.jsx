@@ -21,7 +21,7 @@ class ArtworkDetail extends React.Component {
   }
 
   componentDidMount(){
-    setTimeout(() => this.setState({loading: false}), 1000);
+    setTimeout(() => this.setState({loading: false}), 1500);
     this.props.fetchArtwork(this.props.match.params.artworkId)
     .then(
       () => {
@@ -69,11 +69,9 @@ class ArtworkDetail extends React.Component {
 
     if (this.state.loading === true) {
       return (
-        <div className='sweet-loading'>
-                <DotLoader
-                  color={'#45484D'}
-                  loading={this.state.loading}
-                />
+        <div className="spinner">
+          <div className="dot1"></div>
+          <div className="dot2"></div>
         </div>
       );
     } else {

@@ -87,7 +87,11 @@ class ArtworkCreate extends React.Component {
   render() {
     return (
       <div className="artwork-create">
+        <li className="exit-icon">
+          <i className="fa fa-times fa-lg" aria-hidden="true" onClick={this.goBack}></i>
+        </li>
         <form className="artwork-form" onSubmit={this.handleSubmit}>
+
           {this.renderErrors()}
           <h1>Add New Artwork</h1>
           <ul className="artwork-form-list">
@@ -112,19 +116,15 @@ class ArtworkCreate extends React.Component {
               </label>
             </li>
             </ul>
-
+            <li id="uploaded-artwork">
+            Uploaded Artwork:
+            </li>
+            <li>
+            {this.showThumbnail()}
+            </li>
 
             {this.uploadButton()}
-              <li id="uploaded-artwork">
-              Uploaded Artwork:
-              </li>
-              <li>
-              {this.showThumbnail()}
-              </li>
-
-                <button className="create-button">Submit</button>
-
-          <button onClick={this.goBack}>Cancel</button>
+            <button className="create-button">Submit</button>
         </form>
       </div>
     );
