@@ -22,6 +22,24 @@ class ArtworkCreate extends React.Component {
     this.uploadButton = this.uploadButton.bind(this);
   }
 
+  componentWillUnmount() {
+    if (this.props.errors) {
+      this.props.clearErrors();
+    }
+  }
+
+  renderErrors() {
+    return (
+      <ul className="session-errors">
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   update(property) {
     return e => this.setState({[property]: e.target.value});
   }
@@ -29,7 +47,10 @@ class ArtworkCreate extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createArtwork({artwork: this.state})
-      .then(data => { this.props.history.push(`/artworks/${data.artwork.id}`);});
+      .then(data => {
+        this.props.clearErrors();
+        this.props.history.push(`/artworks/${data.artwork.id}`);
+      });
   }
 
   goBack() {
@@ -67,6 +88,7 @@ class ArtworkCreate extends React.Component {
     return (
       <div className="artwork-create">
         <form className="artwork-form" onSubmit={this.handleSubmit}>
+          {this.renderErrors()}
           <h1>Add New Artwork</h1>
           <ul className="artwork-form-list">
             <li>

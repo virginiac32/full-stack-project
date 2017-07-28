@@ -24,6 +24,12 @@ class AnnotationShow extends React.Component {
   //   }
   // }
 
+  componentWillUnmount() {
+    if (this.props.errors) {
+      this.props.clearErrors();
+    }
+  }
+
   renderButtons(annotation, updateAnnotation, deleteAnnotation) {
     if (this.props.currentUser && this.props.currentUser.id === annotation.user.id) {
       return (

@@ -6,6 +6,7 @@ class CommentForm extends React.Component {
     super(props);
     let currentUser = null;
     const currentArtwork = this.props.state.artworks.currentArtwork;
+
     if (this.props.state.session.currentUser) {
       currentUser = this.props.state.session.currentUser;
       this.state = {
@@ -24,6 +25,16 @@ class CommentForm extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.clearErrors();
+  }
+
+  componentWillUnmount() {
+    if (this.props.errors) {
+      this.props.clearErrors();
+    }
   }
 
   update(property) {

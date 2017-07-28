@@ -12,15 +12,15 @@ class AnnotationCreateForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // componentDidMount() {
-  //
-  // }
-
-  componentWillReceiveProps(nextProps) {
-    this.props.fetchAnnotation(nextProps.annotation.id);
+  componentWillMount() {
+    this.props.clearErrors();
   }
 
-
+  componentWillUnmount() {
+    if (this.props.errors) {
+      this.props.clearErrors();
+    }
+  }
 
   update(property) {
     return e => this.setState({[property]: e.target.value});
