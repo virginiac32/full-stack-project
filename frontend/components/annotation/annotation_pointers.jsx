@@ -165,7 +165,7 @@ class AnnotationPointers extends React.Component {
       let artwork = this.props.artwork;
       let allAnnos = merge({},this.props.annotations);
       // returns the annotations with their absolute positions on the screen
-      console.log("top offset", $("#artwork-img").offset().top);
+      // console.log("top offset", $("#artwork-img").offset().top);
       let annotationsWithPixelPos = Object.keys(allAnnos).map(anno => {
         let pixelAnno = allAnnos[anno];
         pixelAnno['x_pos'] = Math.floor(((pixelAnno['x_pos']*imageDimensions[0])/100))+$("#artwork-img").offset().left;
@@ -205,10 +205,10 @@ class AnnotationPointers extends React.Component {
             {this.state.annotationFormOpen ? <AnnotationCreateFormContainer
               style={this.state.annotationBoxStyle} position={this.state.annotationPosition}
               user={this.state.user} artwork={this.state.artwork}
-              closeAnnotation={this.closeAnnotation} /> : null}
+              closeAnnotation={this.closeAnnotation} openAnnotation={this.openAnnotation} /> : null}
             {this.state.annotationOpen ? <AnnotationShowContainer
               style={this.state.annotationBoxStyle} artwork={this.state.artwork}
-              annotation={this.state.currentAnno} closeAnnotation={this.closeAnnotation} /> : null}
+              annotationId={this.state.currentAnno.id} closeAnnotation={this.closeAnnotation} /> : null}
         </div>
 
 

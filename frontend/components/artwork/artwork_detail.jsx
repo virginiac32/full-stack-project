@@ -2,9 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import CommentIndexContainer from '../comment/comment_index_container';
 import CommentFormContainer from '../comment/comment_form_container';
-// import AnnotationShowContainer from '../annotation/annotation_show_container';
-import AnnotationPointers from '../annotation/annotation_pointers';
-// import {AnnotationCreateFormContainer} from '../annotation/annotation_form_container';
+import AnnotationPointersContainer from '../annotation/annotation_pointers_container';
 import {DotLoader} from 'react-spinners';
 
 class ArtworkDetail extends React.Component {
@@ -82,9 +80,7 @@ class ArtworkDetail extends React.Component {
 
     return (
       <div className="artwork-detail">
-        <AnnotationPointers annotations={annotations} artwork={artwork}
-          deleteArtwork={deleteArtwork} currentUser={this.props.currentUser}
-          history={this.props.history}/>
+        <AnnotationPointersContainer />
           <div className="artwork-detail-bottom">
           <ul className="artwork-detailed-info">
             <li><h1><b>{artwork.title}</b></h1></li>

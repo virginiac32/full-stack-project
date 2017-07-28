@@ -17,8 +17,7 @@ class AnnotationCreateForm extends React.Component {
   // }
 
   componentWillReceiveProps(nextProps) {
-    this.props.fetchAnnotation(nextProps.match.params.annotationId);
-    console.log("nextProps",nextProps);
+    this.props.fetchAnnotation(nextProps.annotation.id);
   }
 
 
@@ -31,7 +30,7 @@ class AnnotationCreateForm extends React.Component {
     if (this.props.currentUser === null) {
       return (
         <Link className="login-link" to="/login">Login to Annotate</Link>
-      );
+    );
     } else {
       return (
         <button className="submit-button">Annotate</button>
@@ -39,10 +38,22 @@ class AnnotationCreateForm extends React.Component {
     }
   }
 
+  renderErrors() {
+    return (
+      <ul className="errors">
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const currentUser = this.props.currentUser.id;
-    const currentArtwork = this.props.match.params.artworkId;
+    const currentArtwork = this.props.artwork.id;
     this.props.createAnnotation({annotation: {
       body:this.state.body,
       total_score:0,
@@ -50,8 +61,12 @@ class AnnotationCreateForm extends React.Component {
       artwork_id: currentArtwork,
       x_pos:this.props.position[0],
       y_pos:this.props.position[1]
-    }});
-    this.props.closeAnnotation();
+    }}).then((annotation) => {
+      this.props.clearErrors();
+      console.log("theanno",annotation);
+      this.props.openAnnotation(annotation.id);
+      });
+
   }
 
   render() {
@@ -65,14 +80,14 @@ class AnnotationCreateForm extends React.Component {
             <li className="exit-icon">
               <i className="fa fa-times fa-lg" aria-hidden="true" onClick={this.props.closeAnnotation}></i>
             </li>
+            {this.renderErrors()}
             <li>
-            <textarea className="comment-form" rows="6"
+            <textarea className="comment-form" rows="4"
                 ref="comment_body" value={this.state.body} autoFocus={focus}
                 onChange={this.update('body')} placeholder="Make an annotation..." />
             </li>
           </ul>
           {this.renderSubmit()}
-          <button onClick={this.props.closeAnnotation}>Cancel</button>
         </form>
       </div>
     );

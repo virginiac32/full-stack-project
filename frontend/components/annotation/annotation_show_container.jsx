@@ -5,11 +5,11 @@ import {receiveAnnotation, fetchAnnotation, fetchAnnotations, createAnnotation, 
 import {fetchArtwork} from '../../actions/artwork_actions';
 import {createVote, deleteVote, receiveAnnotationVote} from '../../actions/vote_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state,ownProps) => {
   return {
   // artwork: state.artworks.artworks[state.artworks.currentArtwork],
   currentUser: state.session.currentUser,
-  annotations: state.annotations
+  annotation: state.annotations.annotations[ownProps.annotationId]
   // currentAnnotation: state.annotations.currentAnnotation
   };
 };

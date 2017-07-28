@@ -45,7 +45,7 @@ class CommentForm extends React.Component {
   renderSubmit() {
     if (this.state.user_id === null) {
       return (
-        <Link className="login-link" to="/login">Login to Comment</Link>
+        <Link className="comment-login-link" to="/login">Login to Comment</Link>
       );
     } else {
       return (
