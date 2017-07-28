@@ -1,9 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Footer = () => {
+const FooterLight = () => {
+
   return (
-    <footer>
+    <footer id="footer-light">
       <img className="footer-logo" height="45" src="http://res.cloudinary.com/virginia-chen/image/upload/v1500533990/logo_frxltw.png" alt="Logo" />
         <h2>Crowdsourced art knowledge</h2>
           <a href="https://github.com/virginiac32/full-stack-project">
@@ -16,7 +17,7 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterLight;
 
 // <i className="fa fa-pencil fa-lg" aria-hidden="true"></i>
 // <i className="fa fa-dot-circle-o fa-lg" aria-hidden="true"></i>

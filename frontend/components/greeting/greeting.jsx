@@ -8,7 +8,7 @@ const Greeting = ({currentUser,logout}) => {
         <Link className="add-artwork" to="/new-artwork">
           <i className="fa fa-plus-circle fa-lg" aria-hidden="true"></i>
           <span><h2>Add Artwork</h2></span></Link>
-        <h2>{currentUser.username}</h2>
+        <span><h2>{currentUser.username}</h2></span>
         <button onClick={logout}>LOG OUT</button>
       </div>
     );

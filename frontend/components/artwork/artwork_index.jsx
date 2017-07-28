@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Slider from 'react-slick';
+import FooterDark from '../footer/footer_dark';
 
 class ArtworkIndex extends React.Component {
   constructor(props) {
@@ -47,9 +48,14 @@ class ArtworkIndex extends React.Component {
     }
 
     return (
-        <Slider {...settings}>
-          {ArtworkIndexItems}
-        </Slider>
+      <div className="index-full-container">
+        <div className="index-container">
+          <Slider {...settings}>
+            {ArtworkIndexItems}
+          </Slider>
+        </div>
+        <FooterDark />
+      </div>
     );
   }
 }

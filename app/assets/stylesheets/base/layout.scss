@@ -24,6 +24,28 @@ body {
   // padding-top: 55px;
 }
 
+.index-container {
+  flex: 1;
+  width: 90vw;
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  // flex-direction: column;
+}
+
+.index-full-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+Slider {
+  flex: 1;
+}
+
 .visualyze footer {
   text-align: center;
 }

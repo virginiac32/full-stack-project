@@ -13,8 +13,8 @@ import ArtworkIndexContainer from './artwork/artwork_index_container';
 import ArtworkDetailContainer from './artwork/artwork_detail_container';
 import ArtworkCreateContainer from './artwork/artwork_create_container';
 import {AnnotationUpdateFormContainer, AnnotationCreateFormContainer} from './annotation/annotation_form_container';
-import Footer from './footer';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
+import FooterDark from './footer/footer_dark';
 
 class App extends React.Component {
 
@@ -40,7 +40,6 @@ class App extends React.Component {
 
           </Switch>
         </div>
-        <Footer />
       </div>
     );
   }
