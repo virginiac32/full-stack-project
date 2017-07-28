@@ -13,6 +13,8 @@
 .logged-in {
   display: flex;
   align-items: center;
+  width: 25%;
+  justify-content: space-between;
 }
 
 .logged-out {
@@ -22,7 +24,23 @@
 
 .logged-in button {
   padding: 5px 10px;
+  width: 30%;
   // padding-right: 10px;
+}
+
+.add-artwork {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.add-artwork h2 {
+  padding-left: 5px;
+}
+
+.add-artwork .fa-lg {
+  line-height: 1em;
 }
 
 // Magnifying Glass graphic by <a href="http://www.flaticon.com/authors/freepik">freepik</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Check out the new logo that I created on <a href="http://logomakr.com" title="Logo Maker">LogoMaker.com</a> https://logomakr.com/9c0hn79c0hn7
