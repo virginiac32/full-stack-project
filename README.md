@@ -19,7 +19,7 @@ a [database schema](./schema.md).
 
 ## Technology
 
-Visualyze is a single-page application built on Rails and React.js.
+Visualyze is a single-page application built on Rails version 5.0 and React.js version 15.6. React was used along with react-router 4.1, webpack 3.3, and the redux 3.7 implementation of the flux architecture.
 
 All images are hosted using Cloudinary.
 
@@ -27,13 +27,20 @@ All images are hosted using Cloudinary.
 
 Logged in users are able to upload and delete artwork. Uploaded artwork can be found and accessed on the home page via an image carousel.
 
+![splash]
+[splash]: ./app/assets/images/Homepage.png
+
 Each artwork has its own show page, which contains detailed information about each work of art, as well as any annotations or comments that have been made by users about the artwork.
+
+![show-page]
+[show-page]: ./app/assets/images/visualyze-show-page.png
 
 When users hover over the image, any annotation pointers that have been created will become visible and clickable.
 
 The user needs to be logged in to upload new artwork. He/she needs to populate the artwork creation form and upload an image of the artwork. The Cloudinary upload widget was used to achieve this functionality.
 
-[gif of creating artwork and cloudinary]
+![artwork_create]
+[artwork_create]: ./app/assets/images/artwork_create.gif
 
 Only the user who uploaded the artwork will be able to delete it.
 
@@ -43,11 +50,10 @@ Annotations are how users can add further details about specific parts of an art
 
 The user needs to hover over the artwork image to see the pointers of all the annotations that have been created. To view the details of an annotation, the user simply needs to click on a pointer to open the annotation box.
 
-[gif of viewing annotations]
-
 To create a new annotation, a user needs to click on any point on the artwork that they wish to annotate. This causes an annotation creation form to pop-up, which the user can populate and save.
 
-[gif of creating a new annotation]
+![annotations]
+[annotations]: ./app/assets/images/Annotations.gif
 
 Annotation pointer locations are initially calculated as pixel x and y positions relative to the image on the screen. These are then saved to the database as percentages of the height and width of the artwork.
 
@@ -61,7 +67,8 @@ Only the user who creates a specific annotation will be able to delete it.
 
 In addition to annotating specific points of the artwork, users can also add comments to the artwork overall. Only the user who creates a specific comment will be able to delete it.
 
-[image of comments]
+![comments]
+[comments]: ./app/assets/images/Comments.gif
 
 ### Votes
 
@@ -69,7 +76,8 @@ Users can give an up- or down-vote for all annotations and comments. Once a user
 
 The total score of votes an annotation or comment has is shown in the number between the two voting icons.
 
-[gif or image of votes]
+![likes]
+[likes]: ./app/assets/images/Likes.gif
 
 ## Future Improvements
 
