@@ -14,19 +14,6 @@ class CommentIndex extends React.Component {
     this.renderDownvoteColor = this.renderDownvoteColor.bind(this);
   }
 
-  // componentDidMount(){
-  //   this.props.fetchArtwork(this.props.artwork.id);
-  // }
-
-  // componentWillReceiveProps(nextProps) {
-		// this.props.clearErrors();
-		// this.renderErrors();
-  // }
-
-  // componentWillUnmount() {
-  //   this.props.clearErrors();
-  // }
-
   renderDelete(comment, deleteComment) {
     if (this.props.currentUser && this.props.currentUser.id === comment.user.id) {
       return (

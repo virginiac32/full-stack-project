@@ -30,9 +30,6 @@ class ArtworkDetail extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // if (this.props.errors) {
-    //   this.props.clearErrors();
-    // }
     if (this.props.match.params.artworkId !== nextProps.match.params.artworkId) {
       this.props.fetchArtwork(nextProps.match.params.artworkId)
         .then(
@@ -86,29 +83,29 @@ class ArtworkDetail extends React.Component {
       );
     } else {
 
-    return (
-      <div className="artwork-detail">
-        <AnnotationPointersContainer history={this.props.history}/>
-          <div className="artwork-detail-bottom">
-          <ul className="artwork-detailed-info">
-            <li><h1><b>{artwork.title}</b></h1>
-            {this.renderDelete(artwork,this.props.deleteArtwork)}
-            </li>
-            <li>Artist: {artwork.artist}</li>
-            <li>Date: {artwork.year}</li>
-            <li>{artwork.description}</li>
-            {this.renderErrors()}
-          </ul>
-          <div className="comments">
-            <CommentFormContainer />
-            <CommentIndexContainer comments={comments}/>
-          </div>
+      return (
+        <div className="artwork-detail">
+          <AnnotationPointersContainer history={this.props.history}/>
+            <div className="artwork-detail-bottom">
+              <ul className="artwork-detailed-info">
+                <li><h1><b>{artwork.title}</b></h1>
+                {this.renderDelete(artwork,this.props.deleteArtwork)}
+                </li>
+                <li>Artist: {artwork.artist}</li>
+                <li>Date: {artwork.year}</li>
+                <li>{artwork.description}</li>
+                {this.renderErrors()}
+              </ul>
+              <div className="comments">
+                <CommentFormContainer />
+                <CommentIndexContainer comments={comments}/>
+              </div>
+            </div>
+          <FooterLight />
         </div>
-        <FooterLight />
-    </div>
-    );
+      );
+    }
   }
-}
 }
 
 export default ArtworkDetail;

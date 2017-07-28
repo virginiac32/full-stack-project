@@ -75,5 +75,21 @@ Artwork.create([
     user_id: user1.id,
     year: "1913, cast 1950",
     link: "http://res.cloudinary.com/virginia-chen/image/upload/v1500963952/Antigraceful-Boccioni_lyhn0r.png"
-  }
+  },
+  {
+    title: "Daniel in the Lions' Den",
+    description: "Painted oil on canvas, the artwork is based upon the biblical story of Daniel in the lion's den."
+    artist: "Peter Paul Rubens",
+    user_id: user1.id,
+    year: "1614/1616",
+    link: "http://res.cloudinary.com/virginia-chen/image/upload/c_scale,w_500/v1501279672/Daniel-Rubens_eeti7i.png"
+  },
+  {
+    title: "Lumber Schooners at Evening on Penobscot Bay",
+    description: "The artwork depicts lumber schooners on a calm evening with a rosy sunset in the background."
+    artist: "Fitz Henry Lane",
+    user_id: user1.id,
+    year: "1863",
+    link: ""
+    },
 ])

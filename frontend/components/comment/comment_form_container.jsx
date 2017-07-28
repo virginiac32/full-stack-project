@@ -4,11 +4,8 @@ import {createComment, updateComment, fetchComment} from '../../actions/comment_
 import {fetchArtwork} from '../../actions/artwork_actions';
 import {clearErrors} from '../../actions/error_actions';
 
-const mapStateToProps = (state, {location}) => {
-  // console.log(state);
-  // console.log(location.pathname);
+const mapStateToProps = (state) => {
   return {state: state};
-  // location: location.pathname};
 };
 
 const mapDispatchToProps = (dispatch) => ({

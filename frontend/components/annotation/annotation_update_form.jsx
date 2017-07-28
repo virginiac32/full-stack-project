@@ -4,19 +4,7 @@ import {withRouter, Link} from 'react-router-dom';
 class AnnotationUpdateForm extends React.Component {
   constructor(props) {
     super(props);
-    // const currentUser = this.props.state.session.currentUser;
-    // const currentArtwork = this.props.state.artworks.currentArtwork;
     this.state = this.props.state.annotations[this.props.match.params.annotationId];
-    console.log(this.props);
-    console.log(this.state);
-    // this.state = {
-    //     body:"",
-    //     total_score:null,
-    //     user_id: currentUser.id,
-    //     artwork_id: currentArtwork.id,
-    //     x_pos:null,
-    //     y_pos:null
-    // };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.goBack = this.goBack.bind(this);

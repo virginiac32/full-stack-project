@@ -2,20 +2,16 @@ import AnnotationShow from './annotation_show';
 import {connect} from 'react-redux';
 import {receiveAnnotation, fetchAnnotation, fetchAnnotations, createAnnotation, deleteAnnotation, updateAnnotation}
   from '../../actions/annotation_actions';
-import {fetchArtwork} from '../../actions/artwork_actions';
 import {createVote, deleteVote, receiveAnnotationVote} from '../../actions/vote_actions';
 
 const mapStateToProps = (state,ownProps) => {
   return {
-  // artwork: state.artworks.artworks[state.artworks.currentArtwork],
   currentUser: state.session.currentUser,
   annotation: state.annotations.annotations[ownProps.annotationId]
-  // currentAnnotation: state.annotations.currentAnnotation
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  // fetchArtwork: (artwork_id) => dispatch(fetchArtwork(artwork_id)),
   createAnnotation: (annotation) => dispatch(createAnnotation(annotation)),
   fetchAnnotation: id => dispatch(fetchAnnotation(id)),
   receiveAnnotation: annotation => dispatch(receiveAnnotation(annotation)),

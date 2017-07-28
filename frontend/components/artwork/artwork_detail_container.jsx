@@ -1,6 +1,5 @@
 import ArtworkDetail from './artwork_detail';
 import {connect} from 'react-redux';
-import {selectArtwork} from '../../reducers/selectors';
 import {fetchArtwork, createArtwork, deleteArtwork}
   from '../../actions/artwork_actions';
 import {fetchComments} from '../../actions/comment_actions';

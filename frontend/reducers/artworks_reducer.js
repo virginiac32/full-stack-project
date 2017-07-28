@@ -12,8 +12,6 @@ const ArtworksReducer = (state=defaultState(), action) => {
   let nextState;
   switch (action.type) {
     case RECEIVE_ARTWORK:
-      console.log("action",action);
-      // const artwork = action.artwork;
       return merge({}, defaultState(),
         {
           artworks: {[action.artwork.id]: action.artwork},

@@ -102,8 +102,6 @@ Users can give an up- or down-vote for all annotations and comments. Once a user
 
 The total score of votes an annotation or comment has is shown in the number between the two voting icons.
 
-![likes](./app/assets/images/Votes.gif)
-
 ## Future Improvements
 
 ### Search
@@ -125,5 +123,7 @@ Artist pages with artist information and links to all artwork that have been upl
 ## Credits
 
 Credits and thanks go to my instructors and peers at App Academy.
+
+Artwork seed images and information were provided by the The Met, under the CC0 license.
 
 Magnifying Glass graphic by <a href="http://www.flaticon.com/authors/freepik">freepik</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Check out the new logo that I created on <a href="http://logomakr.com" title="Logo Maker">LogoMaker.com</a> https://logomakr.com/9c0hn79c0hn7

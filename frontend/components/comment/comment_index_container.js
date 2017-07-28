@@ -1,6 +1,6 @@
 import CommentIndex from './comment_index';
 import {connect} from 'react-redux';
-import {fetchComments, fetchComment, createComment, updateComment, deleteComment}
+import {fetchComments, fetchComment, createComment, deleteComment}
   from '../../actions/comment_actions';
 import {fetchArtwork} from '../../actions/artwork_actions';
 import {createVote, deleteVote} from '../../actions/vote_actions';

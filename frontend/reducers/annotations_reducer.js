@@ -1,6 +1,5 @@
 import {RECEIVE_ANNOTATION, RECEIVE_ANNOTATIONS,
   DESTROY_ANNOTATION} from '../actions/annotation_actions';
-import {RECEIVE_ARTWORK} from '../actions/artwork_actions';
 import {RECEIVE_ANNOTATION_VOTE, DESTROY_ANNOTATION_VOTE}
   from '../actions/vote_actions';
 import merge from 'lodash/merge';
@@ -24,12 +23,6 @@ const AnnotationsReducer = (state=defaultState(), action) => {
     case RECEIVE_ANNOTATIONS:
       const annotations2 = action.annotations;
       return Object.assign({}, defaultState(), {annotations: annotations2});
-
-    // do I need the below case?
-    // case RECEIVE_ARTWORK:
-    //   nextState = merge({}, state, {annotations: action.annotations});
-    //   nextState.currentAnnotation = null;
-    //   return nextState;
     case RECEIVE_ANNOTATION_VOTE:
       nextState = merge({},state);
       if (nextState.annotations[action.vote.votable_id]) {

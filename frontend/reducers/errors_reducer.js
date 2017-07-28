@@ -3,7 +3,6 @@ import merge from 'lodash/merge';
 
 const defaultState = () => ({
   errors: []
-  // update the keys to diff components
 });
 
 const ErrorsReducer = (state=defaultState(), action) => {

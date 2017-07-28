@@ -4,20 +4,10 @@ import Slider from 'react-slick';
 import FooterDark from '../footer/footer_dark';
 
 class ArtworkIndex extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount(){
     this.props.fetchArtworks();
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (this.props.match.params.artworkId !== nextProps.match.params.artworkId) {
-  //     console.log('artworkprops',nextProps.match.params.artworkId);
-  //     this.props.fetchArtworks();
-  //   }
-  // }
 
   render () {
     const {artworks, deleteArtwork} = this.props;
@@ -25,13 +15,10 @@ class ArtworkIndex extends React.Component {
       accessibility: true,
       dots: true,
       infinite: true,
-      // autoplay: true,
-      // autoplaySpeed: 2000,
       speed: 500,
       slidesToShow: 3,
       slidesToScroll: 3,
       variableWidth: true,
-      // centerMode: true,
       adaptiveHeight: true
     };
 
@@ -44,7 +31,7 @@ class ArtworkIndex extends React.Component {
           </Link>
         </div>));}
     } else {
-      ArtworkIndexItems.push(<div></div>);
+      ArtworkIndexItems.push(<div key="no-artwork"></div>);
     }
 
     return (

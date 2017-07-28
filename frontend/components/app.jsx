@@ -8,13 +8,12 @@ import {
   HashRouter
 } from 'react-router-dom';
 import SessionFormContainer from './session_form/session_form_container';
-import NavBarContainer from './nav_bar/nav_bar_container';
+import NavBar from './nav_bar/nav_bar';
 import ArtworkIndexContainer from './artwork/artwork_index_container';
 import ArtworkDetailContainer from './artwork/artwork_detail_container';
 import ArtworkCreateContainer from './artwork/artwork_create_container';
 import {AnnotationUpdateFormContainer, AnnotationCreateFormContainer} from './annotation/annotation_form_container';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
-import FooterDark from './footer/footer_dark';
 
 class App extends React.Component {
 
@@ -26,7 +25,7 @@ class App extends React.Component {
     return (
       <div className="visualyze">
         <header>
-          <NavBarContainer />
+          <NavBar />
         </header>
         <div className="visualyze-body">
           <Switch>
