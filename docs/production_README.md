@@ -1,12 +1,12 @@
-# Genius Clone
+# Visualyze
 
-[Genius Clone Site](google.com)
+[Visualyze Site](vizualyze.herokuapp.com)
 
-[Genius](genius.com)
+Inspired by: [Genius](genius.com)
 
 ## Minimum Viable Product
 
-The Genius Clone will be an app that provides artwork with annotations. Users are allowed to upload their own artwork and annotate parts of the artwork, as well as add comments on the work overall.
+The Visualyze app will be an app that provides artwork with annotations. Users are allowed to upload their own artwork and annotate parts of the artwork, as well as add comments on the work overall.
 
 By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
@@ -65,4 +65,3 @@ Objective: Have an overall connected look and feel for the app. Add all seed dat
 
 * Tags
 * Draggable box to create a comment on an area of the image (vs. just one point)
-* Embed videos

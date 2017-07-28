@@ -39,7 +39,6 @@ class CommentIndex extends React.Component {
 
   handleUpvote(e) {
     e.preventDefault();
-    this.disabled=true;
     let comment_id = parseInt(e.currentTarget.id);
     this.vote(1,comment_id);
   }
