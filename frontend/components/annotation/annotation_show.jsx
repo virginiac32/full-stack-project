@@ -155,7 +155,6 @@ class AnnotationShow extends React.Component {
           <li className="time-since">{this.timeSince(annotation.created_at)}</li>
           <li className="this-comment">{annotation.body}</li>
         <div className="annotation-actions">
-          {this.renderButtons(annotation,updateAnnotation,deleteAnnotation)}
           <div className="votes">
             <button onClick={this.handleUpvote} id={annotation.id}>
               {this.renderUpvoteColor(annotation.id)}
@@ -165,6 +164,7 @@ class AnnotationShow extends React.Component {
               {this.renderDownvoteColor(annotation.id)}
             </button>
           </div>
+          {this.renderButtons(annotation,updateAnnotation,deleteAnnotation)}
         </div>
     </div>
     );

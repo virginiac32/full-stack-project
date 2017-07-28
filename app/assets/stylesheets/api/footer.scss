@@ -8,13 +8,8 @@ i:hover {
 }
 
 footer {
-  // background-color: #121314;
   padding-top: 10px;
   width: 100%;
-  // color: #EDE8EA;
-  // background: linear-gradient(rgba(18,19,20,.3),#121314);
-  // background-color: transparent;
-  // background: linear-gradient(rgba(18,16,16,.3),#121010);
 }
 
 .footer-logo {
@@ -27,8 +22,18 @@ footer h2{
 
 #footer-light {
   background-color: #F7F3F5;
+  color: #45484D;
+}
+
+#footer-light i {
+  color: #D74643;
+}
+
+#footer-light i:hover {
+  color: #7D2927
 }
 
 #footer-dark {
-  background-color: #121314;
+  background-color: #121010;
+  color: white;
 }

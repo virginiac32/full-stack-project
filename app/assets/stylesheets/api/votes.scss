@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .no-vote i {
-  color: black;
+  color: #6A6869;
 }
 
 .up-vote i {
@@ -25,6 +25,12 @@
 .votes button {
   display: block;
   width: 22px;
+  color: #6A6869;
+}
+
+.votes button:hover {
+  color: #6A6869;
+  transform: scale(1.1);
 }
 
 .votes div {

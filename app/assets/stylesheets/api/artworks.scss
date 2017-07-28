@@ -123,6 +123,10 @@
   transform: scale(1.1);
 }
 
+.delete-button i:hover {
+  color: #7D2927;
+}
+
 #uploaded-artwork {
   margin-bottom: 10px;
 }
