@@ -37,7 +37,7 @@ When users hover over the image, any annotation pointers that have been created 
 
 The user needs to be logged in to upload new artwork. He/she needs to populate the artwork creation form and upload an image of the artwork. The Cloudinary upload widget was used to achieve this functionality.
 
-![artwork_create](./app/assets/images/artwork_create.gif)
+![artwork_create](./app/assets/images/Artwork_create.gif)
 
 Only the user who uploaded the artwork will be able to delete it.
 
@@ -47,9 +47,11 @@ Annotations are how users can add further details about specific parts of an art
 
 The user needs to hover over the artwork image to see the pointers of all the annotations that have been created. To view the details of an annotation, the user simply needs to click on a pointer to open the annotation box.
 
+![annotation_show](./app/assets/images/Annotation_show.gif)
+
 To create a new annotation, a user needs to click on any point on the artwork that they wish to annotate. This causes an annotation creation form to pop-up, which the user can populate and save.
 
-![annotations](./app/assets/images/Annotations.gif)
+![annotation_create](./app/assets/images/Annotation_create.gif)
 
 Annotation pointer locations are initially calculated as pixel x and y positions relative to the image on the screen. These are then saved to the database as percentages of the height and width of the artwork.
 
@@ -100,7 +102,7 @@ Users can give an up- or down-vote for all annotations and comments. Once a user
 
 The total score of votes an annotation or comment has is shown in the number between the two voting icons.
 
-![likes](./app/assets/images/Likes.gif)
+![likes](./app/assets/images/Votes.gif)
 
 ## Future Improvements
 
