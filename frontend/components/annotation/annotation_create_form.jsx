@@ -61,10 +61,9 @@ class AnnotationCreateForm extends React.Component {
       artwork_id: currentArtwork,
       x_pos:this.props.position[0],
       y_pos:this.props.position[1]
-    }}).then((annotation) => {
+    }}).then(() => {
       this.props.clearErrors();
-      console.log("theanno",annotation);
-      this.props.openAnnotation(annotation.id);
+      this.props.closeAnnotation();
       });
 
   }

@@ -79,11 +79,16 @@ class AnnotationPointers extends React.Component {
     });
   }
 
-  openAnnotation(annoId) {
+  openAnnotation(annoId,anno) {
     if (this.state.annotationFormOpen === true) {
       this.setState({annotationFormOpen: false});
     }
-    let currentAnno = this.props.annotations[annoId];
+    let currentAnno;
+    if (!anno) {
+      currentAnno = this.props.annotations[annoId];
+    } else {
+      currentAnno = anno;
+    }
     let yPixelPos = ((currentAnno.y_pos)*($("#artwork-img").height()))/100;
     let style = this.annotationBoxStyle(currentAnno.x_pos, currentAnno.y_pos,yPixelPos);
 
