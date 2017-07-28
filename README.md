@@ -14,8 +14,8 @@ Visualyze is a personal project by Virginia Chen.
 
 ## Project Design
 
-Visualyze was designed and built over a period of two weeks. A [proposal](./docs/production_README.md) was created for the implementation, which included an implementation timeline, initial [wireframes](./wireframes), and
-a [database schema](./schema.md).
+Visualyze was designed and built over a period of two weeks. A [proposal](./docs/production_README.md) was created for the implementation, which included an implementation timeline, initial [wireframes](./docs/wireframes), and
+a [database schema](./docs/schema.md).
 
 ## Technology
 
@@ -27,20 +27,17 @@ All images are hosted using Cloudinary.
 
 Logged in users are able to upload and delete artwork. Uploaded artwork can be found and accessed on the home page via an image carousel.
 
-![splash]
-[splash]: ./app/assets/images/Homepage.png
+![splash](./app/assets/images/Homepage.png)
 
 Each artwork has its own show page, which contains detailed information about each work of art, as well as any annotations or comments that have been made by users about the artwork.
 
-![show-page]
-[show-page]: ./app/assets/images/visualyze-show-page.png
+![show-page](./app/assets/images/visualyze-show-page.png)
 
 When users hover over the image, any annotation pointers that have been created will become visible and clickable.
 
 The user needs to be logged in to upload new artwork. He/she needs to populate the artwork creation form and upload an image of the artwork. The Cloudinary upload widget was used to achieve this functionality.
 
-![artwork_create]
-[artwork_create]: ./app/assets/images/artwork_create.gif
+![artwork_create](./app/assets/images/artwork_create.gif)
 
 Only the user who uploaded the artwork will be able to delete it.
 
@@ -52,14 +49,42 @@ The user needs to hover over the artwork image to see the pointers of all the an
 
 To create a new annotation, a user needs to click on any point on the artwork that they wish to annotate. This causes an annotation creation form to pop-up, which the user can populate and save.
 
-![annotations]
-[annotations]: ./app/assets/images/Annotations.gif
+![annotations](./app/assets/images/Annotations.gif)
 
 Annotation pointer locations are initially calculated as pixel x and y positions relative to the image on the screen. These are then saved to the database as percentages of the height and width of the artwork.
 
 Each time a user views an artwork, the positions of the annotation pointer are then converted back into pixel x and y positions, in order to ensure the right positioning of the pointers regardless of screen size/position. The positions recalculate each time the screen is resized.
 
-[code for positioning]
+```javascript
+renderPointers() {
+  if ($("#artwork-img").offset()) {
+    let imageDimensions = [($("#artwork-img").width()),($("#artwork-img").height())];
+    let artwork = this.props.artwork;
+    let allAnnos = merge({},this.props.annotations);
+
+    let annotationsWithPixelPos = Object.keys(allAnnos).map(anno => {
+      let pixelAnno = allAnnos[anno];
+      pixelAnno['x_pos'] = Math.floor(((pixelAnno['x_pos']*imageDimensions[0])/100))+$("#artwork-img").offset().left;
+      pixelAnno['y_pos'] = Math.floor(pixelAnno['y_pos']*($("#artwork-img").height()/100))-($("#artwork-img").offset().top);
+
+      let style = {
+        position: 'absolute',
+        top: pixelAnno['y_pos']+'px',
+        left: pixelAnno['x_pos']+'px'
+      };
+      return {pixelAnno: pixelAnno, style: style};
+    });
+
+    return (
+      annotationsWithPixelPos.map(anno => (
+        <button className="pointers" key={`anno-pointer-${anno.pixelAnno.id}`} onClick={this.handleAnnoClick.bind(null,anno.pixelAnno.id)} style={anno.style}>
+          <i id="pointer" className="fa fa-dot-circle-o fa-lg" aria-hidden="true"></i>
+        </button>
+      ))
+    );
+  }
+}
+```
 
 Only the user who creates a specific annotation will be able to delete it.
 
@@ -67,8 +92,7 @@ Only the user who creates a specific annotation will be able to delete it.
 
 In addition to annotating specific points of the artwork, users can also add comments to the artwork overall. Only the user who creates a specific comment will be able to delete it.
 
-![comments]
-[comments]: ./app/assets/images/Comments.gif
+![comments](./app/assets/images/Comments.gif)
 
 ### Votes
 
@@ -76,8 +100,7 @@ Users can give an up- or down-vote for all annotations and comments. Once a user
 
 The total score of votes an annotation or comment has is shown in the number between the two voting icons.
 
-![likes]
-[likes]: ./app/assets/images/Likes.gif
+![likes](./app/assets/images/Likes.gif)
 
 ## Future Improvements
 
