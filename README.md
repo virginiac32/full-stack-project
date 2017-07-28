@@ -121,3 +121,9 @@ Add a walkthrough feature to make it clear how to view and add annotations (i.e.
 ### Artist pages
 
 Artist pages with artist information and links to all artwork that have been uploaded for that artist.
+
+## Credits
+
+Credits and thanks go to my instructors and peers at App Academy.
+
+Magnifying Glass graphic by <a href="http://www.flaticon.com/authors/freepik">freepik</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Check out the new logo that I created on <a href="http://logomakr.com" title="Logo Maker">LogoMaker.com</a> https://logomakr.com/9c0hn79c0hn7
