@@ -46,7 +46,6 @@ class ArtworkDetail extends React.Component {
   }
 
   renderDelete(artwork, deleteArtwork) {
-    console.log("deleting",this.props);
     if (this.props.currentUser && (this.props.currentUser.id === artwork.user_id)) {
       return (
         <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>

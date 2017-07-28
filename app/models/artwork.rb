@@ -5,7 +5,6 @@ class Artwork < ApplicationRecord
   has_many :annotations, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  # are the below correct?
   has_many :votes,
     through: :annotations,
     source: :votes

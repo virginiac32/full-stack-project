@@ -69,9 +69,6 @@ class AnnotationCreateForm extends React.Component {
   }
 
   render() {
-    // let style = this.props.style;
-    // style[top] = style[top]-($("#annotation-create-update").height()/2);
-    //
     return (
       <div style={this.props.style} className="annotation-create-update" id="annotation-create-update">
         <form className="annotation-form" onSubmit={this.handleSubmit}>

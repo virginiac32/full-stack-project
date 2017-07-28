@@ -106,12 +106,6 @@ class AnnotationPointers extends React.Component {
     }
   }
 
-  // handleWrapperClick(e) {
-  //   if (this.state.annotationFormOpen === true || this.state.annotationOpen === true) {
-  //     this.closeAnnotation();
-  //   }
-  // }
-
   handleAnnoClick(annoId,e) {
     e.preventDefault();
     if (this.state.annotationOpen === true) {
@@ -159,15 +153,12 @@ class AnnotationPointers extends React.Component {
       let artwork = this.props.artwork;
       let allAnnos = merge({},this.props.annotations);
       // returns the annotations with their absolute positions on the screen
-      // console.log("top offset", $("#artwork-img").offset().top);
+
       let annotationsWithPixelPos = Object.keys(allAnnos).map(anno => {
         let pixelAnno = allAnnos[anno];
         pixelAnno['x_pos'] = Math.floor(((pixelAnno['x_pos']*imageDimensions[0])/100))+$("#artwork-img").offset().left;
         pixelAnno['y_pos'] = Math.floor(pixelAnno['y_pos']*($("#artwork-img").height()/100))-($("#artwork-img").offset().top);
-        // if (pixelAnno['y_pos'] < $("#artwork-img").offset().top) {
-        //   pixelAnno['y_pos'] = $("#artwork-img").offset().top;
-        // }
-        // console.log("before offset", Math.floor(pixelAnno['y_pos']*($("#artwork-img").height()/100)));
+        
         let style = {
           position: 'absolute',
           top: pixelAnno['y_pos']+'px',

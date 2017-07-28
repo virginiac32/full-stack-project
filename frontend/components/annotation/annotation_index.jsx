@@ -14,16 +14,6 @@ class AnnotationIndex extends React.Component {
     this.renderDownvoteColor = this.renderDownvoteColor.bind(this);
   }
 
-  // componentWillMount(){
-  //   this.props.fetchArtwork(this.props.artwork.id);
-  // }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (this.props.match.params.annotationId !== nextProps.match.params.annotationId) {
-  //     this.props.fetchAnnotation(nextProps.match.params.annotationId);
-  //   }
-  // }
-
   renderButtons(annotation, updateAnnotation, deleteAnnotation) {
     if (this.props.currentUser && this.props.currentUser.id === annotation.user.id) {
       return (
@@ -130,12 +120,7 @@ class AnnotationIndex extends React.Component {
 
   render () {
     const {annotations,deleteAnnotation,updateAnnotation, createAnnotation} = this.props;
-    console.log(this.props);
-    // let annotation = null;
-    // let annotations = this.props.artwork.annotations;
-    // if (this.props.artwork.annotations) {
-    //   annotation = this.props.artwork.annotations[this.props.currentAnnotation];
-    // }
+
     if (!annotations) return null;
 
     return (

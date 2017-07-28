@@ -15,7 +15,6 @@ class Api::VotesController < ApplicationController
         render :show
       end
     else
-      p @vote.errors.full_messages
       render json: @vote.errors.full_messages, status: 422
     end
   end
