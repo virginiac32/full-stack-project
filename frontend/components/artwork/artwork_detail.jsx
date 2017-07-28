@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import CommentIndexContainer from '../comment/comment_index_container';
 import CommentFormContainer from '../comment/comment_form_container';
 import AnnotationPointersContainer from '../annotation/annotation_pointers_container';
-import {DotLoader} from 'react-spinners';
 
 class ArtworkDetail extends React.Component {
   constructor(props) {
