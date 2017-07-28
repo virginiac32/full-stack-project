@@ -15,8 +15,7 @@ class ArtworkDetail extends React.Component {
       loading: true
     };
 
-    console.log(this.props);
-
+    this.renderDelete = this.renderDelete.bind(this);
   }
 
   componentDidMount(){
@@ -48,6 +47,17 @@ class ArtworkDetail extends React.Component {
      this.props.clearErrors();
   }
 
+  renderDelete(artwork, deleteArtwork) {
+    console.log("deleting",this.props);
+    if (this.props.currentUser && (this.props.currentUser.id === artwork.user_id)) {
+      return (
+        <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>
+          <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+        </button>
+      );
+    }
+  }
+
   renderErrors() {
     return (
       <ul className="errors">
@@ -77,10 +87,12 @@ class ArtworkDetail extends React.Component {
 
     return (
       <div className="artwork-detail">
-        <AnnotationPointersContainer />
+        <AnnotationPointersContainer history={this.props.history}/>
           <div className="artwork-detail-bottom">
           <ul className="artwork-detailed-info">
-            <li><h1><b>{artwork.title}</b></h1></li>
+            <li><h1><b>{artwork.title}</b></h1>
+            {this.renderDelete(artwork,this.props.deleteArtwork)}
+            </li>
             <li>Artist: {artwork.artist}</li>
             <li>Date: {artwork.year}</li>
             <li>{artwork.description}</li>

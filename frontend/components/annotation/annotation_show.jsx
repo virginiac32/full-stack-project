@@ -30,13 +30,16 @@ class AnnotationShow extends React.Component {
     }
   }
 
+  // removed below code from renderButtons (to update annotation)
+  // <button onClick={() => {this.props.closeAnnotation(); updateAnnotation(annotation).then(this.props.receiveAnnotation);}}>
+  //   <i className="fa fa-pencil fa-lg" aria-hidden="true"></i>
+  // </button>
+
   renderButtons(annotation, updateAnnotation, deleteAnnotation) {
     if (this.props.currentUser && this.props.currentUser.id === annotation.user.id) {
       return (
         <div className="action-buttons">
-          <button onClick={() => {this.props.closeAnnotation(); updateAnnotation(annotation).then(this.props.receiveAnnotation);}}>
-            <i className="fa fa-pencil fa-lg" aria-hidden="true"></i>
-          </button>
+
           <button onClick={() => {this.props.closeAnnotation(); deleteAnnotation(annotation).then(this.props.receiveAnnotation);}}>
             <i className="fa fa-trash-o fa-lg" aria-hidden="true"></i>
           </button>
@@ -157,7 +160,7 @@ class AnnotationShow extends React.Component {
             <button onClick={this.handleUpvote} id={annotation.id}>
               {this.renderUpvoteColor(annotation.id)}
             </button>
-            {this.props.annotation.total_score}
+            <div className="total-score">{this.props.annotation.total_score}</div>
             <button onClick={this.handleDownvote} id={annotation.id}>
               {this.renderDownvoteColor(annotation.id)}
             </button>

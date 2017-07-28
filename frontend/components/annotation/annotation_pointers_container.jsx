@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
   currentUser: state.session.currentUser,
   annotations: state.annotations.annotations,
   currentAnno: state.annotations.currentAnno,
-  history: state.history,
+  // history: state.history,
   errors: state.errors.errors
   };
 };

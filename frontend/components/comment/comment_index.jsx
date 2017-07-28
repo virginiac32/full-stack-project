@@ -144,7 +144,7 @@ class CommentIndex extends React.Component {
               <button onClick={this.handleUpvote} id={comment.id}>
                 {this.renderUpvoteColor(comment.id)}
               </button>
-              {comment.total_score}
+              <div>{comment.total_score}</div>
               <button onClick={this.handleDownvote} id={comment.id}>
                 {this.renderDownvoteColor(comment.id)}
               </button>

@@ -26,7 +26,6 @@ class AnnotationPointers extends React.Component {
     };
 
     this.handleImageClick = this.handleImageClick.bind(this);
-    // this.handleWrapperClick = this.handleWrapperClick.bind(this);
     this.handleAnnoClick = this.handleAnnoClick.bind(this);
     this.openAnnotationForm = this.openAnnotationForm.bind(this);
     this.openAnnotation = this.openAnnotation.bind(this);
@@ -43,16 +42,6 @@ class AnnotationPointers extends React.Component {
 
   componentWillUnmount() {
       window.removeEventListener("resize", this.handleResize);
-  }
-
-  renderDelete(artwork, deleteArtwork) {
-    if (this.props.currentUser && (this.props.currentUser.id === artwork.user_id)) {
-      return (
-        <button className="delete-button" onClick={() => deleteArtwork(artwork).then(() => this.props.history.push('/'))}>
-          <i className="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-        </button>
-      );
-    }
   }
 
   handleResize(e) {
@@ -174,7 +163,7 @@ class AnnotationPointers extends React.Component {
       let annotationsWithPixelPos = Object.keys(allAnnos).map(anno => {
         let pixelAnno = allAnnos[anno];
         pixelAnno['x_pos'] = Math.floor(((pixelAnno['x_pos']*imageDimensions[0])/100))+$("#artwork-img").offset().left;
-        pixelAnno['y_pos'] = Math.floor(pixelAnno['y_pos']*($("#artwork-img").height()/100))-$("#artwork-img").offset().top;
+        pixelAnno['y_pos'] = Math.floor(pixelAnno['y_pos']*($("#artwork-img").height()/100))-($("#artwork-img").offset().top);
         // if (pixelAnno['y_pos'] < $("#artwork-img").offset().top) {
         //   pixelAnno['y_pos'] = $("#artwork-img").offset().top;
         // }
@@ -202,7 +191,6 @@ class AnnotationPointers extends React.Component {
     let artwork = this.props.artwork;
       return (
         <div className="artwork-image" >
-          {this.renderDelete(artwork,this.props.deleteArtwork)}
             <img id="artwork-img" src={artwork.link} alt={artwork.title} onClick={this.handleImageClick} />
               <div className="pointers">
                 {this.renderPointers()}

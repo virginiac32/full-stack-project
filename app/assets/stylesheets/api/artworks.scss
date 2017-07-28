@@ -10,6 +10,7 @@
   align-items: center;
   background-color: #121010;
   width: 100%;
+  flex: 1;
 }
 
 .artwork-list {
@@ -25,6 +26,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  width: 100%;
 }
 
 #artwork-img {
@@ -37,9 +39,10 @@
   background-color: #F7F3F5;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: center;
+  flex: 1;
 }
 
 .artwork-detailed-info {
@@ -48,6 +51,7 @@
   align-items: flex-start;
   width: 60%;
   margin: 20px 0;
+  position: relative;
 }
 
 .artwork-detailed-info li {
@@ -98,17 +102,16 @@
 }
 
 .delete-button {
-  display: none;
+  position: absolute;
+  right: 8%;
+  top: 0;
   margin: 0;
   width: 0;
   background-color: transparent;
   color: #D74643;
-  position: absolute;
-  top: 0;
-  right: 2%;
 }
 
-.artwork-image:hover .pointers, .artwork-image:hover .delete-button {
+.artwork-image:hover .pointers {
   display: block;
 }
 

@@ -19,5 +19,20 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 20%;
+  width: 15%;
+}
+
+.votes button {
+  display: block;
+  width: 22px;
+}
+
+.votes div {
+  display: block;
+  width: 40px;
+  text-align: center;
+}
+
+.total-score {
+  padding: 10px
 }
