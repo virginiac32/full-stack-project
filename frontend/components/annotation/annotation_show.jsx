@@ -41,7 +41,6 @@ class AnnotationShow extends React.Component {
   handleUpvote(e) {
     e.preventDefault();
     let anno_id = parseInt(e.currentTarget.id);
-    console.log(anno_id);
     this.vote(1,anno_id);
   }
 

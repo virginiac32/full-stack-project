@@ -40,7 +40,6 @@ class CommentIndex extends React.Component {
     if (this.props.currentUser) {
       const vote = {votable_id:comment_id, votable_type:"Comment",
         user_id:this.props.currentUser.id, value: value};
-        console.log(this.props.currentUser);
       if (this.props.currentUser.votes && this.props.currentUser.votes.Comment
         && this.props.currentUser.votes.Comment[comment_id])
         {
