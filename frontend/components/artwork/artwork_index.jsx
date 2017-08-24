@@ -5,7 +5,16 @@ import FooterDark from '../footer/footer_dark';
 
 class ArtworkIndex extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: true
+    };
+  }
+
   componentDidMount(){
+    setTimeout(() => this.setState({loading: false}), 1500);
     this.props.fetchArtworks();
   }
 
@@ -34,16 +43,25 @@ class ArtworkIndex extends React.Component {
       ArtworkIndexItems.push(<div key="no-artwork"></div>);
     }
 
-    return (
-      <div className="index-full-container">
-        <div className="index-container">
-          <Slider {...settings}>
-            {ArtworkIndexItems}
-          </Slider>
+    if (this.state.loading === true) {
+      return (
+        <div className="spinner">
+          <div className="dot1"></div>
+          <div className="dot2"></div>
         </div>
-        <FooterDark />
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="index-full-container">
+          <div className="index-container">
+            <Slider {...settings}>
+              {ArtworkIndexItems}
+            </Slider>
+          </div>
+          <FooterDark />
+        </div>
+      );
+    }
   }
 }
 
