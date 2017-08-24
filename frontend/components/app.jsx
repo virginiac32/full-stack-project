@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import SessionFormContainer from './session_form/session_form_container';
 import NavBar from './nav_bar/nav_bar';
+import HowTo from './how_to';
 import ArtworkIndexContainer from './artwork/artwork_index_container';
 import ArtworkDetailContainer from './artwork/artwork_detail_container';
 import ArtworkCreateContainer from './artwork/artwork_create_container';
@@ -33,6 +34,7 @@ class App extends React.Component {
             <AuthRoute path="/signup" component={SessionFormContainer} />
             <Route exact path="/" component={ArtworkIndexContainer} />
             <Route exact path="/artworks/:artworkId" component={ArtworkDetailContainer} />
+            <Route exact path="/how-it-works" component={HowTo} />
             <ProtectedRoute exact path="/new-artwork" component={ArtworkCreateContainer} />
             <ProtectedRoute exact path="/annotations/:annotationId/edit" component={AnnotationUpdateFormContainer} />
             <ProtectedRoute exact path="/artworks/:artworkId/new-annotation" component={AnnotationCreateFormContainer} />
