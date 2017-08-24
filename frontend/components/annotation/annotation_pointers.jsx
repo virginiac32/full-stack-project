@@ -35,13 +35,13 @@ class AnnotationPointers extends React.Component {
   }
 
   componentDidMount() {
-    // this code doesnt do anything, but annotation pointers don't initially show up without it
+    // annotation pointers don't initially show up without this snippet
     setTimeout(this.setState({spinner: false}), 1000);
     window.addEventListener("resize", this.handleResize);
   }
 
   componentWillUnmount() {
-      window.removeEventListener("resize", this.handleResize);
+    window.removeEventListener("resize", this.handleResize);
   }
 
   handleResize(e) {
@@ -118,30 +118,42 @@ class AnnotationPointers extends React.Component {
   annotationBoxStyle(x_pos,y_pos,yPixelPos) {
     // styling position of annotation box
     let top = yPixelPos;
-    // if y_pos is less than 15% from the top of the image, offset the position of the annotation box
-    if (y_pos < 15) {
-      top = yPixelPos + (($("#artwork-img").height())/6);
-    }
 
-    // if y_pos is less than 15% from the bottom of the image, offset the position of the annotation box
-    if (y_pos > 85) {
-      top = yPixelPos - (($("#artwork-img").height())/4);
+    let yOffset = Math.floor($("#artwork-img").offset().left) + $("#artwork-img").width() + 10;
+
+    let ySide = 'top';
+
+    if (top > ($("#artwork-img").offset().top) + ($("#artwork-img").height())/2) {
+
+      ySide = 'bottom';
     }
 
     let side = (x_pos < 50 ? 'left' : 'right');
 
     let style = {};
-    if (side === 'left') {
+    if (side === 'left' && ySide === 'top') {
       style = {
         position: 'absolute',
         top: top,
-        left: '1%'
+        right: yOffset,
+      };
+    } else if (side === 'right' && ySide === 'top') {
+      style = {
+        position: 'absolute',
+        top: top,
+        left: yOffset,
+      };
+    } else if (side === 'right' && ySide === 'bottom') {
+      style = {
+        position: 'absolute',
+        bottom: 10,
+        left: yOffset,
       };
     } else {
       style = {
         position: 'absolute',
-        top: top,
-        right: '1%'
+        bottom: 10,
+        right: yOffset,
       };
     }
     return style;
@@ -158,7 +170,7 @@ class AnnotationPointers extends React.Component {
         let pixelAnno = allAnnos[anno];
         pixelAnno['x_pos'] = Math.floor(((pixelAnno['x_pos']*imageDimensions[0])/100))+$("#artwork-img").offset().left;
         pixelAnno['y_pos'] = Math.floor(pixelAnno['y_pos']*($("#artwork-img").height()/100))-($("#artwork-img").offset().top);
-        
+
         let style = {
           position: 'absolute',
           top: pixelAnno['y_pos']+'px',

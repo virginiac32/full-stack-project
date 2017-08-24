@@ -12,6 +12,12 @@
 
 .logged-in a:hover {
   border-bottom: 2px white solid;
+  color: white;
+}
+
+.logged-in a {
+  border-bottom: 2px transparent solid;
+
 }
 
 .logo-slogan {
@@ -19,6 +25,10 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.logo-slogan:hover {
+  color: white;
 }
 
 .slogan {
@@ -42,30 +52,20 @@
 
 .logged-out li {
   padding: 10px 0;
+  border-bottom: 2px transparent solid;
 }
 
 .logged-out li:hover {
   border-bottom: 2px white solid;
 }
 
+.logged-out li a:hover {
+  color: white;
+}
+
 .logged-in button {
   padding: 5px 10px;
   width: 30%;
-}
-
-.add-artwork {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.add-artwork h2 {
-  padding-left: 5px;
-}
-
-.add-artwork .fa-lg {
-  line-height: 1em;
 }
 
 .nav-logo {

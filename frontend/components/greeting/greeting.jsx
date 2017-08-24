@@ -8,7 +8,7 @@ const Greeting = ({currentUser,logout}) => {
         <Link className="how" to="/how-it-works">
           <span><h2>how it works</h2></span>
         </Link>
-        <Link className="add-artwork" to="/new-artwork">
+        <Link to="/new-artwork">
           <span><h2>add artwork</h2></span>
         </Link>
         <span><h2>{currentUser.username}</h2></span>
