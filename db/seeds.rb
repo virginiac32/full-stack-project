@@ -26,7 +26,7 @@ Artwork.create([
     artist: "Édouard Manet",
     user_id: user1.id,
     year: "1874",
-    link: "http://res.cloudinary.com/virginia-chen/image/upload/v1500588441/Seeds/Boating-Manet.jpg"
+    link: "http://res.cloudinary.com/dzqodddmb/image/upload/c_scale,q_auto:good,w_1200/v1503608808/artwork/Boating-Manet.jpg"
   },
   {
     title: "A Goldsmith in his Shop",
@@ -34,7 +34,7 @@ Artwork.create([
     artist: "Petrus Christus",
     user_id: user2.id,
     year: "1449",
-    link: "http://res.cloudinary.com/virginia-chen/image/upload/v1500588443/Seeds/Goldsmith-Christus.jpg"
+    link: "http://res.cloudinary.com/dzqodddmb/image/upload/c_scale,q_auto:good,w_1200/v1503608799/artwork/Goldsmith-Christus.jpg"
   },
   {
     title: "Madame Roulin and Her Baby",
@@ -42,7 +42,7 @@ Artwork.create([
     artist: "Vincent van Gogh",
     user_id: user2.id,
     year: "1888",
-    link: "http://res.cloudinary.com/virginia-chen/image/upload/v1500588440/Seeds/Madam_Roulin-van_Gogh.jpg"
+    link: "http://res.cloudinary.com/dzqodddmb/image/upload/c_scale,q_auto:good,w_1200/v1503608775/artwork/Madam_Roulin-van_Gogh.jpg"
   },
   {
     title: "Heart of the Andes",
@@ -50,7 +50,7 @@ Artwork.create([
     artist: "Frederic Edwin Church",
     user_id: user1.id,
     year: "1859",
-    link: "http://res.cloudinary.com/virginia-chen/image/upload/v1500588444/Seeds/Andes-Church.jpg"
+    link: "http://res.cloudinary.com/dzqodddmb/image/upload/c_scale,q_auto:good,w_1200/v1503608749/artwork/Andes-Church.jpg"
   },
   {
     title: "Improvisation 27 (Garden of Love II)",
@@ -58,7 +58,7 @@ Artwork.create([
     artist: "Vasily Kandinsky",
     user_id: user1.id,
     year: "1912",
-    link: "http://res.cloudinary.com/virginia-chen/image/upload/c_scale,w_1000/v1500963945/Improvisation-Kandinsky_u8vyna.png"
+    link: "http://res.cloudinary.com/dzqodddmb/image/upload/c_scale,q_auto:good,w_1200/v1503608796/artwork/Improvisation-Kandinsky.jpg"
   },
   {
     title: "A Rose",
@@ -66,7 +66,7 @@ Artwork.create([
     artist:"Thomas Anshutz",
     user_id: user1.id,
     year: "1907",
-    link: "http://res.cloudinary.com/virginia-chen/image/upload/c_scale,w_1000/v1500963948/Rose-Anshutz_hkpxon.png"
+    link: "http://res.cloudinary.com/dzqodddmb/image/upload/c_scale,q_auto:good,w_1200/v1503608811/artwork/Rose-Anshutz.jpg"
   },
   {
     title: "Antigraceful",
@@ -74,22 +74,47 @@ Artwork.create([
     artist: "Umberto Boccioni",
     user_id: user1.id,
     year: "1913, cast 1950",
-    link: "http://res.cloudinary.com/virginia-chen/image/upload/v1500963952/Antigraceful-Boccioni_lyhn0r.png"
+    link: "http://res.cloudinary.com/dzqodddmb/image/upload/c_scale,q_auto:good,w_1200/v1503608818/artwork/Antigraceful-Boccioni.jpg"
   },
   {
     title: "Daniel in the Lions' Den",
-    description: "Painted oil on canvas, the artwork is based upon the biblical story of Daniel in the lion's den."
+    description: "Painted oil on canvas, the artwork is based upon the biblical story of Daniel in the lion's den.",
     artist: "Peter Paul Rubens",
     user_id: user1.id,
     year: "1614/1616",
-    link: "http://res.cloudinary.com/virginia-chen/image/upload/c_scale,w_500/v1501279672/Daniel-Rubens_eeti7i.png"
+    link: "http://res.cloudinary.com/dzqodddmb/image/upload/c_scale,q_auto:good,w_1200/v1503608694/artwork/Daniel-Rubens.jpg"
   },
   {
     title: "Lumber Schooners at Evening on Penobscot Bay",
-    description: "The artwork depicts lumber schooners on a calm evening with a rosy sunset in the background."
+    description: "The artwork depicts lumber schooners on a calm evening with a rosy sunset in the background.",
     artist: "Fitz Henry Lane",
     user_id: user1.id,
     year: "1863",
-    link: ""
-    },
+    link: "http://res.cloudinary.com/dzqodddmb/image/upload/c_scale,q_auto:good,w_1200/v1503608691/artwork/Lumber-Lane.jpg"
+  },
+  {
+    title: "Courtesan Writing a Letter",
+    description: "Departing from the standard Kaigetsudō-atelier compositional formula of depicting courtesans standing and otherwise unoccupied, here Doshin depicts his subject seated and writing a letter, no doubt to a special client. Courtesans reading or writing letters became a popular subject for ukiyo-e painters of the late seventeenth and early eighteenth century, and its origins may be traced to more complex genre screens and handscrolls depicting male and female figures within the pleasure district of Kyoto or Edo. The brilliantly colored floral pattern of the woman’s clothes effectively sets off the chalk-white expanses of the letter paper, her delicate hands, and her plump face. The garments are outlined in heavy strokes of dark ink, a feature common to compositions produced in the Kaigetsudō studio.
+    As did all other successors of Kaigetsudō Ando, Doshin signed his name on this work as “Matsuyō” (meaning “last leaf”) of Kaigetsudō. The seal appears to read “Ando,” and indeed many Kaigetsudō artists continued to use the seal of the studio’s founder.",
+    artist: "Kaigetsudō Doshin",
+    user_id: user1.id,
+    year: "1715",
+    link: "http://res.cloudinary.com/dzqodddmb/image/upload/c_scale,q_auto:good,w_1200/v1503608746/artwork/Courtesan-Doshin.jpg"
+  },
+  {
+    title: "The Seated Clowness (from the series Elles)",
+    description: "The success of Toulouse-Lautrec's posters advertising Parisian cabarets such as the Moulin Rouge led him to produce deluxe editions of prints of Montmartre's performers, such as this one of the clown and dancer Cha-u-Kao. These lithographs were intended to appeal to fans and print collectors alike. Unlike Lautrec's other images that feature Cha-u-Kao performing, this one captures her off stage in a moment of quiet repose. Her frank pose and almost weary expression suggest we are glimpsing the person behind the persona.",
+    artist: "Henri de Toulouse-Lautrec",
+    user_id: user2.id,
+    year: "1896",
+    link: "http://res.cloudinary.com/dzqodddmb/image/upload/c_scale,q_auto:good,w_1200/v1503608722/artwork/Clowness-Lautrec.jpg"
+  },
+  {
+    title: "La Orana Maria (Hail Mary)",
+    description: "Before embarking on a series of pictures inspired by Polynesian religious beliefs, Gauguin devoted this, his first major Tahitian canvas, to a Christian theme, describing it in a letter of March 1892: 'An angel with yellow wings reveals Mary and Jesus, both Tahitians, to two Tahitian women, nudes dressed in pareus, a sort of cotton cloth printed with flowers that can be draped from the waist. Very somber, mountainous background and flowering trees . . . a dark violet path and an emerald green foreground, with bananas on the left. I'm rather happy with it.'' Gauguin based much of the composition on a photograph he owned of a bas-relief in the Javanese temple of Borobudur.",
+    artist: "Paul Gauguin",
+    user_id: user1.id,
+    year: "1891",
+    link: "http://res.cloudinary.com/dzqodddmb/image/upload/c_scale,q_auto:good,w_1200/v1503608752/artwork/Maria-Gauguin.jpg"
+  },
 ])

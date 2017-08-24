@@ -8,7 +8,7 @@ class NavBar extends React.Component {
     return (
       <div className="nav-bar">
         <Link className="logo-slogan" to="/">
-          <img className="nav-logo" height="35" src="http://res.cloudinary.com/virginia-chen/image/upload/v1500567526/logo_full_mghizl.png" alt="Logo" />
+          <img className="nav-logo" height="35" src="http://res.cloudinary.com/dzqodddmb/image/upload/v1503608506/logo_full_g7fjey.png" alt="Logo" />
           <span className="slogan"><h2>crowdsourced art annotation</h2></span>
       </Link>
       <GreetingContainer />

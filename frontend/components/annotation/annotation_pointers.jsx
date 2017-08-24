@@ -110,6 +110,9 @@ class AnnotationPointers extends React.Component {
     e.preventDefault();
     if (this.state.annotationOpen === true) {
       this.closeAnnotation();
+      if (annoId !== this.state.currentAnno.id) {
+        this.openAnnotation(annoId);
+      }
     } else {
       this.openAnnotation(annoId);
     }
@@ -121,10 +124,10 @@ class AnnotationPointers extends React.Component {
 
     let yOffset = Math.floor($("#artwork-img").offset().left) + $("#artwork-img").width() + 10;
 
+
+    // change ySide to 'bottom' if the top of the annotation box is in the lower 1/2 of the artwork
     let ySide = 'top';
-
     if (top > ($("#artwork-img").offset().top) + ($("#artwork-img").height())/2) {
-
       ySide = 'bottom';
     }
 

@@ -5,7 +5,7 @@ const FooterLight = () => {
 
   return (
     <footer id="footer-light">
-      <img className="footer-logo" height="45" src="http://res.cloudinary.com/virginia-chen/image/upload/v1500533990/logo_frxltw.png" alt="Logo" />
+      <img className="footer-logo" height="45" src="http://res.cloudinary.com/dzqodddmb/image/upload/v1503608498/logo_djyd79.png" alt="Logo" />
       <div>
         <a href="https://github.com/virginiac32/full-stack-project" target="_blank">
         <i id="github" className="fa fa-github fa-lg" aria-hidden="true"></i>
