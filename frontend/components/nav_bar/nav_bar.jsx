@@ -7,9 +7,10 @@ class NavBar extends React.Component {
   render () {
     return (
       <div className="nav-bar">
-        <Link to="/">
+        <Link className="logo-slogan" to="/">
           <img className="nav-logo" height="35" src="http://res.cloudinary.com/virginia-chen/image/upload/v1500567526/logo_full_mghizl.png" alt="Logo" />
-        </Link>
+          <span className="slogan"><h2>crowdsourced art annotation</h2></span>
+      </Link>
       <GreetingContainer />
       </div>
     );
