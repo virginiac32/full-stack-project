@@ -10,16 +10,6 @@
   width: 100%;
 }
 
-.logged-in a:hover {
-  border-bottom: 2px white solid;
-  color: white;
-}
-
-.logged-in a {
-  border-bottom: 2px transparent solid;
-
-}
-
 .logo-slogan {
   display: flex;
   flex-direction: row;
@@ -38,16 +28,25 @@
 .logged-in {
   display: flex;
   align-items: center;
-  width: 32%;
+  width: 450px;
   justify-content: space-between;
   padding-right: 25px;
+}
+
+.logged-in a:hover {
+  border-bottom: 2px white solid;
+  color: white;
+}
+
+.logged-in a {
+  border-bottom: 2px transparent solid;
 }
 
 .logged-out {
   display: flex;
   justify-content: space-between;
   padding-right: 30px;
-  width: 18%;
+  width: 250px;
 }
 
 .logged-out li {

@@ -26,6 +26,7 @@ class ArtworkDetail extends React.Component {
       () => {
         this.props.fetchComments(this.props.artwork.id);
         this.props.fetchAnnotations(this.props.artwork.id);
+        // document.getElementsByClassName("pointers").setAttribute('display','block');
     });
   }
 
@@ -92,7 +93,7 @@ class ArtworkDetail extends React.Component {
                 </li>
                 <li>Artist: {artwork.artist}</li>
                 <li>Date: {artwork.year}</li>
-                <li>{artwork.description}</li>
+                <li className="art-description">{artwork.description}</li>
                 {this.renderErrors()}
               </ul>
               <div className="comments">

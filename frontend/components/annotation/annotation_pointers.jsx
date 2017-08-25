@@ -171,8 +171,8 @@ class AnnotationPointers extends React.Component {
 
       let annotationsWithPixelPos = Object.keys(allAnnos).map(anno => {
         let pixelAnno = allAnnos[anno];
-        pixelAnno['x_pos'] = Math.floor(((pixelAnno['x_pos']*imageDimensions[0])/100))+$("#artwork-img").offset().left;
-        pixelAnno['y_pos'] = Math.floor(pixelAnno['y_pos']*($("#artwork-img").height()/100))-($("#artwork-img").offset().top);
+        pixelAnno['x_pos'] = Math.floor(((pixelAnno['x_pos']*imageDimensions[0])/100))+$("#artwork-img").offset().left-10;
+        pixelAnno['y_pos'] = Math.floor(pixelAnno['y_pos']*($("#artwork-img").height()/100))-($("#artwork-img").offset().top)+30;
 
         let style = {
           position: 'absolute',

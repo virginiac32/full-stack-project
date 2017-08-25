@@ -102,6 +102,9 @@ Users can give an up- or down-vote for all annotations and comments. Once a user
 
 The total score of votes an annotation or comment has is shown in the number between the two voting icons.
 
+![votes](./app/assets/images/Votes.gif)
+
+
 ## Future Improvements
 
 ### Search
