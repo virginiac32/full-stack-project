@@ -72,8 +72,6 @@ class ArtworkDetail extends React.Component {
     const {artwork,deleteArtwork, annotations,comments} = this.props;
     if (!artwork) return null;
 
-    // setTimeout(this.setState({spinner: false}), 5000);
-
     if (this.state.loading === true) {
       return (
         <div className="spinner">

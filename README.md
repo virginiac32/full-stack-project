@@ -129,4 +129,6 @@ Credits and thanks go to my instructors and peers at App Academy.
 
 Artwork seed images were provided by the <a href="http://www.metmuseum.com">Metropolitan Museum of Art</a>, under the CC0 license. Descriptive text were also provided by the Met: www.metmuseum.org.
 
+Thanks to <a href="https://www.khanacademy.org/humanities/renaissance-reformation/northern-renaissance1/christus/a/christus-a-goldsmith-in-his-shop">Khan Academy</a>, <a href="https://en.wikipedia.org/wiki/The_Heart_of_the_Andes">wiki</a><a href="https://en.wikipedia.org/wiki/Daniel_in_the_Lions%27_Den_(painting)">pedia</a>, and <a href="https://www.philamuseum.org/doc_downloads/education/object_resources/52064.pdf">The Philadelphia Museum of Art</a> for certain artwork background information.
+
 Magnifying Glass graphic by <a href="http://www.flaticon.com/authors/freepik">freepik</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. The logo was created using <a href="http://logomakr.com" title="Logo Maker">LogoMaker.com</a>
