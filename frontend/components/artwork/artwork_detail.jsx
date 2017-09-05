@@ -26,7 +26,6 @@ class ArtworkDetail extends React.Component {
       () => {
         this.props.fetchComments(this.props.artwork.id);
         this.props.fetchAnnotations(this.props.artwork.id);
-        // document.getElementsByClassName("pointers").setAttribute('display','block');
     });
   }
 
