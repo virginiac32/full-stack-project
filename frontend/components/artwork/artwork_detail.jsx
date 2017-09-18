@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import CommentIndexContainer from '../comment/comment_index_container';
 import CommentFormContainer from '../comment/comment_form_container';
 import AnnotationPointersContainer from '../annotation/annotation_pointers_container';
-import FooterLight from '../footer/footer_light';
+import Footer from '../footer/footer';
 
 class ArtworkDetail extends React.Component {
   constructor(props) {
@@ -98,7 +98,7 @@ class ArtworkDetail extends React.Component {
                 <CommentIndexContainer comments={comments}/>
               </div>
             </div>
-          <FooterLight />
+          <Footer type="light" />
         </div>
       );
     }

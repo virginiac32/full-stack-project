@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Slider from 'react-slick';
-import FooterDark from '../footer/footer_dark';
+import Footer from '../footer/footer';
 
 class ArtworkIndex extends React.Component {
 
@@ -58,7 +58,7 @@ class ArtworkIndex extends React.Component {
               {ArtworkIndexItems}
             </Slider>
           </div>
-          <FooterDark />
+          <Footer type="dark" />
         </div>
       );
     }

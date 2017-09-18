@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import FooterLight from './footer/footer_light';
+import Footer from './footer/footer';
 
 class ArtworkDetail extends React.Component {
   constructor(props) {
@@ -12,15 +12,6 @@ class ArtworkDetail extends React.Component {
   }
 
   render () {
-
-    // if (this.state.loading === true) {
-    //   return (
-    //     <div className="spinner">
-    //       <div className="dot1"></div>
-    //       <div className="dot2"></div>
-    //     </div>
-    //   );
-    // } else {
 
       return (
         <div className="how-to">
@@ -60,7 +51,7 @@ class ArtworkDetail extends React.Component {
             </div>
 
           </div>
-          <FooterLight />
+          <Footer type="light" />
         </div>
       );
     }

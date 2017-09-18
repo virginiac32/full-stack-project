@@ -20,5 +20,5 @@ const mapDispatchToProps = (dispatch) => ({
 
 });
 
-export const AnnotationUpdateFormContainer = connect(mapStateToProps,mapDispatchToProps)(AnnotationUpdateForm);
+// export const AnnotationUpdateFormContainer = connect(mapStateToProps,mapDispatchToProps)(AnnotationUpdateForm);
 export const AnnotationCreateFormContainer = connect(mapStateToProps,mapDispatchToProps)(AnnotationCreateForm);
