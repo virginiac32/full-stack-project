@@ -1,6 +1,6 @@
 # Visualyze
 
-[Visualyze](vizualyze.herokuapp.com) is a web application for users to view and annotate works of art. Inspired by Genius (a lyrics annotation website), Visualyze allows users to upload works of art, annotate specific parts of an artwork, and make comments.
+[Visualyze](http://www.visualyze.me/#/) is a web application for users to view and annotate works of art. Inspired by Genius (a lyrics annotation website), Visualyze allows users to upload works of art, annotate specific parts of an artwork, and make comments.
 
 Visualyze is a personal project by Virginia Chen.
 
@@ -14,7 +14,7 @@ Visualyze is a personal project by Virginia Chen.
 
 ## Project Design
 
-Visualyze was designed and built over a period of two weeks. A [proposal](./docs/production_README.md) was created for the implementation, which included an implementation timeline, initial [wireframes](./docs/wireframes), and
+Visualyze was designed and built over a period of two weeks, with additional updates made after that time. A [proposal](./docs/production_README.md) was created for the implementation, which included an implementation timeline, initial [wireframes](./docs/wireframes), and
 a [database schema](./docs/schema.md).
 
 ## Technology
