@@ -1,8 +1,8 @@
 # Visualyze
 
-[Visualyze Site](vizualyze.herokuapp.com)
+[Visualyze Site](http://www.visualyze.me/#/)
 
-Inspired by: [Genius](genius.com)
+Inspired by: [Genius](https://www.genius.com)
 
 ## Minimum Viable Product
 
