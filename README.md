@@ -12,6 +12,8 @@ Visualyze is a personal project by Virginia Chen.
 * Artwork comments
 * Upvotes and downvotes of annotations and comments
 
+![show-page](./app/assets/images/visualyze-show-page.png)
+
 ## Project Design
 
 Visualyze was designed and built over a period of two weeks, with additional updates made after that time. A [proposal](./docs/production_README.md) was created for the implementation, which included an implementation timeline, initial [wireframes](./docs/wireframes), and
@@ -35,7 +37,7 @@ Each artwork has its own show page, which contains detailed information about ea
 
 When users hover over the image, any annotation pointers that have been created will become visible and clickable.
 
-The user needs to be logged in to upload new artwork. He/she needs to populate the artwork creation form and upload an image of the artwork. The Cloudinary upload widget was used to achieve this functionality.
+Any logged in user can upload new artwork. To upload a new image, the user needs to first populate the artwork creation form and upload an image of the artwork. The Cloudinary upload widget was used to achieve this functionality.
 
 ![artwork_create](./app/assets/images/Artwork_create.gif)
 
@@ -45,11 +47,11 @@ Only the user who uploaded the artwork will be able to delete it.
 
 Annotations are how users can add further details about specific parts of an artwork. All users can view annotations, but they need to be logged in to create new annotations.
 
-The user needs to hover over the artwork image to see the pointers of all the annotations that have been created. To view the details of an annotation, the user simply needs to click on a pointer to open the annotation box.
+When viewing an artwork, the user can hover over the artwork image to see the pointers of all the annotations that have been created. To view the details of an annotation, the user simply needs to click on a pointer to open the annotation box.
 
 ![annotation_show](./app/assets/images/Annotation_show.gif)
 
-To create a new annotation, a user needs to click on any point on the artwork that they wish to annotate. This causes an annotation creation form to pop-up, which the user can populate and save.
+To create a new annotation, a user should click on any point on the artwork that they wish to annotate. This causes an annotation creation form to pop-up, which the user can populate and save.
 
 ![annotation_create](./app/assets/images/Annotation_create.gif)
 
@@ -125,7 +127,7 @@ Artist pages with artist information and links to all artwork that have been upl
 
 ## Credits
 
-Credits and thanks go to my instructors and peers at App Academy.
+Credits and many thanks go to my instructors and peers at App Academy.
 
 Artwork seed images were provided by the <a href="http://www.metmuseum.com">Metropolitan Museum of Art</a>, under the CC0 license. Descriptive text were also provided by the Met: www.metmuseum.org.
 
